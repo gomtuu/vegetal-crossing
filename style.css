@@ -31,7 +31,6 @@ section {
     border: 10px solid rgba(0,0,0,0.3);
     border-radius: 16px;
     background-color: #4e4431;
-    background-color: #4e4431;
     color: white;
     overflow: hidden;
     display: flex;
@@ -213,6 +212,18 @@ div.varieties > *:nth-child(n+19) {
     --blue: 75, 81, 250;
     --purple: 144, 46, 230;
     --white: 233, 230, 242;
+}
+
+.rose {
+    --red: 255, 54, 61;
+    --orange: 255, 139, 51;
+    --yellow: 255, 241, 38;
+    --blue: 56, 96, 255;
+    --purple: 150, 47, 137;
+    --pink: 255, 148, 204;
+    --white: 249, 255, 230;
+    --black: 87, 77, 85;
+    --black: 69, 52, 67;
 }
 
 .tulip {
@@ -511,3 +522,18 @@ div.varieties > *:nth-child(n+19) {
 .windflower .rryyww { --phenotype: var(--white); }
 .windflower .Rryyww { --phenotype: var(--red); }
 .windflower .RRyyww { --phenotype: var(--red); --obtain: var(--seed); }
+
+@media only screen and (max-width: 720px) {
+
+    section {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    div.notes {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+}
