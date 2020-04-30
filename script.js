@@ -1,6 +1,6 @@
 var selected = [];
 
-function multiply(A, B) {
+function multiply(A, B) { // {{{
     var combos = [];
     for (var i=0; i < A.length; i++) {
         for (var j=0; j < B.length; j++) {
@@ -8,9 +8,9 @@ function multiply(A, B) {
         }
     }
     return combos;
-}
+} // }}}
 
-function breed(A, B) {
+function breed(A, B) { // {{{
     mark_parents(A, B);
     var genes_a = A.genotype.match(/.{2}/g);
     var genes_b = B.genotype.match(/.{2}/g);
@@ -37,13 +37,13 @@ function breed(A, B) {
     }
     console.log(genomes);
     return genomes;
-}
+} // }}}
 
-function get_species_flowers(species) {
+function get_species_flowers(species) { // {{{
     return document.querySelectorAll('section.' + species + ' div.varieties > div');
-}
+} // }}}
 
-function show_result(species, offspring) {
+function show_result(species, offspring) { // {{{
     var flowers = get_species_flowers(species);
     flowers.forEach(function(flower) {
         if (offspring.includes(flower.classList[0])) {
@@ -52,32 +52,32 @@ function show_result(species, offspring) {
             flower.classList.add('impossible');
         }
     });
-}
+} // }}}
 
-function flower_obj(element) {
+function flower_obj(element) { // {{{
     return {
         'element': element,
         'species': element.closest('section').classList[0],
         'genotype': element.classList[0]
     }
-}
+} // }}}
 
-function clear_parents(species) {
+function clear_parents(species) { // {{{
     var flowers = get_species_flowers(species);
     flowers.forEach(function(flower, i) {
         flower.classList.remove('parentA');
         flower.classList.remove('parentB');
     });
-}
+} // }}}
 
-function mark_parents(A, B) {
+function mark_parents(A, B) { // {{{
     A.element.classList.add('parentA');
     if (B !== undefined) {
         B.element.classList.add('parentB');
     }
-}
+} // }}}
 
-function handle_click(evt) {
+function handle_click(evt) { // {{{
     var flower = flower_obj(evt.target);
     var species = flower.species;
     selected.push(flower);
@@ -95,9 +95,9 @@ function handle_click(evt) {
     offspring = breed(selected[0], selected[1]);
     show_result(species, offspring);
     return false;
-}
+} // }}}
 
-function href_breed(species, genotype_a, genotype_b) {
+function href_breed(species, genotype_a, genotype_b) { // {{{
     var flower_a = flower_obj(document.querySelector('section.' + species + ' div.' + genotype_a));
     var flower_b = flower_obj(document.querySelector('section.' + species + ' div.' + genotype_b));
     selected = [flower_a, flower_b];
@@ -106,7 +106,7 @@ function href_breed(species, genotype_a, genotype_b) {
     console.log(flower_b.genotype);
     var offspring = breed(flower_a, flower_b);
     show_result(species, offspring);
-}
+} // }}}
 
 var varieties = document.querySelectorAll('div.varieties > div');
 varieties.forEach(function(el, i) {
