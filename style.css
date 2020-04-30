@@ -24,6 +24,7 @@
 body {
     padding: 12px;
     font-family: "Libre Franklin", sans-serif;
+    line-height: 1.4;
     background-color: #f1e26f;
     background-color: #e9f5ec;
     color: #007d75;
@@ -52,8 +53,16 @@ h3 {
     flex-basis: 100%;
 }
 
-section a {
+section span.breed {
+    border-radius: 4px;
+    padding: 0 4px;
+    background: rgba(0, 0, 0, 0.2);
     color: #ffff99;
+    cursor: pointer;
+}
+
+section span.breed:hover {
+    color: #ccffff;
 }
 
 div.notes {
