@@ -7,15 +7,15 @@
     --tile-height: calc(var(--tile-width) / 2);
     --gap: 3px;
     /* Default colors */
-    --red: rgba(255, 0, 0);
-    --orange: rgba(255, 128, 0);
-    --yellow: rgba(255, 255, 0);
-    --green: rgba(0, 255, 0);
-    --blue: rgba(0, 0, 255);
-    --purple: rgba(128, 0, 255);
-    --pink: rgba(255, 128, 255);
-    --white: rgba(255, 255, 255);
-    --black: rgba(0, 0, 0);
+    --red: 255, 0, 0;
+    --orange: 255, 128, 0;
+    --yellow: 255, 255, 0;
+    --green: 0, 255, 0;
+    --blue: 0, 0, 255;
+    --purple: 128, 0, 255;
+    --pink: 255, 128, 255;
+    --white: 255, 255, 255;
+    --black: 0, 0, 0;
 }
 
 body {
@@ -82,7 +82,7 @@ div.varieties > div {
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 2px;
-    background: var(--phenotype) var(--obtain) no-repeat center;
+    background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
     background-size: auto 24px;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     line-height: 12px;
@@ -97,21 +97,13 @@ div.varieties > div {
     -ms-user-select: none;
 }
 
-.impossible {
-    opacity: 0.2;
+div.varieties > div.impossible {
+    background-color: rgba(var(--phenotype), 0.2);
+    border-top-color: rgba(255, 255, 255, 0.02);
+    border-right-color: rgba(0, 0, 0, 0.02);
+    border-bottom-color: rgba(0, 0, 0, 0.02);
+    border-left-color: rgba(255, 255, 255, 0.02);
 }
-
-/*
-.impossible::before {
-    content: "";
-    position: absolute;
-    left: -2px;
-    right: -2px;
-    top: -2px;
-    bottom: -2px;
-    background-color: rgba(78, 68, 49, 0.8);
-}
-*/
 
 .parentA::before,
 .parentB::before,
@@ -178,67 +170,67 @@ div.varieties > *:nth-child(n+19) {
 
 /* Species colors */
 .cosmos {
-    --red: #ee4040;
-    --orange: #fd9717;
-    --yellow: #ffe747;
-    --pink: #fe7ec7;
-    --white: #f5f8f0;
-    --black: #582626;
+    --red: 238, 64, 64;
+    --orange: 253, 151, 23;
+    --yellow: 255, 231, 71;
+    --pink: 254, 126, 199;
+    --white: 245, 248, 240;
+    --black: 88, 38, 38;
 }
 
 .hyacinth {
-    --red: #f22435;
-    --orange: #ff8534;
-    --yellow: #f5dc25;
-    --blue: #4d5dff;
-    --purple: #8e4dff;
-    --pink: #ffabb9;
-    --white: #e0ebd7;
+    --red: 242, 36, 53;
+    --orange: 255, 133, 52;
+    --yellow: 245, 220, 37;
+    --blue: 77, 93, 255;
+    --purple: 142, 77, 255;
+    --pink: 255, 171, 185;
+    --white: 224, 235, 215;
 }
 
 .lily {
-    --red: #dd352c;
-    --orange: #ff9d00;
-    --yellow: #ffec00;
-    --pink: #ff5cb2;
-    --black: #5b3947;
-    --white: #f7f6e7;
+    --red: 221, 53, 44;
+    --orange: 255, 157, 0;
+    --yellow: 255, 236, 0;
+    --pink: 255, 92, 178;
+    --black: 91, 57, 71;
+    --white: 247, 246, 231;
 }
 
 .mum {
-    --red: #e62e34;
-    --pink: #ffb8cd;
-    --yellow: #ffe433;
-    --green: #cde62e;
-    --purple: #a62ee6;
-    --white: #f8ffe6;
+    --red: 230, 46, 52;
+    --pink: 255, 184, 205;
+    --yellow: 255, 228, 51;
+    --green: 205, 230, 46;
+    --purple: 166, 46, 230;
+    --white: 248, 255, 230;
 }
 
 .pansy {
-    --red: #d1262e;
-    --orange: #e6973b;
-    --yellow: #fee633;
-    --blue: #4b51fa;
-    --purple: #902ee6;
-    --white: #e9e6f2;
+    --red: 209, 38, 46;
+    --orange: 230, 151, 59;
+    --yellow: 254, 230, 51;
+    --blue: 75, 81, 250;
+    --purple: 144, 46, 230;
+    --white: 233, 230, 242;
 }
 
 .tulip {
-    --red: #f24b41;
-    --orange: #ffa23d;
-    --yellow: #ffe359;
-    --purple: #9e4eff;
-    --white: #f7fae1;
-    --black: #603543;
+    --red: 242, 75, 65;
+    --orange: 255, 162, 61;
+    --yellow: 255, 227, 89;
+    --purple: 158, 78, 255;
+    --white: 247, 250, 225;
+    --black: 96, 53, 67;
 }
 
 .windflower {
-    --red: #f11b2d;
-    --orange: #ff7f00;
-    --blue: #0d66ff;
-    --purple: #9629cc;
-    --pink: #fb8cff;
-    --white: #fbfaff;
+    --red: 241, 27, 45;
+    --orange: 255, 127, 0;
+    --blue: 13, 102, 255;
+    --purple: 150, 41, 204;
+    --pink: 251, 140, 255;
+    --white: 251, 250, 255;
 }
 
 /* Species genotype info */
