@@ -22,16 +22,16 @@
 }
 
 body {
-    padding: 12px;
-    font-family: "Libre Franklin", sans-serif;
+    padding: 0 12px 12px;
+    font-family: "Roboto", sans-serif;
     line-height: 1.4;
     background-color: #f1e26f;
     background-color: #e9f5ec;
-    color: #007d75;
+    color: #005c56;
 }
 
 section {
-    margin-bottom: 24px;
+    margin-top: 24px;
     border: 10px solid rgba(0,0,0,0.3);
     border-radius: 16px;
     background-color: #4e4431;
