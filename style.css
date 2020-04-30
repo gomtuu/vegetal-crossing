@@ -1,7 +1,10 @@
 :root {
     --phenotype: rgba(255, 255, 255, 0.05); /* Default phenotype for visibility */
     --island: url(nmt.png);
-    --seed: url(seedbag.png);
+    --seed-red: url(seed-red.png);
+    --seed-yellow: url(seed-yellow.png);
+    --seed-white: url(seed-white.png);
+    --seed-orange: url(seed-orange.png);
     --obtain: none;
     --tile-width: 64px;
     --tile-height: calc(var(--tile-width) / 2);
@@ -155,18 +158,6 @@ div.varieties > *:nth-child(n+19) {
     transform: translate(63.5px);
 }
 
-/*
-.seed {
-    background: url(seedbag.png) no-repeat center;
-    background-size: auto 24px;
-}
-
-.island {
-    background: url(nmt.png) no-repeat center;
-    background-size: auto 24px;
-}
-*/
-
 /* Species colors */
 .cosmos {
     --red: 238, 64, 64;
@@ -254,13 +245,13 @@ div.varieties > *:nth-child(n+19) {
 .cosmos .rryyWW { --phenotype: var(--white); }
 .cosmos .RryyWW { --phenotype: var(--pink); }
 .cosmos .RRyyWW { --phenotype: var(--red); }
-.cosmos .rrYYWw { --phenotype: var(--yellow); --obtain: var(--seed); }
+.cosmos .rrYYWw { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .cosmos .RrYYWw { --phenotype: var(--orange); }
 .cosmos .RRYYWw { --phenotype: var(--black); }
 .cosmos .rrYyWw { --phenotype: var(--yellow); }
 .cosmos .RrYyWw { --phenotype: var(--orange); }
 .cosmos .RRYyWw { --phenotype: var(--orange); --obtain: var(--island); }
-.cosmos .rryyWw { --phenotype: var(--white); --obtain: var(--seed); }
+.cosmos .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
 .cosmos .RryyWw { --phenotype: var(--pink); }
 .cosmos .RRyyWw { --phenotype: var(--red); }
 .cosmos .rrYYww { --phenotype: var(--yellow); }
@@ -271,7 +262,7 @@ div.varieties > *:nth-child(n+19) {
 .cosmos .RRYyww { --phenotype: var(--orange); }
 .cosmos .rryyww { --phenotype: var(--white); }
 .cosmos .Rryyww { --phenotype: var(--pink); }
-.cosmos .RRyyww { --phenotype: var(--red); --obtain: var(--seed); }
+.cosmos .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
 
 .hyacinth .rrYYWW { --phenotype: var(--yellow); }
 .hyacinth .RrYYWW { --phenotype: var(--yellow); }
@@ -288,10 +279,10 @@ div.varieties > *:nth-child(n+19) {
 .hyacinth .rrYyWw { --phenotype: var(--yellow); }
 .hyacinth .RrYyWw { --phenotype: var(--yellow); }
 .hyacinth .RRYyWw { --phenotype: var(--red); }
-.hyacinth .rryyWw { --phenotype: var(--white); --obtain: var(--seed); }
+.hyacinth .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
 .hyacinth .RryyWw { --phenotype: var(--pink); --obtain: var(--island); }
-.hyacinth .RRyyWw { --phenotype: var(--red); --obtain: var(--seed); }
-.hyacinth .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed); }
+.hyacinth .RRyyWw { --phenotype: var(--red); --obtain: var(--seed-red); }
+.hyacinth .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .hyacinth .RrYYww { --phenotype: var(--orange); --obtain: var(--island); }
 .hyacinth .RRYYww { --phenotype: var(--purple); }
 .hyacinth .rrYyww { --phenotype: var(--yellow); }
@@ -307,7 +298,7 @@ div.varieties > *:nth-child(n+19) {
 .lily .rrYyWW { --phenotype: var(--white); }
 .lily .RrYyWW { --phenotype: var(--yellow); }
 .lily .RRYyWW { --phenotype: var(--pink); --obtain: var(--island); }
-.lily .rryyWW { --phenotype: var(--white); --obtain: var(--seed); }
+.lily .rryyWW { --phenotype: var(--white); --obtain: var(--seed-white); }
 .lily .RryyWW { --phenotype: var(--white); }
 .lily .RRyyWW { --phenotype: var(--pink); }
 .lily .rrYYWw { --phenotype: var(--yellow); }
@@ -318,8 +309,8 @@ div.varieties > *:nth-child(n+19) {
 .lily .RRYyWw { --phenotype: var(--red); }
 .lily .rryyWw { --phenotype: var(--white); }
 .lily .RryyWw { --phenotype: var(--pink); }
-.lily .RRyyWw { --phenotype: var(--red); --obtain: var(--seed); }
-.lily .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed); }
+.lily .RRyyWw { --phenotype: var(--red); --obtain: var(--seed-red); }
+.lily .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .lily .RrYYww { --phenotype: var(--orange); }
 .lily .RRYYww { --phenotype: var(--orange); }
 .lily .rrYyww { --phenotype: var(--yellow); }
@@ -344,10 +335,10 @@ div.varieties > *:nth-child(n+19) {
 .mum .rrYyWw { --phenotype: var(--yellow); }
 .mum .RrYyWw { --phenotype: var(--red); }
 .mum .RRYyWw { --phenotype: var(--purple); --obtain: var(--island); }
-.mum .rryyWw { --phenotype: var(--white); --obtain: var(--seed); }
+.mum .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
 .mum .RryyWw { --phenotype: var(--pink); }
 .mum .RRyyWw { --phenotype: var(--red); }
-.mum .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed); }
+.mum .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .mum .RrYYww { --phenotype: var(--purple); }
 .mum .RRYYww { --phenotype: var(--green); }
 .mum .rrYyww { --phenotype: var(--yellow); }
@@ -355,7 +346,7 @@ div.varieties > *:nth-child(n+19) {
 .mum .RRYyww { --phenotype: var(--purple); }
 .mum .rryyww { --phenotype: var(--white); }
 .mum .Rryyww { --phenotype: var(--pink); }
-.mum .RRyyww { --phenotype: var(--red); --obtain: var(--seed); }
+.mum .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
 
 .pansy .rrYYWW { --phenotype: var(--yellow); }
 .pansy .RrYYWW { --phenotype: var(--yellow); }
@@ -372,10 +363,10 @@ div.varieties > *:nth-child(n+19) {
 .pansy .rrYyWw { --phenotype: var(--yellow); }
 .pansy .RrYyWw { --phenotype: var(--orange); }
 .pansy .RRYyWw { --phenotype: var(--red); }
-.pansy .rryyWw { --phenotype: var(--white); --obtain: var(--seed); }
+.pansy .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
 .pansy .RryyWw { --phenotype: var(--red); }
 .pansy .RRyyWw { --phenotype: var(--red); }
-.pansy .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed); }
+.pansy .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .pansy .RrYYww { --phenotype: var(--yellow); }
 .pansy .RRYYww { --phenotype: var(--orange); }
 .pansy .rrYyww { --phenotype: var(--yellow); }
@@ -383,7 +374,7 @@ div.varieties > *:nth-child(n+19) {
 .pansy .RRYyww { --phenotype: var(--red); }
 .pansy .rryyww { --phenotype: var(--white); }
 .pansy .Rryyww { --phenotype: var(--red); }
-.pansy .RRyyww { --phenotype: var(--red); --obtain: var(--seed); }
+.pansy .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
 
 .rose .ss .rrYYWWss { --phenotype: var(--white); }
 .rose .ss .RrYYWWss { --phenotype: var(--red); }
@@ -400,10 +391,10 @@ div.varieties > *:nth-child(n+19) {
 .rose .ss .rrYyWwss { --phenotype: var(--white); }
 .rose .ss .RrYyWwss { --phenotype: var(--red); }
 .rose .ss .RRYyWwss { --phenotype: var(--red); }
-.rose .ss .rryyWwss { --phenotype: var(--white); --obtain: var(--seed); }
+.rose .ss .rryyWwss { --phenotype: var(--white); --obtain: var(--seed-white); }
 .rose .ss .RryyWwss { --phenotype: var(--red); }
 .rose .ss .RRyyWwss { --phenotype: var(--black); }
-.rose .ss .rrYYwwss { --phenotype: var(--yellow); --obtain: var(--seed); }
+.rose .ss .rrYYwwss { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .rose .ss .RrYYwwss { --phenotype: var(--orange); }
 .rose .ss .RRYYwwss { --phenotype: var(--orange); }
 .rose .ss .rrYywwss { --phenotype: var(--yellow); }
@@ -438,7 +429,7 @@ div.varieties > *:nth-child(n+19) {
 .rose .Ss .RRYywwSs { --phenotype: var(--orange); }
 .rose .Ss .rryywwSs { --phenotype: var(--white); }
 .rose .Ss .RryywwSs { --phenotype: var(--pink); }
-.rose .Ss .RRyywwSs { --phenotype: var(--red); --obtain: var(--seed); }
+.rose .Ss .RRyywwSs { --phenotype: var(--red); --obtain: var(--seed-red); }
 .rose .SS .rrYYWWSS { --phenotype: var(--white); }
 .rose .SS .RrYYWWSS { --phenotype: var(--white); }
 .rose .SS .RRYYWWSS { --phenotype: var(--white); }
@@ -482,10 +473,10 @@ div.varieties > *:nth-child(n+19) {
 .tulip .rrYyWw { --phenotype: var(--yellow); }
 .tulip .RrYyWw { --phenotype: var(--yellow); }
 .tulip .RRYyWw { --phenotype: var(--red); }
-.tulip .rryyWw { --phenotype: var(--white); --obtain: var(--seed); }
+.tulip .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
 .tulip .RryyWw { --phenotype: var(--pink); --obtain: var(--island); }
-.tulip .RRyyWw { --phenotype: var(--red); --obtain: var(--seed); }
-.tulip .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed); }
+.tulip .RRyyWw { --phenotype: var(--red); --obtain: var(--seed-red); }
+.tulip .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
 .tulip .RrYYww { --phenotype: var(--orange); --obtain: var(--island); }
 .tulip .RRYYww { --phenotype: var(--purple); }
 .tulip .rrYyww { --phenotype: var(--yellow); }
@@ -510,10 +501,10 @@ div.varieties > *:nth-child(n+19) {
 .windflower .rrYyWw { --phenotype: var(--orange); }
 .windflower .RrYyWw { --phenotype: var(--pink); }
 .windflower .RRYyWw { --phenotype: var(--red); }
-.windflower .rryyWw { --phenotype: var(--white); --obtain: var(--seed); }
+.windflower .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
 .windflower .RryyWw { --phenotype: var(--red); }
 .windflower .RRyyWw { --phenotype: var(--red); }
-.windflower .rrYYww { --phenotype: var(--orange); --obtain: var(--seed); }
+.windflower .rrYYww { --phenotype: var(--orange); --obtain: var(--seed-orange); }
 .windflower .RrYYww { --phenotype: var(--orange); }
 .windflower .RRYYww { --phenotype: var(--pink); }
 .windflower .rrYyww { --phenotype: var(--orange); }
@@ -521,7 +512,7 @@ div.varieties > *:nth-child(n+19) {
 .windflower .RRYyww { --phenotype: var(--red); }
 .windflower .rryyww { --phenotype: var(--white); }
 .windflower .Rryyww { --phenotype: var(--red); }
-.windflower .RRyyww { --phenotype: var(--red); --obtain: var(--seed); }
+.windflower .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
 
 @media only screen and (max-width: 720px) {
 
