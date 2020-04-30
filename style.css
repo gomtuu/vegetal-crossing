@@ -115,7 +115,8 @@ div.varieties > div {
 
 .parentA::before,
 .parentB::before,
-.parentA.parentB::before {
+.parentA.parentB::before,
+.result {
     text-shadow: 1px 0px 0 black,
                  1px 1px 0 black,
                  1px -1px 0 black,
@@ -126,6 +127,13 @@ div.varieties > div {
                  0px 1px 0 black;
     font-weight: bold;
     font-size: 12px;
+}
+
+.result {
+    position: absolute;
+    right: 2px;
+    bottom: 1px;
+    pointer-events: none;
 }
 
 .parentA::before {

@@ -1,5 +1,39 @@
 var selected = [];
 
+var FractionReduce = (function(){ // {{{
+    // Euclid's Algorithm
+    var getGCD = function(n, d){
+        var numerator = (n<d) ? n : d;
+        var denominator = (n<d) ? d : n;
+        var remainder = numerator;
+        var lastRemainder = numerator;
+
+        while (true){
+            lastRemainder = remainder;
+            remainder = denominator % numerator;
+            if (remainder === 0){
+                break;
+            }
+            denominator = numerator;
+            numerator = remainder;
+        }
+        if(lastRemainder){
+            return lastRemainder;
+        }
+    };
+
+    var reduce = function(n, d){
+        var gcd = getGCD(n, d);
+
+        return [n/gcd, d/gcd];
+    };
+
+    return {
+            getGCD:getGCD,
+            reduce:reduce
+           };
+}()); // }}}
+
 function multiply(A, B) { // {{{
     var combos = [];
     for (var i=0; i < A.length; i++) {
@@ -16,7 +50,7 @@ function breed(A, B) { // {{{
     var genes_b = B.genotype.match(/.{2}/g);
     var possibilities = [];
     for (var i=0; i < genes_a.length; i++) {
-        possibilities[i] = {};
+        possibilities[i] = [];
         for (var j=0; j < 2; j++) {
             for (var k=0; k < 2; k++) {
                 allele_a = genes_a[i][j];
@@ -26,17 +60,34 @@ function breed(A, B) { // {{{
                     combination = allele_b + allele_a;
                 }
                 console.log(combination);
-                possibilities[i][combination] = true;
+                possibilities[i].push(combination);
             }
         }
     }
-    var genomes = Object.keys(possibilities.shift());
+    var genomes = possibilities.shift();
     while (possibilities.length) {
-        suffixes = Object.keys(possibilities.shift());
+        suffixes = possibilities.shift();
         genomes = multiply(genomes, suffixes);
     }
+    var total_genomes = genomes.length;
+    var genome_counts = {}
+    for (var i=0; i < total_genomes; i++) {
+        var genome = genomes[i];
+        if (genome in genome_counts) {
+            genome_counts[genome] += 1;
+        } else {
+            genome_counts[genome] = 1;
+        }
+    }
+    var genome_fracs = {}
+    for (var genome in genome_counts) {
+        var frac = FractionReduce.reduce(genome_counts[genome], total_genomes);
+        genome_fracs[genome] = frac;
+    }
     console.log(genomes);
-    return genomes;
+    console.log(genome_counts);
+    console.log(genome_fracs);
+    return genome_fracs;
 } // }}}
 
 function get_species_flowers(species) { // {{{
@@ -46,8 +97,14 @@ function get_species_flowers(species) { // {{{
 function show_result(species, offspring) { // {{{
     var flowers = get_species_flowers(species);
     flowers.forEach(function(flower) {
-        if (offspring.includes(flower.classList[0])) {
+        var genome = flower.classList[0];
+        flower.innerHTML = '';
+        if (genome in offspring) {
             flower.classList.remove('impossible');
+            var result_div = document.createElement('div');
+            result_div.classList.add('result');
+            result_div.innerHTML = String(offspring[genome][0]) + '/' + String(offspring[genome][1]);
+            flower.appendChild(result_div);
         } else {
             flower.classList.add('impossible');
         }
