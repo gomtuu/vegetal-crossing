@@ -205,3 +205,7 @@ var breed_links = document.querySelectorAll('span.breed');
 breed_links.forEach(function(el, i) {
     el.addEventListener('click', breed_link_click);
 });
+
+document.querySelector('button#blue_rose_toggle').addEventListener('click', function() {
+    document.querySelector('ol#blue_rose_rollup').classList.toggle('rolled_up');
+});

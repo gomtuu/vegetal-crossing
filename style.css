@@ -84,6 +84,13 @@ div.notes {
     padding: 0 36px 36px;
 }
 
+.rolled_up {
+    height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
 div.varieties {
     display: flex;
     flex-wrap: wrap;
