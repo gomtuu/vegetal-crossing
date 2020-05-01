@@ -126,7 +126,7 @@ div.varieties > div {
     background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
     background-size: auto calc(var(--tile-height) / 2);
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-    line-height: 16px;
+    line-height: 1;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -680,4 +680,10 @@ div.species_menu ul button img {
         --tile-width: 48px;
     }
 
+    section.rose.condensed .parentA::before,
+    section.rose.condensed .parentB::before,
+    section.rose.condensed .parentA.parentB::before,
+    section.rose.condensed .result {
+        font-size: 12px;
+    }
 }
