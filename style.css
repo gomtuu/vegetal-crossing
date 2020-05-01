@@ -67,7 +67,7 @@ section span.breed {
     border-radius: 4px;
     padding: 0 4px;
     background: rgba(0, 0, 0, 0.2);
-    color: #ffff99;
+    color: #ffff66;
     cursor: pointer;
 }
 
@@ -121,6 +121,7 @@ div.varieties > div {
     user-select: none;
     transform: var(--tile-skew);
     transform-origin: center;
+    transition: all 0.2s;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
