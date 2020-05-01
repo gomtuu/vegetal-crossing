@@ -17,7 +17,7 @@
             <p>There are three possible values for each gene (for example, rr, Rr, and RR). This means each dimension is three tiles long, high, or wide.</p>
             <p>The horizontal axis is represents the r/R gene, the slanted axis represents y/Y, and the vertical axis represents w/W. For roses, the first stack is ss, the second is Ss, and the third is SS.</p>
             <h2>Breeding</h2>
-            <p>You can click a pair of varieties (or click a single variety twice) to show the offspring that can result from breeding that pair. These possible offspring will be highlighted, and the probability of getting each variety will be shown on the tile. If you click two different varieties, they will each be labeled "parent". If you click the same variety twice, it will be labeled "parents".</p>
+            <p>You can click a pair of varieties (or click a single variety twice) to show the offspring that can result from breeding that pair. These possible offspring will be highlighted, and the probability of getting each variety will be shown as a fraction on the tile. If you click two different varieties, they will each be labeled "parent". If you click the same variety twice, it will be labeled "parents".</p>
             <p>By experimenting with different combinations, hopefully you can get a feel for how flower breeding works. In general, when you breed varieties that are on edges or in corners, the results tend to be more limited than when you breed varieties that are more central. Breeding the centermost variety with itself can produce any other variety. Breeding a corner variety (e.g., the topmost, rightmost, frontmost variety) with itself produces only copies of that variety.</p>
             <p>There's a slightly-expanded version of Aeter's blue rose guide in the Rose section below. You can click the highlighted text to see an illustration of each step.</p>
         </div>
@@ -279,27 +279,34 @@
             <div class="notes">
                 <button id="blue_rose_toggle">Blue Rose Instructions</button>
                 <ol id="blue_rose_rollup" class="rolled_up">
-                    <li>Breed a <span class="breed" data-parents="RRyywwSs,RRyywwSs">seed red with another seed red</span> to get black (25% chance). You can work on this in parallel with steps 2 through 6.
+                    <li>Breed a <span class="breed" data-parents="RRyywwSs,RRyywwSs">seed red with another seed red</span> to get black (1 in 4 chance).
                         <ul>
-                            <li>Feed any red offspring (50% chance) back into this step if you don't have easy access to red seeds.</li>
-                            <li>Breed the <span class="breed" data-parents="RRyywwss,RRyywwss">black offspring with each other</span> to make more of the same (100% chance).</li>
+                            <li>You can work on this in parallel with steps 2 through 6.</li>
+                            <li>Any red offspring (1 in 2 chance) are seed reds. Feed them back into this step if you don't have easy access to rose seeds.</li>
+                            <li>Breed the <span class="breed" data-parents="RRyywwss,RRyywwss">black offspring with each other</span> to make more of the same (1 in 1 chance).</li>
                             <li>Discard any pink offspring.</li>
                         </ul></li>
-                    <li>Breed a <span class="breed" data-parents="rryyWwss,rryyWwss">seed white with another seed white</span> to get purple1 (25% chance). Discard any white offspring, because <span class="breed" data-parents="rryywwss,rryyWwss">some of them can't breed with seed whites to make purple</span>.</li>
-                    <li>Breed the <span class="breed" data-parents="rryyWWss,rrYYwwss">purple1 with a seed yellow</span> to get white2 (100% chance).</li>
-                    <li>Breed the <span class="breed" data-parents="rrYyWwss,rryyWWss">white2 with a purple1</span> to get purple1 (25% chance) and purple2 (25% chance). Discard any white offspring, unless you want to figure out which ones are seed whites and which are white2.</li>
-                    <li>Breed each purple offspring from the previous step with a seed yellow. If the pairing ever produces a yellow2 (50% chance), you know the purple is a purple2. It might take a few tries, of course.
+                    <li>Breed a <span class="breed" data-parents="rryyWwss,rryyWwss">seed white with another seed white</span> to get purple1 (1 in 4 chance).</li>
+                        <ul>
+                            <li>Discard any white offspring, because <span class="breed" data-parents="rryywwss,rryyWwss">some of them can't breed with seed whites to make purple</span>.</li>
+                        </ul></li>
+                    <li>Breed the <span class="breed" data-parents="rryyWWss,rrYYwwss">purple1 with a seed yellow</span> to get white2 (1 in 1 chance).</li>
+                    <li>Breed the <span class="breed" data-parents="rrYyWwss,rryyWWss">white2 with a purple1</span> to get purple1 (1 in 4 chance) and purple2 (1 in 4 chance).</li>
+                        <ul>
+                            <li>Discard any white offspring, unless you want to figure out which ones are seed whites and which are white2.</li>
+                        </ul></li>
+                    <li>To determine the difference between purple1 and purple2, breed each purple offspring from the previous step with a seed yellow. Let each pair reproduce several times. If a pair ever produces a yellow2 (1 in 2 chance), the purple in the pair must be a purple2.
                         <ul>
                             <li>Breeding a <span class="breed" data-parents="rryyWWss,rrYYwwss">purple1 with a seed yellow</span> can only produce white2.</li>
-                            <li>Breeding a <span class="breed" data-parents="rrYyWWss,rrYYwwss">purple2 with a seed yellow</span> can produce either white2 (50% chance) and yellow2 (50% chance).</li>
+                            <li>Breeding a <span class="breed" data-parents="rrYyWWss,rrYYwwss">purple2 with a seed yellow</span> can produce either white2 (1 in 2 chance) or yellow2 (1 in 2 chance).</li>
                         </ul></li>
                     <li>Produce white3 with one or both of the following pairings:
                         <ul>
-                            <li>Breed a <span class="breed" data-parents="rrYyWWss,rrYyWWss">purple2 with another purple2</span> to get white3 (25% chance). Feed any purple offspring back into Step 5.</li>
-                            <li>Breed a <span class="breed" data-parents="rrYYWwss,rrYYWwss">yellow2 with another yellow2</span> to get white3 (25% chance). Discard any yellow offspring.</li>
+                            <li>Breed a <span class="breed" data-parents="rrYyWWss,rrYyWWss">purple2 with another purple2</span> to get white3 (1 in 4 chance). Feed any purple offspring back into Step 5.</li>
+                            <li>Breed a <span class="breed" data-parents="rrYYWwss,rrYYWwss">yellow2 with another yellow2</span> to get white3 (1 in 4 chance). Discard any yellow offspring.</li>
                         </ul>
                     </li>
-                    <li>Breed the <span class="breed" data-parents="RRyywwss,rrYYWWss">white3 with a black</span> to get red2 (100% chance).
+                    <li>Breed the <span class="breed" data-parents="RRyywwss,rrYYWWss">white3 with a black</span> to get red2 (1 in 1 chance).
                         <ul>
                             <li>You can breed the <span class="breed" data-parents="RrYyWwss,RrYyWwss">red2 with another red2</span> to get blue (1 in 64 chance), <b>or continue breeding to make a better red hybrid</b>.</li>
                         </ul></li>
@@ -307,11 +314,13 @@
                         <ul>
                             <li>All purple offspring are purple2.</span>
                             <li>All yellow offspring are yellow2.</span>
-                            <li>The miscellaneous red offspring can be bred with each other to make blue (at least 1 in 64 chance, at most 1 in 4). Just be aware that some of the red offspring <em>resulting from</em> these red-red pairings will never be able to make blue, so it's best to discard them or at least keep them separate from the better red varieties.</span>
-                            <li>The white offspring are either white2 or white3, but it's not easy to tell the difference. You can cross them with seed yellow, and if you ever get any white offspring (25% chance), then both the parent and the white offspring are white2.</span>
+                            <li>The miscellaneous red offspring can be bred with each other to make blue (at least 1 in 64 chance, at most 1 in 4). Just be aware that some of the red offspring <em>resulting from</em> these unidentified red-red pairings will never be able to make blue, so it's best to discard them or at least keep them separate from the better red varieties.</span>
+                            <li>The white offspring are either white2 or white3, but it's not easy to tell the difference. You can cross them with seed yellow, and if you ever get any white offspring (1 in 4 chance), then both the parent and the white offspring are white2.</span>
                         </ul></li>
-                    <li>Breed the <span class="breed" data-parents="RrYYWwss,rrYYWWss">orange with a white3</span> to get red3 (25% chance). The yellow2, white3, and orange offspring (25% chance each) are useful, too.
-                    <li>Breed the <span class="breed" data-parents="RrYYWWss,RrYYWWss">red3 with another red3</span> to get blue (25% chance). The red3 offspring (50% chance) and white3 offspring (25% chance) are useful, too.
+                    <li>Breed the <span class="breed" data-parents="RrYYWwss,rrYYWWss">orange with a white3</span> to get red3 (1 in 4 chance). The yellow2, white3, and orange offspring (1 in 4 chance each) are useful, too.</li>
+                    <li>Breed the <span class="breed" data-parents="RrYYWWss,RrYYWWss">red3 with another red3</span> to get blue (1 in 4 chance). The red3 offspring (1 in 2 chance) and white3 offspring (1 in 4 chance) are useful, too.</li>
+                    <li>Breed the <span class="breed" data-parents="RRYYWWss,RrYYWWss">blue with a red3</span> to get blue (1 in 2 chance). Or isolate the blue, keep watering it, and wait for it to clone itself. (I don't know which is faster.)</li>
+                    <li>Breed the <span class="breed" data-parents="RRYYWWss,RRYYWWss">blue with another blue</span> to get blue (1 in 1 chance).</li>
                 </ol>
             </div>
         </section>
