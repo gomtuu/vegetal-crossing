@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Animal Crossing: New Horizons Flower Genetics</title>
+        <title>Vegetal Crossing: A Visual Guide to Animal Crossing: New Horizons Flower Genetics</title>
         <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
@@ -9,18 +9,34 @@
     </head>
     <body>
         <div class="intro">
-            <h1>Animal&nbsp;Crossing: New&nbsp;Horizons Flower&nbsp;Genetics</h1>
+            <h1>Vegetal&nbsp;Crossing</h1>
+            <h2>A Visual Guide to Flower&nbsp;Genetics in Animal Crossing: New&nbsp;Horizons</h2>
             <p>Credit to Aeter, Paleh, and Aeonsake for their datamining and tools.</p>
             <h2>Visualizing Flower Varieties Spatially</h2>
-            <p>The following diagrams show the color and source (i.e., seed or Nook Miles Ticket island) of each variety of all eight flower species in Animal Crossing: New Horizons.</p>
-            <p>A flower variety's color is determined by its genes. Most flower species have three genes, so three dimensions are required to show all possible varieties. Those three dimensions are represented here as a stack of 2D planes. The horizontal axis represents the r/R gene, the slanted axis y/Y, and the vertical axis w/W.</p>
-            <p>Roses have four genes; the fourth dimension is represented as additional stacks. For roses, the first stack shows ss varieties, the second Ss, and the third SS.</p>
-            <p>There are three possible values for each gene (for example, rr, Rr, and RR). This means each dimension is three tiles long, high, or wide.</p>
+            <p>This application uses diagrams to show the colors of every variety of a given flower species in Animal Crossing: New Horizons.</p>
+            <p>A variety's color is determined by its genes. Most flower species have three genes, so three dimensions are required to show all possible varieties. Those three dimensions are represented here as a stack of two-dimensional grids. The horizontal axis represents the r/R gene, the slanted axis y/Y, and the vertical axis w/W.</p>
+            <p>Roses have four genes. To represent four dimensions, we use a series of three-dimensional stacks. The first stack shows ss varieties, the second Ss, and the third SS.</p>
+            <p>There are three possible values for each gene (for example, rr, Rr, and RR). This means each dimension is three tiles wide, deep, or high, and there are three stacks of rose varieties.</p>
+            <p>Varieties that are available as seeds from shops or as plants from Nook Miles Ticket islands are marked with a seed or ticket icon.</p>
             <h2>Breeding</h2>
-            <p>Click a pair of varieties (or click a single variety twice) to show the offspring that can result from breeding that pair. These possible offspring will be highlighted, and the probability of getting each variety will be shown as a fraction on the tile. If you click two different varieties, they will each be labeled "parent". If you click the same variety twice, it will be labeled "parents".</p>
-            <p>Click the brown background to clear your selections.</p>
-            <p>Experiment with different combinations to get a feel for how flower breeding works. In general, when you breed varieties that are on edges or in corners, the results tend to be more limited than when you breed varieties that are more central. Breeding the centermost variety with itself can produce any other variety. Breeding a corner variety (e.g., the topmost, rightmost, frontmost variety) with itself produces only copies of that variety.</p>
-            <p>There's a slightly-expanded version of Aeter's blue rose guide in the Rose section below. You can click the highlighted text to see an illustration of each step.</p>
+            <p>Click or tap to select a pair of varieties (or select a single variety twice) and see the offspring that can result from breeding that pair. These possible offspring will be highlighted, and the probability of getting each variety will be shown as a fraction on the tile. If you select two different varieties, they will each be labeled "parent". If you select the same variety twice, it will be labeled "parents".</p>
+            <p>Click or tap the brown background to clear your selections.</p>
+            <p>Experiment with different combinations to get a feel for how flower breeding works. In general, when you breed varieties that are on edges or in corners, the results tend to be more limited than when you include the more central varieties. Breeding the centermost variety with itself can yeild offspring of any variety. Breeding a corner variety (e.g., the topmost, rightmost, frontmost variety) with itself can yield only copies of that variety.</p>
+            <p>The breeding rules are the same for every species, but the colors, seed starting points, and number of dimensions are different.</p>
+            <p>There's a slightly-expanded version of Aeter's blue rose guide in the Rose section below. You can click or tap the highlighted text to see an illustration of each step.</p>
+        </div>
+        <div class="species_menu">
+            <h2>Choose a Species</h2>
+            <ul>
+                <li><button class="cosmos"><img src="plant-cosmos.png" /></button></li>
+                <li><button class="hyacinth"><img src="plant-hyacinth.png" /></button></li>
+                <li><button class="lily"><img src="plant-lily.png" /></button></li>
+                <li><button class="mum"><img src="plant-mum.png" /></button></li>
+                <li><button class="pansy"><img src="plant-pansy.png" /></button></li>
+                <li><button class="rose"><img src="plant-rose.png" /></button></li>
+                <li><button class="tulip"><img src="plant-tulip.png" /></button></li>
+                <li><button class="windflower"><img src="plant-windflower.png" /></button></li>
+            </ul>
         </div>
         <section class="cosmos">
             <h3>Cosmos</h3>

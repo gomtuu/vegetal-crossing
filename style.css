@@ -27,7 +27,8 @@
 }
 
 body {
-    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 0 12px;
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
@@ -41,7 +42,7 @@ div.intro {
 }
 
 section {
-    margin-top: 24px;
+    margin: 24px 16px;
     border: 10px solid rgba(0,0,0,0.3);
     border-radius: 16px;
     background-color: #4e4431;
@@ -217,6 +218,55 @@ div.varieties > *:nth-child(9n+7),
 div.varieties > *:nth-child(9n+8),
 div.varieties > *:nth-child(9n+9) {
     transform: var(--tile-skew) translate(calc(-1 * var(--skew-offset)), 0);
+}
+
+/* Menu */
+div.species_menu {
+    margin: 48px 16px 16px;
+    border: 4px solid #60bcb6;
+    border-radius: 20px;
+    padding: 4px;
+    background: #ffffff linear-gradient(to bottom, #ddeeff, #ffffff 10%, #ffffff 90%, #ddeeff);
+}
+
+div.species_menu h2 {
+    margin-top: 8px;
+    text-align: center;
+}
+
+div.species_menu ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+div.species_menu ul button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+div.species_menu ul button:focus {
+    outline: none;
+}
+
+div.species_menu ul li:first-child button {
+    border-radius: 16px 0 0 16px;
+}
+
+div.species_menu ul li:last-child button {
+    border-radius: 0 16px 16px 0;
+}
+
+div.species_menu ul button img {
+    height: auto;
+    max-height: 72px;
+    max-width: 100%;
 }
 
 /* Species colors */
@@ -592,7 +642,21 @@ div.varieties > *:nth-child(9n+9) {
 
 @media only screen and (max-width: 720px) {
 
+    div.species_menu {
+        margin-left: 0;
+        margin-right: 0;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    div.species_menu ul {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     section {
+        margin-left: 0;
+        margin-right: 0;
         border-left: 0;
         border-right: 0;
         border-radius: 0;
