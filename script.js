@@ -211,6 +211,5 @@ document.querySelector('button#blue_rose_toggle').addEventListener('click', func
 });
 
 document.querySelector('button#boring_rose_toggle').addEventListener('click', function() {
-    document.querySelector('section.rose div.varieties.Ss').classList.toggle('narrow');
-    document.querySelector('section.rose div.varieties.SS').classList.toggle('hidden');
+    document.querySelector('section.rose').classList.toggle('condensed');
 });

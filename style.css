@@ -48,6 +48,7 @@ section {
     color: white;
     overflow: hidden;
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -107,8 +108,6 @@ div.varieties {
     justify-content: space-between;
     align-items: flex-end;
     width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 36px;
 }
 
@@ -146,16 +145,20 @@ div.varieties > div.impossible {
     border-left-color: rgba(255, 255, 255, 0.02);
 }
 
-div.varieties.narrow {
+section.rose.condensed div.varieties.Ss {
     width: calc(var(--far-border) + var(--tile-width) + var(--near-border));
 }
 
-div.varieties.narrow .boring:nth-child(3n+1),
-div.varieties.narrow .boring:nth-child(3n+2) {
+section.rose.condensed div.varieties.Ss .boring:nth-child(3n+1),
+section.rose.condensed div.varieties.Ss .boring:nth-child(3n+2) {
     display: none;
 }
 
-div.varieties.hidden {
+section.rose.condensed div.varieties.SS {
+    display: none;
+}
+
+section.rose.condensed div.notes .boring {
     display: none;
 }
 
@@ -199,8 +202,8 @@ div.varieties.hidden {
     content: "parents";
 }
 
-div.varieties > *:nth-child(10),
-div.varieties > *:nth-child(19) {
+div.varieties > *:nth-child(12),
+div.varieties > *:nth-child(21) {
     margin-top: var(--big-gap);
 }
 
@@ -574,12 +577,13 @@ div.varieties > *:nth-child(9n+9) {
 
 @media only screen and (max-width: 1200px) {
 
-    section.rose {
+    section.rose:not(.condensed) {
         flex-direction: column;
+        align-items: center;
     }
 
-    section.rose div.varieties:nth-child(3n+3),
-    section.rose div.varieties:nth-child(3n+2) {
+    section.rose:not(.condensed) div.varieties:nth-child(3n+3),
+    section.rose:not(.condensed) div.varieties:nth-child(3n+2) {
         padding-bottom: 36px;
         border-bottom: 10px solid rgba(0, 0, 0, 0.5);
     }
@@ -597,6 +601,10 @@ div.varieties > *:nth-child(9n+9) {
     div.notes {
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    section.rose.condensed {
+        --tile-width: 48px;
     }
 
 }
