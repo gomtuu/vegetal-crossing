@@ -6,9 +6,14 @@
     --seed-white: url(seed-white.png);
     --seed-orange: url(seed-orange.png);
     --obtain: none;
-    --tile-width: 64px;
-    --tile-height: calc(var(--tile-width) / 2);
-    --gap: 3px;
+    --tile-width: 84px;
+    --tile-height: 48px;
+    --tile-skew: skew(-26.5650512deg);
+    --far-border: 1px;
+    --near-border: 2px;
+    --gap: 2px;
+    --big-gap: 13px;
+    --skew-offset: calc((var(--far-border) + var(--tile-height) + var(--near-border) + var(--gap)) / 2);
     /* Default colors */
     --red: 255, 0, 0;
     --orange: 255, 128, 0;
@@ -22,12 +27,17 @@
 }
 
 body {
-    padding: 0 12px 12px;
+    margin: 0;
+    padding: 0 0 12px;
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
     background-color: #f1e26f;
     background-color: #e9f5ec;
     color: #005c56;
+}
+
+div.intro {
+    margin: 0 16px
 }
 
 section {
@@ -79,33 +89,31 @@ div.varieties {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
-    width: calc(3 * var(--tile-width) + 2 * var(--gap));
+    width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 36px;
-    transform: skew(-26.5650512deg);
-    transform-origin: center;
 }
 
 div.varieties > div {
-    box-sizing: border-box;
     width: var(--tile-width);
     height: var(--tile-height);
     margin-bottom: var(--gap);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 2px solid rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: var(--far-border) solid rgba(255, 255, 255, 0.1);
+    border-right: var(--near-border) solid rgba(0, 0, 0, 0.2);
+    border-bottom: var(--near-border) solid rgba(0, 0, 0, 0.2);
+    border-left: var(--far-border) solid rgba(255, 255, 255, 0.1);
     border-radius: 2px;
     background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
-    background-size: auto 24px;
+    background-size: auto calc(var(--tile-height) / 2);
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     line-height: 12px;
-    transform: translate(-63.5px);
     cursor: pointer;
     position: relative;
     overflow: hidden;
     user-select: none;
+    transform: var(--tile-skew);
+    transform-origin: center;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -155,20 +163,21 @@ div.varieties > div.impossible {
     content: "parents";
 }
 
-div.varieties > *:nth-child(10) {
-    margin-top: 13px;
-}
-
-div.varieties > *:nth-child(n+10) {
-    transform: translate(0);
-}
-
+div.varieties > *:nth-child(10),
 div.varieties > *:nth-child(19) {
-    margin-top: 13px;
+    margin-top: var(--big-gap);
 }
 
-div.varieties > *:nth-child(n+19) {
-    transform: translate(63.5px);
+div.varieties > *:nth-child(9n+1),
+div.varieties > *:nth-child(9n+2),
+div.varieties > *:nth-child(9n+3) {
+    transform: var(--tile-skew) translate(var(--skew-offset), 0);
+}
+
+div.varieties > *:nth-child(9n+7),
+div.varieties > *:nth-child(9n+8),
+div.varieties > *:nth-child(9n+9) {
+    transform: var(--tile-skew) translate(calc(-1 * var(--skew-offset)), 0);
 }
 
 /* Species colors */
@@ -526,6 +535,20 @@ div.varieties > *:nth-child(n+19) {
 .windflower .rryyww { --phenotype: var(--white); }
 .windflower .Rryyww { --phenotype: var(--red); }
 .windflower .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
+
+@media only screen and (max-width: 1200px) {
+
+    section.rose {
+        flex-direction: column;
+    }
+
+    section.rose div.varieties:nth-child(3n+3),
+    section.rose div.varieties:nth-child(3n+2) {
+        padding-bottom: 36px;
+        border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+    }
+
+}
 
 @media only screen and (max-width: 720px) {
 
