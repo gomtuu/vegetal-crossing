@@ -110,7 +110,7 @@ function show_offspring(species, offspring) { // {{{
         if (genome in offspring) {
             var result_div = document.createElement('div');
             result_div.classList.add('result');
-            result_div.innerHTML = String(offspring[genome][0]) + '/' + String(offspring[genome][1]);
+            result_div.innerHTML = '<div>' + String(offspring[genome][0]) + '</div><div>' + String(offspring[genome][1]) + '</div>';
             flower.appendChild(result_div);
         } else {
             flower.classList.add('impossible');

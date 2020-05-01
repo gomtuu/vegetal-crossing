@@ -114,7 +114,7 @@ div.varieties > div {
     background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
     background-size: auto calc(var(--tile-height) / 2);
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-    line-height: 12px;
+    line-height: 16px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -148,7 +148,6 @@ div.varieties > div.impossible {
                  0px -1px 0 black,
                  0px 1px 0 black;
     font-weight: bold;
-    font-size: 12px;
 }
 
 .result {
@@ -156,14 +155,20 @@ div.varieties > div.impossible {
     right: 2px;
     bottom: 1px;
     pointer-events: none;
+    text-align: center;
 }
 
-.parentA::before {
-    content: "parent";
+.result > div:nth-child(2) {
+    text-decoration: overline;
 }
 
+.parentA::before,
 .parentB::before {
     content: "parent";
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    pointer-events: none;
 }
 
 .parentA.parentB::before {
