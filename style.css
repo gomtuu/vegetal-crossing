@@ -75,6 +75,16 @@ section span.breed:hover {
     color: #ccffff;
 }
 
+section button {
+    margin: 0;
+    border: 4px solid #005c56;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: bold;
+    background-color: #e9f5ec;
+    color: #005c56;
+}
+
 ol, ul {
     padding-left: 1.5em;
 }
@@ -121,7 +131,7 @@ div.varieties > div {
     user-select: none;
     transform: var(--tile-skew);
     transform-origin: center;
-    transition: all 0.2s;
+    transition: background-color 0.2s;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -134,6 +144,19 @@ div.varieties > div.impossible {
     border-right-color: rgba(0, 0, 0, 0.02);
     border-bottom-color: rgba(0, 0, 0, 0.02);
     border-left-color: rgba(255, 255, 255, 0.02);
+}
+
+div.varieties.narrow {
+    width: calc(var(--far-border) + var(--tile-width) + var(--near-border));
+}
+
+div.varieties.narrow .boring:nth-child(3n+1),
+div.varieties.narrow .boring:nth-child(3n+2) {
+    display: none;
+}
+
+div.varieties.hidden {
+    display: none;
 }
 
 .parentA::before,
