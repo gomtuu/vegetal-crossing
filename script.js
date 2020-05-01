@@ -94,7 +94,7 @@ function get_species_flowers(species) { // {{{
     return document.querySelectorAll('section.' + species + ' div.varieties > div');
 } // }}}
 
-function clear_offspring(species, offspring) { // {{{
+function clear_offspring(species) { // {{{
     var flowers = get_species_flowers(species);
     flowers.forEach(function(flower) {
         flower.innerHTML = '';
@@ -146,6 +146,9 @@ function flower_click(evt) { // {{{
     evt.stopPropagation();
     var flower = flower_obj(evt.target);
     var species = flower.species;
+    if (species == undefined) {
+        return false;
+    }
     selected.push(flower);
     if (selected.length > 2) {
         selected = [flower];
@@ -190,6 +193,32 @@ function breed_link_click(evt) { // {{{
     var genotypes = evt.target.dataset.parents.split(',');
     href_breed(species, genotypes[0], genotypes[1]);
 } // }}}
+
+function set_species(species) {
+    var clicked_button = undefined;
+    var section = document.querySelector('section');
+    var old_species = section.classList[0];
+    clear_parents(old_species);
+    clear_offspring(old_species);
+    species_buttons.forEach(function(button, i) {
+        button.classList.remove('selected');
+        if (button.classList.contains(species)) {
+            clicked_button = button;
+        }
+        section.classList.remove(button.classList[0]);
+    });
+    clicked_button.classList.add('selected');
+    section.classList.add(clicked_button.classList[0]);
+    document.querySelector('section h3').innerHTML = clicked_button.classList[0];
+}
+
+var species_buttons = document.querySelectorAll('div.species_menu button');
+species_buttons.forEach(function(el, i) {
+    el.addEventListener('click', function(evt) {
+        var species = evt.target.closest('button').classList[0];
+        set_species(species);
+    });
+});
 
 var sections = document.querySelectorAll('section');
 sections.forEach(function(el, i) {

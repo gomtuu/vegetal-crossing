@@ -57,12 +57,13 @@ h1, h2, h3 {
     font-family: "Zilla Slab";
 }
 
-h3 {
+section h3 {
     margin-top: 36px;
     margin-bottom: 48px;
     font-size: 36px;
     text-align: center;
     flex-basis: 100%;
+    text-transform: capitalize;
 }
 
 section span.breed {
@@ -92,6 +93,7 @@ ol, ul {
 }
 
 div.notes {
+    display: none;
     flex-basis: 100%;
     padding: 0 36px 36px;
 }
@@ -155,8 +157,17 @@ section.rose.condensed div.varieties.Ss .boring:nth-child(3n+2) {
     display: none;
 }
 
+section:not(.rose) div.varieties.four_d,
+section.rose div.varieties.three_d {
+    display: none;
+}
+
 section.rose.condensed div.varieties.SS {
     display: none;
+}
+
+section.rose div.blue_rose_notes {
+    display: block;
 }
 
 section.rose.condensed div.notes .boring {
@@ -247,20 +258,18 @@ div.species_menu ul button {
     height: 100%;
     padding: 10px 0;
     border: 0;
+    border-radius: 8px;
     background: transparent;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 div.species_menu ul button:focus {
     outline: none;
 }
 
-div.species_menu ul li:first-child button {
-    border-radius: 16px 0 0 16px;
-}
-
-div.species_menu ul li:last-child button {
-    border-radius: 0 16px 16px 0;
+div.species_menu ul button.selected {
+    background-color: #60bcb6;
 }
 
 div.species_menu ul button img {
@@ -633,7 +642,7 @@ div.species_menu ul button img {
     }
 
     section.rose:not(.condensed) div.varieties:nth-child(3n+3),
-    section.rose:not(.condensed) div.varieties:nth-child(3n+2) {
+    section.rose:not(.condensed) div.varieties:nth-child(3n+4) {
         padding-bottom: 36px;
         border-bottom: 10px solid rgba(0, 0, 0, 0.5);
     }
