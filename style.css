@@ -65,6 +65,10 @@ section span.breed:hover {
     color: #ccffff;
 }
 
+ol, ul {
+    padding-left: 1.5em;
+}
+
 div.notes {
     flex-basis: 100%;
     padding: 0 36px 36px;
