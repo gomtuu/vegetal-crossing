@@ -198,6 +198,7 @@ function set_species(species) {
     var clicked_button = undefined;
     var section = document.querySelector('section');
     var old_species = section.classList[0];
+    selected = [];
     clear_parents(old_species);
     clear_offspring(old_species);
     species_buttons.forEach(function(button, i) {
