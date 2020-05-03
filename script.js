@@ -1,4 +1,5 @@
 var selected = [];
+var flower_objects = {};
 
 var FractionReduce = (function(){ // {{{
     // Euclid's Algorithm
@@ -76,7 +77,6 @@ function breed(A, B) { // {{{
             genome_counts[genome] = 1;
         }
     }
-    console.log(genome_counts);
     return genome_counts;
 } // }}}
 
@@ -98,7 +98,6 @@ function fraction_genomes(genome_counts) { // {{{
         let denominator = total_genomes / gcd;
         genome_fracs[genome] = [numerator, denominator];
     }
-    console.log(genome_fracs);
     return genome_fracs;
 } // }}}
 
@@ -121,8 +120,8 @@ function get_species_flowers(species) { // {{{
 
 function clear_offspring(species) { // {{{
     var flowers = get_species_flowers(species);
-    flowers.forEach(function(flower) {
-        flower.innerHTML = '';
+    flowers.forEach(flower => {
+        flower.querySelectorAll('.result').forEach(result => flower.removeChild(result));
         flower.classList.remove('impossible');
     });
 } // }}}
@@ -131,8 +130,6 @@ function show_offspring(species, genome_counts) { // {{{
     clear_offspring(species);
     var flowers = get_species_flowers(species);
     var offspring = fraction_genomes(genome_counts);
-    console.log('offspring');
-    console.log(offspring);
     flowers.forEach(function(flower) {
         var genome = flower.classList[0];
         if (genome in offspring) {
@@ -147,30 +144,47 @@ function show_offspring(species, genome_counts) { // {{{
 } // }}}
 
 function flower_obj(element) { // {{{
-    return {
+    var genotype = element.classList[0];
+    if (genotype in flower_objects) {
+        return flower_objects[genotype];
+    }
+    let obj = {
         'element': element,
         'species': element.closest('section').classList[0],
         'genotype': element.classList[0]
     }
+    flower_objects[genotype] = obj;
+    return obj
 } // }}}
 
 function clear_parents(species) { // {{{
     var flowers = get_species_flowers(species);
-    flowers.forEach(function(flower, i) {
-        flower.classList.remove('parentA');
-        flower.classList.remove('parentB');
+    flowers.forEach(flower => {
+        flower.querySelectorAll('.parentA').forEach(parent_div => flower.removeChild(parent_div));
+        flower.querySelectorAll('.parentB').forEach(parent_div => flower.removeChild(parent_div));
     });
 } // }}}
 
+function mark_parent(group, flower, label) { // {{{
+    var css_class = 'parent' + label;
+    var selector = '.' + css_class;
+    var count = group.filter(fl => fl.genotype == flower.genotype).length;
+    var a_div = flower.element.querySelector(selector) || document.createElement('div');
+    a_div.classList.add(css_class);
+    a_div.innerHTML = group.length == 1 ? label : String(count) + label;
+    flower.element.appendChild(a_div);
+} // }}}
+
 function mark_parents(A, B) { // {{{
-    A.forEach(flower => flower.element.classList.add('parentA'));
-    if (B !== undefined) {
-        B.forEach(flower => flower.element.classList.add('parentB'));
-    }
+    a_items = [...new Set(A)];
+    a_items.forEach(flower => mark_parent(selected[0], flower, 'A'));
+    b_items = [...new Set(B)];
+    b_items.forEach(flower => mark_parent(selected[1], flower, 'B'));
 } // }}}
 
 function select_flower(flower, add_to_selection) { // {{{
     if (add_to_selection) {
+        selected[0] = selected[0] || [];
         let group = selected[1] || selected[0];
         group.push(flower);
     } else {
@@ -215,8 +229,6 @@ function href_breed(species, genotype_a, genotype_b) { // {{{
     var flower_b = flower_obj(document.querySelector('section.' + species + ' div.' + genotype_b));
     selected = [[flower_a], [flower_b]];
     clear_parents(species);
-    console.log(flower_a.genotype);
-    console.log(flower_b.genotype);
     mark_parents(flower_a, flower_a);
     var offspring = breed(flower_a, flower_b);
     show_offspring(species, offspring);
@@ -236,6 +248,7 @@ function set_species(species) { // {{{
     var section = document.querySelector('section');
     var old_species = section.classList[0];
     selected = [];
+    flower_objects = {};
     clear_parents(old_species);
     clear_offspring(old_species);
     species_buttons.forEach(function(button, i) {
@@ -246,8 +259,8 @@ function set_species(species) { // {{{
         section.classList.remove(button.classList[0]);
     });
     clicked_button.classList.add('selected');
-    section.classList.add(clicked_button.classList[0]);
-    document.querySelector('section h3').innerHTML = clicked_button.classList[0];
+    section.classList.add(species);
+    document.querySelector('section h3').innerHTML = species;
 } // }}}
 
 var species_buttons = document.querySelectorAll('div.species_menu button');

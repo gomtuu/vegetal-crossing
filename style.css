@@ -191,8 +191,8 @@ section.rose.condensed div.notes .boring {
     display: none;
 }
 
-.parentA::before,
-.parentB::after,
+.parentA,
+.parentB,
 .result {
     position: absolute;
     text-shadow: 1px 0px 0 black,
@@ -217,19 +217,17 @@ section.rose.condensed div.notes .boring {
     text-decoration: overline;
 }
 
-.parentA::before,
-.parentB::after {
+.parentA,
+.parentB {
     left: 2px;
     font-size: 24px;
 }
 
-.parentA::before {
-    content: "A";
+.parentA {
     top: 1px;
 }
 
-.parentB::after {
-    content: "B";
+.parentB {
     bottom: 1px;
 }
 
@@ -696,8 +694,8 @@ div.species_menu ul button img {
         --tile-width: 48px;
     }
 
-    section.rose.condensed .parentA::before,
-    section.rose.condensed .parentB::after {
+    section.rose.condensed .parentA,
+    section.rose.condensed .parentB {
         font-size: 16px;
     }
 
