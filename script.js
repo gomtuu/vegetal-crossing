@@ -45,7 +45,6 @@ function multiply(A, B) { // {{{
 } // }}}
 
 function breed(A, B) { // {{{
-    mark_parents(A, B);
     var genes_a = A.genotype.match(/.{2}/g);
     var genes_b = B.genotype.match(/.{2}/g);
     var possibilities = [];
@@ -59,7 +58,6 @@ function breed(A, B) { // {{{
                 if (allele_a > allele_b) {
                     combination = allele_b + allele_a;
                 }
-                console.log(combination);
                 possibilities[i].push(combination);
             }
         }
@@ -69,9 +67,8 @@ function breed(A, B) { // {{{
         suffixes = possibilities.shift();
         genomes = multiply(genomes, suffixes);
     }
-    var total_genomes = genomes.length;
     var genome_counts = {}
-    for (var i=0; i < total_genomes; i++) {
+    for (var i=0; i < genomes.length; i++) {
         var genome = genomes[i];
         if (genome in genome_counts) {
             genome_counts[genome] += 1;
@@ -79,13 +76,28 @@ function breed(A, B) { // {{{
             genome_counts[genome] = 1;
         }
     }
-    var genome_fracs = {}
-    for (var genome in genome_counts) {
-        var frac = FractionReduce.reduce(genome_counts[genome], total_genomes);
-        genome_fracs[genome] = frac;
-    }
-    console.log(genomes);
     console.log(genome_counts);
+    return genome_counts;
+} // }}}
+
+function fraction_genomes(genome_counts) { // {{{
+    var genome_fracs = {}
+    var run_gcd = [];
+    var total_genomes = 0;
+    for (let genome in genome_counts) {
+        run_gcd.push(genome_counts[genome]);
+        if (run_gcd.length == 2) {
+            new_gcd = FractionReduce.getGCD(run_gcd.shift(), run_gcd.shift());
+            run_gcd.push(new_gcd);
+        }
+        total_genomes += genome_counts[genome];
+    }
+    var gcd = run_gcd[0];
+    for (let genome in genome_counts) {
+        let numerator = genome_counts[genome] / gcd;
+        let denominator = total_genomes / gcd;
+        genome_fracs[genome] = [numerator, denominator];
+    }
     console.log(genome_fracs);
     return genome_fracs;
 } // }}}
@@ -102,9 +114,12 @@ function clear_offspring(species) { // {{{
     });
 } // }}}
 
-function show_offspring(species, offspring) { // {{{
+function show_offspring(species, genome_counts) { // {{{
     clear_offspring(species);
     var flowers = get_species_flowers(species);
+    var offspring = fraction_genomes(genome_counts);
+    console.log('offspring');
+    console.log(offspring);
     flowers.forEach(function(flower) {
         var genome = flower.classList[0];
         if (genome in offspring) {
@@ -161,6 +176,7 @@ function flower_click(evt) { // {{{
         return false;
     }
     console.log('Breeding ' + selected[0].genotype + ' with ' + selected[1].genotype);
+    mark_parents(selected[0], selected[1]);
     offspring = breed(selected[0], selected[1]);
     show_offspring(species, offspring);
     return false;
@@ -181,6 +197,7 @@ function href_breed(species, genotype_a, genotype_b) { // {{{
     clear_parents(species);
     console.log(flower_a.genotype);
     console.log(flower_b.genotype);
+    mark_parents(flower_a, flower_a);
     var offspring = breed(flower_a, flower_b);
     show_offspring(species, offspring);
     return false;
