@@ -194,7 +194,6 @@ section.rose.condensed div.notes .boring {
 .parentA,
 .parentB,
 .result {
-    position: absolute;
     text-shadow: 1px 0px 0 black,
                  1px 1px 0 black,
                  1px -1px 0 black,
@@ -208,6 +207,7 @@ section.rose.condensed div.notes .boring {
 }
 
 .result {
+    position: absolute;
     right: 2px;
     bottom: 1px;
     text-align: center;
@@ -219,16 +219,17 @@ section.rose.condensed div.notes .boring {
 
 .parentA,
 .parentB {
-    left: 2px;
+    margin-left: 2px;
     font-size: 24px;
+    line-height: 0.9;
 }
 
 .parentA {
-    top: 1px;
+    margin-top: 2px;
 }
 
 .parentB {
-    bottom: 1px;
+    margin-top: 2px;
 }
 
 div.varieties > *:nth-child(12),
