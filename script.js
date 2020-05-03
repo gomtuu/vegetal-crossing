@@ -102,6 +102,19 @@ function fraction_genomes(genome_counts) { // {{{
     return genome_fracs;
 } // }}}
 
+function metabreed(list_a, list_b) {
+    var all_counts = {};
+    list_a.forEach(A => {
+        list_b.forEach(B => {
+            let counts = breed({'genotype': A}, {'genotype': B});
+            for (let genome in counts) {
+                all_counts[genome] = (all_counts[genome] || 0) + counts[genome];
+            }
+        });
+    });
+    return all_counts;
+}
+
 function get_species_flowers(species) { // {{{
     return document.querySelectorAll('section.' + species + ' div.varieties > div');
 } // }}}
