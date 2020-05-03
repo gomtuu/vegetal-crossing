@@ -192,9 +192,9 @@ section.rose.condensed div.notes .boring {
 }
 
 .parentA::before,
-.parentB::before,
-.parentA.parentB::before,
+.parentB::after,
 .result {
+    position: absolute;
     text-shadow: 1px 0px 0 black,
                  1px 1px 0 black,
                  1px -1px 0 black,
@@ -204,13 +204,12 @@ section.rose.condensed div.notes .boring {
                  0px -1px 0 black,
                  0px 1px 0 black;
     font-weight: bold;
+    pointer-events: none;
 }
 
 .result {
-    position: absolute;
     right: 2px;
     bottom: 1px;
-    pointer-events: none;
     text-align: center;
 }
 
@@ -219,16 +218,19 @@ section.rose.condensed div.notes .boring {
 }
 
 .parentA::before,
-.parentB::before {
-    content: "parent";
-    position: absolute;
+.parentB::after {
     left: 2px;
-    top: 1px;
-    pointer-events: none;
+    font-size: 24px;
 }
 
-.parentA.parentB::before {
-    content: "parents";
+.parentA::before {
+    content: "A";
+    top: 1px;
+}
+
+.parentB::after {
+    content: "B";
+    bottom: 1px;
 }
 
 div.varieties > *:nth-child(12),
@@ -698,8 +700,10 @@ div.species_menu ul button img {
     }
 
     section.rose.condensed .parentA::before,
-    section.rose.condensed .parentB::before,
-    section.rose.condensed .parentA.parentB::before,
+    section.rose.condensed .parentB::after {
+        font-size: 16px;
+    }
+
     section.rose.condensed .result {
         font-size: 12px;
     }
