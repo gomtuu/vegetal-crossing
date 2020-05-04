@@ -201,8 +201,6 @@ section.rose.condensed div.notes .boring {
     display: none;
 }
 
-.parentA,
-.parentB,
 .result {
     text-shadow: 1px 0px 0 black,
                  1px 1px 0 black,
@@ -229,17 +227,20 @@ section.rose.condensed div.notes .boring {
 
 .parentA,
 .parentB {
+    margin-top: 2px;
     margin-left: 2px;
-    font-size: 24px;
-    line-height: 0.9;
+    pointer-events: none;
 }
 
-.parentA {
-    margin-top: 2px;
-}
-
-.parentB {
-    margin-top: 2px;
+.parentA > div,
+.parentB > div {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 19px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 200px;
+    pointer-events: none;
 }
 
 div.varieties > *:nth-child(12),
@@ -705,8 +706,10 @@ div.species_menu ul button img {
         --tile-width: 48px;
     }
 
-    section.rose.condensed .parentA,
-    section.rose.condensed .parentB {
+    section.rose.condensed .parentA > div,
+    section.rose.condensed .parentB > div {
+        padding-left: 5px;
+        padding-right: 5px;
         font-size: 16px;
     }
 

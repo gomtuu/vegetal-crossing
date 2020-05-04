@@ -171,7 +171,7 @@ function mark_parent(group, flower, label) { // {{{
     var count = group.filter(fl => fl.genotype == flower.genotype).length;
     var a_div = flower.element.querySelector(selector) || document.createElement('div');
     a_div.classList.add(css_class);
-    a_div.innerHTML = group.length == 1 ? label : String(count) + label;
+    a_div.innerHTML = '<div>' + (group.length == 1 ? label : String(count) + label) + '</div>';
     flower.element.appendChild(a_div);
 } // }}}
 
