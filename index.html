@@ -23,7 +23,7 @@
             <p>Experiment with different combinations to get a feel for how flower breeding works. In general, when you breed varieties that are on edges or in corners, the results are more limited than when you include the more central varieties. Breeding the centermost variety with itself can yeild offspring of any variety. Breeding a corner variety (e.g., the topmost, rightmost, frontmost variety) with itself can yield only copies of that variety.</p>
             <p>The breeding rules are the same for every species, but the colors, seed starting points, and number of dimensions are different.</p>
             <h3>Advanced Breeding</h3>
-            <p>Some situations aren't as clear as "breed variety A with variety B" because you know the parents' colors but not their genotypes. For example, breeding red and yellow seed hyacinths gives you an orange variety that can be bred with a copy of itself to make purple. But it can also make more copies of itself, or it can make a second orange variety that's better than its parents at making purple—and the first variety is twice as likely as the second. If you want to know the average probability that a pair of unidentified orange offspring from the first orange variety will produce purple (or anything else), you can select multiple possible <strong>A</strong> parents and multiple possible <strong>B</strong> parents in any ratio.</p>
+            <p>Some situations aren't as simple as "breed variety A with variety B" because you know the parents' colors but not their genotypes. For example, breeding red and yellow hyacinths from seeds gives you an orange variety that can be bred with a copy of itself to make purple. But the orange can also make more copies of itself, or it can make a second orange variety that's better than its parents at making purple—and the first orange variety is twice as common as the second. If you want to know the average probability that a pair of unidentified orange offspring from the first orange variety will produce purple (or anything else), you can select both of the orange varieties as potential <strong>A</strong> parents in a two-to-one ratio and do the same for the <strong>B</strong> parents.</p>
             <p>Just select a variety as an <strong>A</strong> parent, then hold the Ctrl key and select another variety. Each time you Ctrl-click a variety, that variety is added to the pool of possible <strong>A</strong> parents. To select the <strong>B</strong> parents, simply let go of Ctrl, click the first <strong>B</strong> parent, and then hold Ctrl and select more <strong>B</strong> parents as desired.</p>
             <p>The pools can contain more than one copy of each variety, so you can increase the ratio of one variety to the others by adding it multiple times. The number of copies of each variety in the pool is shown in front of the <strong>A</strong> or <strong>B</strong> label. (The number is omitted if the pool only contains a single copy of a single variety.)</p>
         </div>
@@ -160,9 +160,103 @@
                 </div>
             </div>
             <div class="instructions cosmos">
+                <h4>Pink Cosmos</h4>
                 <ol>
-                    <li>Re200 ✕ Wh001 → Pi100, Pi101</li>
-                    <li>Re200 ✕ Ye001 → Or110, Or111</li>
+                    <li><span class="breed" data-parents="rryyWw|RRyyww">White001 ✕ Red200 → Pink101, Pink100</span></li>
+                </ol>
+                <h4>Orange Cosmos</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rrYYWw|RRyyww">Red200 ✕ Yellow021 → Orange111, Orange110</span></li>
+                </ol>
+                <h4>Black Cosmos</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RrYyWw,RrYyww|RrYyWw,RrYyww">Orange11? ✕ Orange11? → Black221, Black220</span> (15/256)</li>
+                    <li><span class="breed" data-parents="RRYyWw|RRYyWw">Orange211 ✕ Orange211 → Black22?</span> (3/16)</li>
+                </ol>
+            </div>
+            <div class="instructions hyacinth">
+                <h4>Pink Hyacinth</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWw|RRyyWw">White 001 ✕ Red201 → Pink101</span> (1/2)</li>
+                </ol>
+                <h4>Orange Hyacinth</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RRyyWw|rrYYww">Red201 ✕ Yellow020 → Orange110</span> (1/2)</li>
+                </ol>
+                <h4>Blue Hyacinth (homozygous)</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWw|rryyWw">White001 ✕ White001 → Blue002</span> (1/4)</li>
+                </ol>
+                <h4>Blue Hyacinth (heterozygous)</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RrYyww|RrYyww">Orange110 ✕ Orange110 → Blue210</span> (1/8)</li>
+                </ol>
+                <h4>Purple Hyacinth</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RrYyww|RrYyww">Orange110 ✕ Orange110 → Purple220</span> (1/16)</li>
+                    <li><span class="breed" data-parents="RrYyww,RrYyww,RrYYww|RrYyww,RrYyww,RrYYww">Orange1?0 ✕ Orange1?0 → Purple220</span> (1/9)</li>
+                    <li><span class="breed" data-parents="RrYyww|RRYyww">Orange110 ✕ Blue210 → Purple220</span> (1/8)</li>
+                    <li><span class="breed" data-parents="RrYyww,RrYyww,RrYYww|RRYyww">Orange1?0 ✕ Blue210 → Purple220</span> (1/6)</li>
+                    <li><span class="breed" data-parents="RrYYww|RrYYww">Orange120 ✕ Orange120 → Purple220</span> (1/4)</li>
+                    <li><span class="breed" data-parents="RRYyww|RRYyww">Blue210 ✕ Blue210 → Purple220</span> (1/4)</li>
+                </ol>
+            </div>
+            <div class="instructions lily">
+                <h4>Pink Lily (heterozygous)</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWW|RRyyWw">White002 ✕ Red201 → Pink101</span> (1/2)</li>
+                </ol>
+                <h4>Pink Lily (homozygous)</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RRyyWw|RRyyWw">Red201 ✕ Red201 → Pink202</span> (1/4)</li>
+                </ol>
+                <h4>Orange Lily</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RRyyWw|rrYYww">Red201 ✕ Yellow020 → Orange110</span> (1/2)</li>
+                </ol>
+                <h4>Black Lily</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RRyyWw|RRyyWw">Red201 ✕ Red201 → Black200</span> (1/4)</li>
+                </ol>
+            </div>
+            <div class="instructions mum">
+                <h4>Pink Mum</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWw|RRyyww">White001 ✕ Red200 → Pink10?</span> (1/1)</li>
+                </ol>
+                <h4>Purple Mum (homozygous)</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWw|rryyWw">White001 ✕ White001 → Purple002</span> (1/4)</li>
+                </ol>
+                <h4>Purple Mum (heterozygous)</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rrYYww|RRyyww">Yellow020 ✕ Red200 → Yellow110</span> (1/1)</li>
+                    <li><span class="breed" data-parents="RrYyww|RrYyww">Yellow110 ✕ Yellow110 → Purple??0</span> (1/4)</li>
+                </ol>
+                <h4>Green Mum</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RrYyww|RrYyww">Yellow110 ✕ Yellow110 → Green220</span> (1/16)</li>
+                    <li><span class="breed" data-parents="RRYyWw|RRYyWw">Purple211 ✕ Purple211 → Green22?</span> (3/16)</li>
+                    <li><span class="breed" data-parents="RrYYww,RRYyww|RrYYww,RRYyww">Purple??0 ✕ Purple??0 → Green220</span> (1/4)</li>
+                </ol>
+            </div>
+            <div class="instructions pansy">
+                <h4>Orange Pansy</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rrYYww|RRyyww">Yellow020 ✕ Red200 → Orange110</span> (1/1)</li>
+                </ol>
+                <h4>Blue Pansy</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWw|rryyWw">White001 ✕ White001 → Blue002</span> (1/4)</li>
+                </ol>
+                <h4>Purple Pansy</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWW|RRyyww">Blue002 ✕ Red200 → Red101</span> (1/1)</li>
+                    <li><span class="breed" data-parents="RryyWw|RryyWw">Red101 ✕ Red101 → Purple202</span> (1/16)</li>
+                    <li><span class="breed" data-parents="rryyWW,RryyWW,RryyWW|RryyWw">Blue?02 ✕ Red101 → Purple202</span> (1/12)</li>
+                    <li><span class="breed" data-parents="rryyWW,RryyWW,RryyWW|rryyWW,RryyWW,RryyWW">Blue?02 ✕ Blue?02 → Purple202</span> (1/9)</li>
+                    <li><span class="breed" data-parents="RryyWW|RryyWW">Blue102 ✕ Blue102 → Purple202</span> (1/4)</li>
+                    <li><span class="breed" data-parents="RRYYWw|RRYYWw">Orange221 ✕ Orange221 → Purple222</span> (1/4)</li>
                 </ol>
             </div>
             <div class="notes blue_rose_notes" style="display: none;">
@@ -210,6 +304,28 @@
                         </ul></li>
                 </ol>
             </div>
+            <div class="instructions tulip">
+                <h4>Pink Tulip</h4>
+                <ol>
+                    <li><span class="breed" data-parents="rryyWw|RRyyWw">White001 ✕ Red201 → Pink101</span> (1/2)</li>
+                </ol>
+                <h4>Orange Tulip</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RRyyWw|rrYYww">Red201 ✕ Yellow020 → Orange110</span> (1/2)</li>
+                </ol>
+                <h4>Black Tulip</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RRyyWw|RRyyWw">Red201 ✕ Red201 → Black200</span> (1/4)</li>
+                </ol>
+                <h4>Purple Tulip</h4>
+                <ol>
+                    <li><span class="breed" data-parents="RrYyww|RrYyww">Orange110 ✕ Orange110 → Purple220</span> (1/16)</li>
+                    <li><span class="breed" data-parents="RrYYww,RrYyww,RrYyww|RrYYww,RrYyww,RrYyww">Orange1?0 ✕ Orange1?0 → Purple220</span> (1/9)</li>
+                    <li><span class="breed" data-parents="RRYyww,RRYyww,RRyyww|RRYyww,RRYyww,RRyyww">Black2?0 ✕ Black2?0 → Purple220</span> (1/9)</li>
+                    <li><span class="breed" data-parents="RrYYww,RrYyww,RrYyww|RRYyww,RRYyww,RRyyww">Orange1?0 ✕ Black2?0 → Purple220</span> (1/9)</li>
+                    <li><span class="breed" data-parents="RRYyww|RRYyww">Black210 ✕ Black210 → Purple220</span> (1/4)</li>
+                    <li><span class="breed" data-parents="RrYYww|RrYYww">Orange120 ✕ Orange120 → Purple220</span> (1/4)</li>
+                </ol>
         </section>
         <script src="script.js"></script>
     </body>

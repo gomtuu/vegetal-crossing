@@ -126,6 +126,7 @@ div.varieties {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-content: flex-start;
     align-items: flex-end;
     width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
     margin-bottom: 36px;
@@ -186,6 +187,15 @@ section.rose.condensed div.varieties.SS {
 section.rose div.blue_rose_notes {
     display: block;
 }
+
+section:not(.cosmos) div.instructions.cosmos { display: none; }
+section:not(.hyacinth) div.instructions.hyacinth { display: none; }
+section:not(.lily) div.instructions.lily { display: none; }
+section:not(.mum) div.instructions.mum { display: none; }
+section:not(.pansy) div.instructions.pansy { display: none; }
+section:not(.rose) div.instructions.rose { display: none; }
+section:not(.tulip) div.instructions.tulip { display: none; }
+section:not(.windflower) div.instructions.windflower { display: none; }
 
 section.rose.condensed div.notes .boring {
     display: none;
