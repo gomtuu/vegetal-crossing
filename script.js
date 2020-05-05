@@ -240,8 +240,30 @@ function breed_link_click(evt) { // {{{
     evt.stopPropagation();
     var species = evt.target.closest('section').classList[0];
     var pools = evt.target.closest('.breed').dataset.parents.split('|');
-    var genotypes = [pools[0].split(','), pools[1].split(',')];
-    console.log(genotypes);
+    if (pools.length == 1 || (pools.length == 2 && pools[1] === '')) {
+        pools[1] = pools[0];
+    }
+    var pools_split = [pools[0].split(','), pools[1].split(',')];
+    var genotypes = [];
+    pools_split.forEach(pool => {
+        var pool_genos = []
+        pool.forEach(genespec => {
+            let parts = genespec.split(':');
+            let copies = 0;
+            let genotype = undefined;
+            if (isNaN(parts[0])) {
+                copies = 1;
+                genotype = parts[0];
+            } else {
+                copies = parts[0];
+                genotype = parts[1];
+            }
+            for (let i=0; i < copies; i++) {
+                pool_genos.push(genotype);
+            }
+        });
+        genotypes.push(pool_genos);
+    });
     href_breed(species, genotypes[0], genotypes[1]);
 } // }}}
 
