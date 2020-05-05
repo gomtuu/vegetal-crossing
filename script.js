@@ -239,7 +239,7 @@ function breed_link_click(evt) { // {{{
     evt.preventDefault();
     evt.stopPropagation();
     var species = evt.target.closest('section').classList[0];
-    var pools = evt.target.dataset.parents.split('|');
+    var pools = evt.target.closest('.breed').dataset.parents.split('|');
     var genotypes = [pools[0].split(','), pools[1].split(',')];
     console.log(genotypes);
     href_breed(species, genotypes[0], genotypes[1]);
@@ -283,7 +283,7 @@ varieties.forEach(function(el, i) {
     el.addEventListener('click', flower_click);
 });
 
-var breed_links = document.querySelectorAll('span.breed');
+var breed_links = document.querySelectorAll('.breed');
 breed_links.forEach(function(el, i) {
     el.addEventListener('click', breed_link_click);
 });

@@ -14,7 +14,7 @@
     --gap: 2px;
     --big-gap: 13px;
     --skew-offset: calc((var(--far-border) + var(--tile-height) + var(--near-border) + var(--gap)) / 2);
-    --section-brown: #4e4431;
+    --section-brown: 78, 68, 49;
     --game-cream: 255, 250, 228;
     --game-cyan: 12, 198, 184;
     --game-cyan-dark: 0, 180, 168;
@@ -50,7 +50,7 @@ section {
     position: relative;
     margin: 0 16px;
     border-radius: 0 0 16px 16px;
-    background-color: var(--section-brown);
+    background-color: rgb(var(--section-brown));
     color: white;
     overflow: hidden;
     display: flex;
@@ -265,77 +265,67 @@ div.varieties > *:nth-child(9n+9) {
 }
 
 /* Instructions */
+div.instructions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.instructions ul li {
+    margin-bottom: 4px;
+}
+
 div.breed {
     display: inline-flex;
+    vertical-align: middle;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid #60bcb6;
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    overflow: hidden;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid rgba(var(--section-brown), 0.25);
+    border-radius: 8px;
+    padding: 2px 4px;
+    color: rgb(var(--section-brown));
+    background-color: rgb(var(--game-cream));
+    cursor: pointer;
 }
 
 div.breed .operator {
     padding: 0 4px;
     font-size: 24px;
-    text-align: center;
 }
 
 div.breed .parent,
-div.breed .mix,
 div.breed .offspring {
-    display: inline-flex;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(var(--section-brown), 1);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-div.breed .parent {
+div.breed .known.parent,
+div.breed .known.offspring {
+    background-color: rgb(var(--phenotype));
+}
+
+div.breed .known.parent {
     background-image: var(--obtain);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
 }
 
-div.breed .parent,
-div.breed .offspring {
-    height: 40px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
-}
-
-div.breed .mix {
-    border-radius: 2px;
-    padding: 0 2px;
-    background-color: #509891;
-    background-color: rgb(var(--game-cyan-dark2));
-}
-
-div.breed .rate {
-    background-color: #60bcb6;
-    background-color: hsl(175, 68%, 60%);
-    border-radius: 2px;
-    padding: 0 2px;
-    margin-left: 10px;
-}
-
-div.breed .swatch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    border-radius: 2px;
-    background-color: rgb(var(--phenotype));
-    overflow: hidden;
-}
-
-div.breed .swatch label {
-    padding: 0 4px;
-    text-align: center;
-    line-height: 1.1;
-    color: black;
+div.breed label {
     font-size: 24px;
-    /*
-    background: #60bcb6;
-    */
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+div.breed label.white {
+    color: white;
 }
 
 /* Menu */
@@ -380,6 +370,43 @@ div.species_menu ul button img {
     height: auto;
     max-height: 72px;
     max-width: 100%;
+}
+
+/* General colors */
+.red {
+    background-color: rgb(var(--red));
+}
+
+.orange {
+    background-color: rgb(var(--orange));
+}
+
+.yellow {
+    background-color: rgb(var(--yellow));
+}
+
+.green {
+    background-color: rgb(var(--green));
+}
+
+.blue {
+    background-color: rgb(var(--blue));
+}
+
+.purple {
+    background-color: rgb(var(--purple));
+}
+
+.pink {
+    background-color: rgb(var(--pink));
+}
+
+.white {
+    background-color: rgb(var(--white));
+}
+
+.black {
+    background-color: rgb(var(--black));
 }
 
 /* Species colors */
