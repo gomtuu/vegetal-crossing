@@ -264,6 +264,80 @@ div.varieties > *:nth-child(9n+9) {
     transform: var(--tile-skew) translate(calc(-1 * var(--skew-offset)), 0);
 }
 
+/* Instructions */
+div.breed {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid #60bcb6;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+div.breed .operator {
+    padding: 0 4px;
+    font-size: 24px;
+    text-align: center;
+}
+
+div.breed .parent,
+div.breed .mix,
+div.breed .offspring {
+    display: inline-flex;
+}
+
+div.breed .parent {
+    background-image: var(--obtain);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+div.breed .parent,
+div.breed .offspring {
+    height: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+div.breed .mix {
+    border-radius: 2px;
+    padding: 0 2px;
+    background-color: #509891;
+    background-color: rgb(var(--game-cyan-dark2));
+}
+
+div.breed .rate {
+    background-color: #60bcb6;
+    background-color: hsl(175, 68%, 60%);
+    border-radius: 2px;
+    padding: 0 2px;
+    margin-left: 10px;
+}
+
+div.breed .swatch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    border-radius: 2px;
+    background-color: rgb(var(--phenotype));
+    overflow: hidden;
+}
+
+div.breed .swatch label {
+    padding: 0 4px;
+    text-align: center;
+    line-height: 1.1;
+    color: black;
+    font-size: 24px;
+    /*
+    background: #60bcb6;
+    */
+}
+
 /* Menu */
 div.species_menu {
     margin: 48px 16px 0;
