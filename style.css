@@ -15,6 +15,10 @@
     --big-gap: 13px;
     --skew-offset: calc((var(--far-border) + var(--tile-height) + var(--near-border) + var(--gap)) / 2);
     --section-brown: #4e4431;
+    --game-cream: 255, 250, 228;
+    --game-cyan: 12, 198, 184;
+    --game-cyan-dark: 0, 180, 168;
+    --game-cyan-dark2: 60, 176, 165;
     /* Default colors */
     --red: 255, 0, 0;
     --orange: 255, 128, 0;
@@ -33,8 +37,8 @@ body {
     padding: 0 0 12px;
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
-    background-color: #f1e26f;
     background-color: #e9f5ec;
+    background-color: rgb(234, 246, 245);
     color: #005c56;
 }
 
@@ -263,10 +267,10 @@ div.varieties > *:nth-child(9n+9) {
 /* Menu */
 div.species_menu {
     margin: 48px 16px 0;
-    border-top: 4px solid #60bcb6;
+    border-top: 4px solid rgb(var(--game-cyan-dark2));
     border-radius: 20px 20px 0 0;
     padding: 4px;
-    background: #ffffff;
+    background: rgba(var(--game-cream));
 }
 
 div.species_menu ul {
@@ -295,7 +299,7 @@ button:focus {
 
 div.species_menu ul button.selected {
     background-color: #60bcb6;
-    background-color: #60bcb6;
+    background-color: rgb(var(--game-cyan));
 }
 
 div.species_menu ul button img {
