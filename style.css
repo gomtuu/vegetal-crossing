@@ -14,6 +14,9 @@
     --gap: 2px;
     --big-gap: 13px;
     --skew-offset: calc((var(--far-border) + var(--tile-height) + var(--near-border) + var(--gap)) / 2);
+    --row-skew-offset: 0;
+    --highlight-offset: 0;
+    --tile-translate: translate(var(--row-skew-offset), var(--highlight-offset));
     --section-brown: 78, 68, 49;
     --game-cream: 255, 250, 228;
     --game-cyan: 12, 198, 184;
@@ -153,13 +156,19 @@ div.varieties > div {
     position: relative;
     overflow: hidden;
     user-select: none;
-    transform: var(--tile-skew);
+    transform: translate(var(--row-skew-offset), var(--highlight-offset)) var(--tile-skew);
     transform-origin: center;
     transition: background-color 0.2s;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+}
+
+div.varieties > div.highlighted {
+    --highlight-offset: -5px;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.6);
+    z-index: 2;
 }
 
 div.varieties > div.impossible {
@@ -255,13 +264,13 @@ div.varieties > *:nth-child(21) {
 div.varieties > *:nth-child(9n+1),
 div.varieties > *:nth-child(9n+2),
 div.varieties > *:nth-child(9n+3) {
-    transform: var(--tile-skew) translate(var(--skew-offset), 0);
+    --row-skew-offset: var(--skew-offset);
 }
 
 div.varieties > *:nth-child(9n+7),
 div.varieties > *:nth-child(9n+8),
 div.varieties > *:nth-child(9n+9) {
-    transform: var(--tile-skew) translate(calc(-1 * var(--skew-offset)), 0);
+    --row-skew-offset: calc(-1 * var(--skew-offset));
 }
 
 /* Instructions */

@@ -287,6 +287,24 @@ function set_species(species) { // {{{
     document.querySelector('section h3').innerHTML = species;
 } // }}}
 
+function highlight_varieties(evt) { // {{{
+    var icon = evt.target.closest('div[data-genotypes]');
+    if (icon === null) {
+        return false;
+    }
+    var selector = '.' + icon.dataset.genotypes.replace(',', ', .');
+    document.querySelectorAll(selector).forEach(el => el.classList.add('highlighted'));
+} // }}}
+
+function unhighlight_varieties(evt) { // {{{
+    var icon = evt.target.closest('div[data-genotypes]');
+    if (icon === null) {
+        return false;
+    }
+    var selector = '.' + icon.dataset.genotypes.replace(',', ', .');
+    document.querySelectorAll(selector).forEach(el => el.classList.remove('highlighted'));
+} // }}}
+
 var species_buttons = document.querySelectorAll('div.species_menu button');
 species_buttons.forEach(function(el, i) {
     el.addEventListener('click', function(evt) {
@@ -313,3 +331,7 @@ breed_links.forEach(function(el, i) {
 document.querySelector('button#boring_rose_toggle').addEventListener('click', function() {
     document.querySelector('section').classList.toggle('condensed');
 });
+
+var breed_icons = document.querySelectorAll('div.breed .parent, div.breed .offspring');
+breed_icons.forEach(element => element.addEventListener('mouseover', highlight_varieties));
+breed_icons.forEach(element => element.addEventListener('mouseout', unhighlight_varieties));
