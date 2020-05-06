@@ -166,8 +166,8 @@ div.varieties > div {
 }
 
 div.varieties > div.highlighted {
-    --highlight-offset: -5px;
-    box-shadow: 4px 7px 2px rgba(0, 0, 0, 0.6);
+    --highlight-offset: -6px;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 1), 4.5px 8px 2px rgba(0, 0, 0, 0.6);
     z-index: 2;
 }
 
@@ -178,6 +178,11 @@ div.varieties > div.impossible {
     border-bottom-color: rgba(0, 0, 0, 0.02);
     border-left-color: rgba(255, 255, 255, 0.02);
 }
+
+div.varieties > div.impossible.highlighted {
+    box-shadow: 1px 1px 0 2px rgba(0, 0, 0, 0.2), 4px 7px 2px rgba(0, 0, 0, 0.12);
+}
+
 
 section.rose.condensed div.varieties.Ss {
     width: calc(var(--far-border) + var(--tile-width) + var(--near-border));
