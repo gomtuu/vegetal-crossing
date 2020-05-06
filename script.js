@@ -292,7 +292,7 @@ function highlight_varieties(evt) { // {{{
     if (icon === null) {
         return false;
     }
-    var selector = '.' + icon.dataset.genotypes.replace(',', ', .');
+    var selector = '.' + icon.dataset.genotypes.replace(/,/g, ', .');
     document.querySelectorAll(selector).forEach(el => el.classList.add('highlighted'));
 } // }}}
 
@@ -301,7 +301,7 @@ function unhighlight_varieties(evt) { // {{{
     if (icon === null) {
         return false;
     }
-    var selector = '.' + icon.dataset.genotypes.replace(',', ', .');
+    var selector = '.' + icon.dataset.genotypes.replace(/,/g, ', .');
     document.querySelectorAll(selector).forEach(el => el.classList.remove('highlighted'));
 } // }}}
 
