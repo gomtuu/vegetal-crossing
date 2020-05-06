@@ -241,10 +241,14 @@ function href_breed(species, genotypes_a, genotypes_b) { // {{{
 } // }}}
 
 function breed_link_click(evt) { // {{{
+    var species = evt.target.closest('section').classList[0];
+    var button_data = evt.target.closest('.breed').dataset;
+    if (button_data.parents === undefined) {
+        return false;
+    }
     evt.preventDefault();
     evt.stopPropagation();
-    var species = evt.target.closest('section').classList[0];
-    var pools = evt.target.closest('.breed').dataset.parents.split('|');
+    var pools = button_data.parents.split('|');
     if (pools.length == 1 || (pools.length == 2 && pools[1] === '')) {
         pools[1] = pools[0];
     }

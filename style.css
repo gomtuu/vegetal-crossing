@@ -281,25 +281,41 @@ div.varieties > *:nth-child(9n+9) {
 /* Instructions */
 div.instructions ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
 }
 
 div.instructions ul li {
     margin-bottom: 4px;
-}
-
-div.breed {
-    display: inline-flex;
-    vertical-align: middle;
-    align-items: center;
     border-top: 2px solid #ffffff;
     border-bottom: 2px solid rgba(var(--section-brown), 0.25);
     border-radius: 8px;
-    padding: 2px 4px;
-    color: rgb(var(--section-brown));
     background-color: rgb(var(--game-cream));
+}
+
+div.breed {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    padding: 4px 4px;
+    color: rgb(var(--section-brown));
     cursor: pointer;
+}
+
+div.breed:first-child {
+    padding-top: 2px;
+}
+
+div.breed:last-child {
+    padding-bottom: 2px;
+}
+
+div.breed + div.breed {
+    border-top: 2px solid rgba(var(--section-brown), 0.5);
+    padding-top: 4px;
 }
 
 div.breed .operator {
@@ -332,8 +348,9 @@ div.breed label {
     cursor: pointer;
 }
 
+div.breed .black label,
 div.breed label.white {
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Menu */
