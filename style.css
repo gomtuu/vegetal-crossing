@@ -322,13 +322,7 @@ div.breed .offspring {
 
 div.breed .known.parent,
 div.breed .known.offspring {
-    background-color: rgb(var(--phenotype));
-}
-
-div.breed .known.parent {
-    background-image: var(--obtain);
-    background-repeat: no-repeat;
-    background-position: center;
+    background: rgb(var(--phenotype)) var(--obtain) no-repeat center;
     background-size: 50%;
 }
 
