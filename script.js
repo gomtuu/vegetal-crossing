@@ -46,8 +46,8 @@ function multiply(A, B) { // {{{
 } // }}}
 
 function breed(A, B) { // {{{
-    var genes_a = A.genotype.match(/.{2}/g);
-    var genes_b = B.genotype.match(/.{2}/g);
+    var genes_a = A.match(/.{2}/g);
+    var genes_b = B.match(/.{2}/g);
     var possibilities = [];
     for (var i=0; i < genes_a.length; i++) {
         possibilities[i] = [];
@@ -103,11 +103,16 @@ function fraction_genomes(genome_counts) { // {{{
 
 function breed_multiple(list_a, list_b) { // {{{
     var all_counts = {};
-    list_a.forEach(A => {
-        list_b.forEach(B => {
+    var freq_a = {};
+    var freq_b = {};
+    list_a.forEach(A => freq_a[A.genotype] = (freq_a[A.genotype] || 0) + 1);
+    list_b.forEach(B => freq_b[B.genotype] = (freq_b[B.genotype] || 0) + 1);
+    Object.keys(freq_a).forEach(A => {
+        Object.keys(freq_b).forEach(B => {
             let counts = breed(A, B);
+            let freq_multiplier = freq_a[A] * freq_b[B];
             for (let genome in counts) {
-                all_counts[genome] = (all_counts[genome] || 0) + counts[genome];
+                all_counts[genome] = (all_counts[genome] || 0) + counts[genome] * freq_multiplier;
             }
         });
     });
