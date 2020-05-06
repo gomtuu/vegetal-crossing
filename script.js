@@ -328,8 +328,10 @@ breed_links.forEach(function(el, i) {
     el.addEventListener('click', breed_link_click);
 });
 
-document.querySelector('button#boring_rose_toggle').addEventListener('click', function() {
+document.querySelector('button#boring_rose_toggle').addEventListener('click', function(evt) {
     document.querySelector('section').classList.toggle('condensed');
+    evt.preventDefault();
+    evt.stopPropagation();
 });
 
 var breed_icons = document.querySelectorAll('div.breed .parent, div.breed .offspring');
