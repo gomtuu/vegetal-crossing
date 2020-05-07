@@ -378,23 +378,74 @@
                 </ul>
             </div>
             <div class="instructions pansy">
-                <h4>Orange Pansy</h4>
-                <ol>
-                    <li><span class="breed" data-parents="rrYYww|RRyyww">Yellow020 ✕ Red200 → Orange110</span> (1/1)</li>
-                </ol>
-                <h4>Blue Pansy</h4>
-                <ol>
-                    <li><span class="breed" data-parents="rryyWw|rryyWw">White001 ✕ White001 → Blue002</span> (1/4)</li>
-                </ol>
-                <h4>Purple Pansy</h4>
-                <ol>
-                    <li><span class="breed" data-parents="rryyWW|RRyyww">Blue002 ✕ Red200 → Red101</span> (1/1)</li>
-                    <li><span class="breed" data-parents="RryyWw|RryyWw">Red101 ✕ Red101 → Purple202</span> (1/16)</li>
-                    <li><span class="breed" data-parents="rryyWW,RryyWW,RryyWW|RryyWw">Blue?02 ✕ Red101 → Purple202</span> (1/12)</li>
-                    <li><span class="breed" data-parents="rryyWW,RryyWW,RryyWW|rryyWW,RryyWW,RryyWW">Blue?02 ✕ Blue?02 → Purple202</span> (1/9)</li>
-                    <li><span class="breed" data-parents="RryyWW|RryyWW">Blue102 ✕ Blue102 → Purple202</span> (1/4)</li>
-                    <li><span class="breed" data-parents="RRYYWw|RRYYWw">Orange221 ✕ Orange221 → Purple222</span> (1/4)</li>
-                </ol>
+                <ul>
+                    <li><div class="breed" data-parents="rrYYww|RRyyww">
+                            <div class="parent known rrYYww" title="020" data-genotypes="rrYYww"></div>
+                            <div class="operator">×</div>
+                            <div class="parent known RRyyww" title="200" data-genotypes="RRyyww"></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RrYyww" data-genotypes="RrYyww"></div>
+                        </div></li>
+                    <li><div class="breed" data-parents="rryyWw|">
+                            <div class="parent known rryyWw" title="001" data-genotypes="rryyWw"></div>
+                            <div class="operator">×</div>
+                            <div class="parent known rryyWw" title="001" data-genotypes="rryyWw"></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known rryyWW" title="002" data-genotypes="rryyWW"><label>▲</label></div>
+                            <div class="operator">, …</div>
+                        </div></li>
+                    <li><div class="breed" data-parents="rryyWW|RRyyww">
+                            <div class="parent known rryyWW" title="002" data-genotypes="rryyWW"><label>▲</label></div>
+                            <div class="operator">×</div>
+                            <div class="parent known RRyyww" title="200" data-genotypes="RRyyww"></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RryyWw" title="101" data-genotypes="RryyWw"><label>▲</label></div>
+                        </div>
+                        <div class="breed" data-parents="RryyWw|">
+                            <div class="parent known RryyWw" title="101" data-genotypes="RryyWw"><label>▲</label></div>
+                            <div class="operator">×</div>
+                            <div class="parent known RryyWw" title="101" data-genotypes="RryyWw"><label>▲</label></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RRyyWW" title="202" data-genotypes="RRyyWW"></div>
+                            <div class="operator">,</div>
+                            <div class="offspring blue" data-genotypes="rryyWW,RryyWW"><label>●</label></div>
+                            <div class="operator">, …</div>
+                        </div>
+                        <div class="breed" data-parents="rryyWW,2:RryyWW|RryyWw">
+                            <div class="parent blue" data-genotypes="rryyWW,RryyWW"><label>●</label></div>
+                            <div class="operator">×</div>
+                            <div class="parent known RryyWw" title="101" data-genotypes="RryyWw"><label>▲</label></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RRyyWW" title="202" data-genotypes="RRyyWW"></div>
+                            <div class="operator">, …</div>
+                        </div>
+                        <div class="breed" data-parents="rryyWW,2:RryyWW|">
+                            <div class="parent blue" data-genotypes="rryyWW,RryyWW"><label>●</label></div>
+                            <div class="operator">×</div>
+                            <div class="parent blue" data-genotypes="rryyWW,RryyWW"><label>●</label></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RRyyWW" title="202" data-genotypes="RRyyWW"></div>
+                            <div class="operator">, …</div>
+                        </div></li>
+                    <li><div class="breed" data-parents="RryyWW|">
+                            <div class="parent known RryyWW" title="102" data-genotypes="RryyWW"></div>
+                            <div class="operator">×</div>
+                            <div class="parent known RryyWW" title="102" data-genotypes="RryyWW"></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RRyyWW" title="202" data-genotypes="RRyyWW"></div>
+                            <div class="operator">,</div>
+                            <div class="offspring blue" data-genotypes="rryyWW,RryyWW"><label>●</label></div>
+                            <div class="operator">, …</div>
+                        </div></li>
+                    <li><div class="breed" data-parents="RRYYWw|">
+                            <div class="parent known RRYYWw" title="221" data-genotypes="RRYYWw"></div>
+                            <div class="operator">×</div>
+                            <div class="parent known RRYYWw" title="221" data-genotypes="RRYYWw"></div>
+                            <div class="operator">=</div>
+                            <div class="offspring known RRYYWW" title="222" data-genotypes="RRYYWW"></div>
+                            <div class="operator">, …</div>
+                        </div></li>
+                </ul>
             </div>
             <div class="notes blue_rose_notes" style="display: none;">
                 <h4>Blue Rose Instructions</h4>
