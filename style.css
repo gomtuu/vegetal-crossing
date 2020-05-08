@@ -104,7 +104,7 @@ div.options button {
 }
 
 section:not(.rose) button#condensed_view {
-    opacity: 0;
+    opacity: 0.3;
 }
 
 section.condensed button#condensed_view {
