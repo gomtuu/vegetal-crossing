@@ -51,15 +51,14 @@ div.intro {
 
 section {
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin: 0 16px;
     border-radius: 0 0 16px 16px;
     padding: 36px 0;
     background-color: rgb(var(--section-brown));
     color: white;
     overflow: hidden;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
 }
 
 h1, h2, h3 {
@@ -119,6 +118,12 @@ div.notes {
     margin-top: 0;
     margin-bottom: 0;
     overflow: hidden;
+}
+
+div.diagram {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 div.varieties {
@@ -781,23 +786,43 @@ div.species_menu ul button img {
 .windflower .Rryyww { --phenotype: var(--red); }
 .windflower .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 1024px) {
 
-    section.rose:not(.condensed) {
+    section.rose:not(.condensed) div.diagram {
+        grid-column: 1 / 3;
+    }
+
+    section.rose:not(.condensed) div.instructions {
+        justify-self: center;
+    }
+
+}
+
+@media only screen and (max-width: 1023px) {
+
+    section.rose.condensed {
+        grid-template-columns: 1fr;
+    }
+
+    section.rose:not(.condensed) div.diagram {
         flex-direction: column;
         align-items: center;
     }
 
-    section.rose:not(.condensed) div.varieties:nth-child(3n+3),
-    section.rose:not(.condensed) div.varieties:nth-child(3n+4) {
+    section.rose:not(.condensed) div.varieties:nth-child(3n+2),
+    section.rose:not(.condensed) div.varieties:nth-child(3n+3) {
         margin-bottom: 36px;
         border-bottom: 10px solid rgba(0, 0, 0, 0.5);
         padding-bottom: 36px;
     }
 
+    section.rose.condensed div.instructions {
+        justify-self: center;
+    }
+
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 767px) {
 
     div.species_menu {
         margin-left: 0;
@@ -812,6 +837,7 @@ div.species_menu ul button img {
     }
 
     section {
+        grid-template-columns: 1fr;
         margin-left: 0;
         margin-right: 0;
         border-left: 0;
@@ -821,6 +847,7 @@ div.species_menu ul button img {
 
     div.instructions {
         margin-top: 36px;
+        justify-self: center;
     }
 
     div.notes {
