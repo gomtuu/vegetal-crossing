@@ -853,6 +853,10 @@ div.species_menu ul button img {
         border-radius: 0;
     }
 
+    div.options {
+        grid-column: auto;
+    }
+
     div.instructions {
         margin-top: 36px;
         justify-self: center;
