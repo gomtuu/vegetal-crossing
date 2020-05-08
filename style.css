@@ -53,6 +53,7 @@ section {
     position: relative;
     margin: 0 16px;
     border-radius: 0 0 16px 16px;
+    padding: 36px 0;
     background-color: rgb(var(--section-brown));
     color: white;
     overflow: hidden;
@@ -63,15 +64,6 @@ section {
 
 h1, h2, h3 {
     font-family: "Zilla Slab", serif;
-}
-
-section h3 {
-    margin-top: 36px;
-    margin-bottom: 48px;
-    font-size: 36px;
-    text-align: center;
-    flex-basis: 100%;
-    text-transform: capitalize;
 }
 
 section span.breed {
@@ -136,7 +128,6 @@ div.varieties {
     align-content: flex-start;
     align-items: flex-end;
     width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
-    margin-bottom: 36px;
 }
 
 div.varieties > div {
@@ -799,8 +790,9 @@ div.species_menu ul button img {
 
     section.rose:not(.condensed) div.varieties:nth-child(3n+3),
     section.rose:not(.condensed) div.varieties:nth-child(3n+4) {
-        padding-bottom: 36px;
+        margin-bottom: 36px;
         border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+        padding-bottom: 36px;
     }
 
 }
@@ -825,6 +817,10 @@ div.species_menu ul button img {
         border-left: 0;
         border-right: 0;
         border-radius: 0;
+    }
+
+    div.instructions {
+        margin-top: 36px;
     }
 
     div.notes {

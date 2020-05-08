@@ -277,7 +277,6 @@ function breed_link_click(evt) { // {{{
 } // }}}
 
 function set_species(species) { // {{{
-    var clicked_button = undefined;
     var section = document.querySelector('section');
     var old_species = section.classList[0];
     selected = [];
@@ -286,14 +285,10 @@ function set_species(species) { // {{{
     clear_offspring(old_species);
     species_buttons.forEach(function(button, i) {
         button.classList.remove('selected');
-        if (button.classList.contains(species)) {
-            clicked_button = button;
-        }
         section.classList.remove(button.classList[0]);
     });
-    clicked_button.classList.add('selected');
+    document.querySelector('div.species_menu button.' + species).classList.add('selected');
     section.classList.add(species);
-    document.querySelector('section h3').innerHTML = species;
 } // }}}
 
 function highlight_varieties(evt) { // {{{
