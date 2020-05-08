@@ -812,6 +812,10 @@ div.species_menu ul button img {
         grid-template-columns: 1fr;
     }
 
+    section.rose.condensed div.options {
+        grid-column: auto;
+    }
+
     section.rose:not(.condensed) div.diagram {
         flex-direction: column;
         align-items: center;
