@@ -101,18 +101,28 @@ function fraction_genomes(genome_counts) { // {{{
     return genome_fracs;
 } // }}}
 
-function breed_multiple(list_a, list_b) { // {{{
+function breed_multiple(list_a, list_b, mode) { // {{{
     var all_counts = {};
     var freq_a = {};
     var freq_b = {};
     list_a.forEach(A => freq_a[A.genotype] = (freq_a[A.genotype] || 0) + 1);
     list_b.forEach(B => freq_b[B.genotype] = (freq_b[B.genotype] || 0) + 1);
-    Object.keys(freq_a).forEach(A => {
-        Object.keys(freq_b).forEach(B => {
-            let counts = breed(A, B);
-            let freq_multiplier = freq_a[A] * freq_b[B];
-            for (let genome in counts) {
-                all_counts[genome] = (all_counts[genome] || 0) + counts[genome] * freq_multiplier;
+    if (mode === undefined) {
+        mode = 'cross';
+    }
+    Object.keys(freq_a).forEach((A, i) => {
+        Object.keys(freq_b).forEach((B, j) => {
+            let should_breed = (mode == 'cross' || (mode == 'clone' && i == j));
+            if (should_breed) {
+                let counts = breed(A, B);
+                if (mode == 'cross') {
+                    var freq_multiplier = freq_a[A] * freq_b[B];
+                } else {
+                    var freq_multiplier = freq_a[A];
+                }
+                for (let genome in counts) {
+                    all_counts[genome] = (all_counts[genome] || 0) + counts[genome] * freq_multiplier;
+                }
             }
         });
     });
