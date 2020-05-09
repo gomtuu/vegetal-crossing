@@ -129,7 +129,7 @@ div.options button {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     padding: 8px 12px;
-    font: 16px "Zilla Slab", serif;
+    font: 18px "Zilla Slab", serif;
     font-weight: bold;
     background: transparent;
     color: rgb(var(--game-cream));
@@ -362,6 +362,8 @@ div.breed .operator {
 
 .vcfont {
     font-family: VegetalCrossing, Roboto;
+    line-height: 1;
+    font-weight: normal;
 }
 
 div.breed .parent,
@@ -901,6 +903,15 @@ div.species_menu ul button img {
 
     div.options {
         grid-column: auto;
+    }
+
+    div.options li {
+        flex-basis: calc(100% / 3);
+    }
+
+    div.options button {
+        padding-left: 4px;
+        padding-right: 4px;
     }
 
     div.instructions {

@@ -134,15 +134,15 @@ function breed_multiple(list_a, list_b) { // {{{
     list_a.forEach(A => freq_a[A.genotype] = (freq_a[A.genotype] || 0) + 1);
     list_b.forEach(B => freq_b[B.genotype] = (freq_b[B.genotype] || 0) + 1);
     var mode = {
-        '0': 'cross',
-        '1': 'clone'
+        '0': 'all',
+        '1': 'clones'
     }[document.querySelector('button#breed_mode').dataset.state];
     Object.keys(freq_a).forEach((A, i) => {
         Object.keys(freq_b).forEach((B, j) => {
-            let should_breed = (mode == 'cross' || (mode == 'clone' && i == j));
+            let should_breed = (mode == 'all' || (mode == 'clones' && i == j));
             if (should_breed) {
                 let counts = breed(A, B);
-                if (mode == 'cross') {
+                if (mode == 'all') {
                     var freq_multiplier = freq_a[A] * freq_b[B];
                 } else {
                     var freq_multiplier = freq_a[A];
@@ -286,39 +286,62 @@ function href_breed(species, genotypes_a, genotypes_b) { // {{{
     return false;
 } // }}}
 
+function parse_genespecs(genespecs_string) { // {{{
+    var genespecs = genespecs_string.split(',');
+    var genotypes = []
+    genespecs.forEach(genespec => {
+        let parts = genespec.split(':');
+        let copies = 0;
+        let genotype = undefined;
+        if (isNaN(parts[0])) {
+            copies = 1;
+            genotype = parts[0];
+        } else {
+            copies = parts[0];
+            genotype = parts[1];
+        }
+        for (let i=0; i < copies; i++) {
+            genotypes.push(genotype);
+        }
+    });
+    return genotypes;
+} // }}}
+
+function parse_pools(pools_string) { // {{{
+    var pools = pools_string.split('|');
+    if (pools.length == 1 || (pools.length == 2 && pools[1] === '')) {
+        pools[1] = pools[0];
+    }
+    return pools.map(p => parse_genespecs(p));
+} // }}}
+
+function set_breed_mode(mode) { // {{{
+    var states = [
+        'Breeding: <span class="vcfont">X</span>&nbsp;All&nbsp;Combos',
+        'Breeding: <span class="vcfont">O</span>&nbsp;Clones&nbsp;Only'];
+    var button = document.querySelector('button#breed_mode');
+    if (mode == undefined) {
+        mode = (Number(button.dataset.state) + 1) % states.length;
+    } else {
+        mode = {
+            'all': 0,
+            'clones': 1
+        }[mode];
+    }
+    button.dataset.state = mode;
+    button.innerHTML = states[button.dataset.state];
+} // }}}
+
 function breed_link_click(evt) { // {{{
     var species = evt.target.closest('section').classList[0];
     var button_data = evt.target.closest('.breed').dataset;
     if (button_data.parents === undefined) {
         return false;
     }
+    set_breed_mode(button_data.mode || 'all');
     evt.preventDefault();
     evt.stopPropagation();
-    var pools = button_data.parents.split('|');
-    if (pools.length == 1 || (pools.length == 2 && pools[1] === '')) {
-        pools[1] = pools[0];
-    }
-    var pools_split = [pools[0].split(','), pools[1].split(',')];
-    var genotypes = [];
-    pools_split.forEach(pool => {
-        var pool_genos = []
-        pool.forEach(genespec => {
-            let parts = genespec.split(':');
-            let copies = 0;
-            let genotype = undefined;
-            if (isNaN(parts[0])) {
-                copies = 1;
-                genotype = parts[0];
-            } else {
-                copies = parts[0];
-                genotype = parts[1];
-            }
-            for (let i=0; i < copies; i++) {
-                pool_genos.push(genotype);
-            }
-        });
-        genotypes.push(pool_genos);
-    });
+    genotypes = parse_pools(button_data.parents);
     href_breed(species, genotypes[0], genotypes[1]);
 } // }}}
 
@@ -403,11 +426,7 @@ document.querySelector('button#prob_mode').addEventListener('click', evt => {
 });
 
 document.querySelector('button#breed_mode').addEventListener('click', evt => {
-    var states = [
-        'Breeding: Standard',
-        'Breeding: Clone'];
-    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
-    evt.target.innerHTML = states[evt.target.dataset.state];
+    set_breed_mode();
     var species = evt.target.closest('section').classList[0];
     var offspring = breed_multiple(selected[0], selected[1]);
     show_offspring(species, offspring);
