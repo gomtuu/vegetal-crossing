@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'VegetalCrossing';
+    src: url('VegetalCrossing2.woff2') format('woff2');
+}
+
 :root {
     --phenotype: rgba(255, 255, 255, 0.05); /* Default phenotype for visibility */
     --island: url(nmt.png);
@@ -39,7 +44,8 @@ body {
     margin: 0 auto;
     padding: 0 0 12px;
     font-family: "Roboto", sans-serif;
-    line-height: 1.4;
+    font-size: 18px;
+    line-height: 1.5;
     background-color: #e9f5ec;
     background-color: rgb(234, 246, 245);
     color: #005c56;
@@ -47,6 +53,10 @@ body {
 
 .bodytext {
     margin: 0 16px
+}
+
+div.help {
+    padding-bottom: 36px;
 }
 
 section {
@@ -121,10 +131,12 @@ div.notes {
     padding: 0 36px 36px;
 }
 
-.rolled_up {
+div.rolled_up {
     height: 0;
     margin-top: 0;
     margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     overflow: hidden;
 }
 
@@ -232,6 +244,7 @@ section.rose.condensed div.notes .boring {
                  -1px -1px 0 black,
                  0px -1px 0 black,
                  0px 1px 0 black;
+    font-size: 16px;
     font-weight: bold;
     pointer-events: none;
 }
@@ -324,7 +337,13 @@ div.breed + div.breed {
 
 div.breed .operator {
     padding: 0 4px;
+    line-height: 1;
+    font-family: VegetalCrossing, Roboto;
     font-size: 24px;
+}
+
+.vcfont {
+    font-family: VegetalCrossing, Roboto;
 }
 
 div.breed .parent,
@@ -359,7 +378,7 @@ div.breed label.white {
 
 /* Menu */
 div.species_menu {
-    margin: 48px 16px 0;
+    margin: 0 16px;
     border-top: 4px solid rgb(var(--game-cyan-dark2));
     border-radius: 20px 20px 0 0;
     padding: 4px;
