@@ -383,9 +383,6 @@ breed_icons.forEach(element => element.addEventListener('mouseover', highlight_v
 breed_icons.forEach(element => element.addEventListener('mouseout', unhighlight_varieties));
 
 document.querySelector('button#toggle_help').addEventListener('click', evt => {
-    var states = ['Help: Show', 'Help: Hide'];
-    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
-    evt.target.innerHTML = states[evt.target.dataset.state];
     document.querySelector('div#help').classList.toggle('rolled_up');
     evt.preventDefault();
     evt.stopPropagation();
@@ -393,9 +390,9 @@ document.querySelector('button#toggle_help').addEventListener('click', evt => {
 
 document.querySelector('button#prob_mode').addEventListener('click', evt => {
     var states = [
-        'Freq.: Like&nbsp;Frac.',
-        'Freq.: Red.&nbsp;Frac.',
-        'Freq.: Percent'];
+        'Probabilities: Like&nbsp;Fractions',
+        'Probabilities: Reduced&nbsp;Fractions',
+        'Probabilities: Percentages'];
     evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
     evt.target.innerHTML = states[evt.target.dataset.state];
     var species = evt.target.closest('section').classList[0];

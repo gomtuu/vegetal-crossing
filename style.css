@@ -40,8 +40,7 @@
 }
 
 body {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0 0 12px;
     font-family: "Roboto", sans-serif;
     font-size: 18px;
@@ -51,12 +50,35 @@ body {
     color: #005c56;
 }
 
+header {
+    padding: 1px;
+    background: #ffffff;
+    line-height: 1;
+    border-bottom: 2px solid rgb(var(--game-cyan));
+}
+
 .bodytext {
-    margin: 0 16px
+    width: 75%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+button#toggle_help {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    width: 1.5em;
+    line-height: 1.5;
+    border-radius: 100px 0 100px 100px;
+    font-size: 36px;
+    font-weight: 900;
+    background-color: rgb(var(--section-brown));
+    color: white;
 }
 
 div.help {
-    padding-bottom: 36px;
+    padding-bottom: 24px;
 }
 
 section {
@@ -115,10 +137,6 @@ div.options button {
 
 section:not(.rose) button#condensed_view {
     opacity: 0.3;
-}
-
-section.condensed button#condensed_view {
-    background-color: rgba(var(--game-cream), 0.2);
 }
 
 ol, ul {
@@ -378,7 +396,7 @@ div.breed label.white {
 
 /* Menu */
 div.species_menu {
-    margin: 0 16px;
+    margin: 16px 16px 0;
     border-top: 4px solid rgb(var(--game-cyan-dark2));
     border-radius: 20px 20px 0 0;
     padding: 4px;
@@ -854,6 +872,11 @@ div.species_menu ul button img {
 }
 
 @media only screen and (max-width: 767px) {
+
+    .bodytext {
+        position: static;
+        width: 90%;
+    }
 
     div.species_menu {
         margin-left: 0;

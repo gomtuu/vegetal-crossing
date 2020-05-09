@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <header class="bodytext">
+        <header>
+            <div class="bodytext">
             <h1>Vegetal&nbsp;Crossing</h1>
             <h2>A Visual Guide to Flower&nbsp;Genetics in Animal Crossing: New&nbsp;Horizons</h2>
             <p>Credit to
@@ -17,8 +18,10 @@
                 <a href="https://docs.google.com/document/d/1ARIQCUc5YVEd01D7jtJT9EEJF45m07NXhAm4fOpNvCs/preview">Paleh</a>,
                 <a href="https://aeonsake.gitlab.io/acnh-flower-breeder/">Aeonsake</a>, and
                 <a href="https://www.spriters-resource.com/submitter/Ziella/">Ziella</a> for their hard work.</p>
+            <button id="toggle_help" title="Help">?</button>
+            </div>
         </header>
-        <div id="help" class="bodytext help">
+        <div id="help" class="bodytext help rolled_up">
             <h2>Visualizing Flower Varieties Spatially</h2>
             <p>This application uses spatial diagrams to show the colors of every variety of each flower species in Animal Crossing: New Horizons.</p>
             <p>A variety's color is determined by its genes. Most flower species have three genes, so three dimensions are required to show all possible varieties. Those three dimensions are represented here as a stack of two-dimensional grids. Roses have four genes. To represent four dimensions, we use a series of three-dimensional stacks.</p>
@@ -49,8 +52,7 @@
         <section class="cosmos">
             <div class="options">
                 <ul>
-                    <li><button id="toggle_help" data-state="0">Help: Show</button></li>
-                    <li><button id="prob_mode" data-state="0">Freq.: Like&nbsp;Frac.</button></li>
+                    <li><button id="prob_mode" data-state="0">Probabilities: Like&nbsp;Fractions</button></li>
                     <li><button id="breed_mode" data-state="0">Breeding: Standard</button></li>
                     <li><button id="condensed_view" data-state="0">Rose&nbsp;View: Full</button></li>
                 </ul>
