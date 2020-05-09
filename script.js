@@ -80,7 +80,7 @@ function breed(A, B) { // {{{
     return genome_counts;
 } // }}}
 
-function fraction_genomes(genome_counts) { // {{{
+function fraction_genomes_like(genome_counts) { // {{{
     var genome_fracs = {}
     var run_gcd = [];
     var total_genomes = 0;
@@ -101,15 +101,42 @@ function fraction_genomes(genome_counts) { // {{{
     return genome_fracs;
 } // }}}
 
-function breed_multiple(list_a, list_b, mode) { // {{{
+function fraction_genomes_reduced(genome_counts) { // {{{
+    var genome_fracs = {}
+    var total_genomes = 0;
+    for (let genome in genome_counts) {
+        total_genomes += genome_counts[genome];
+    }
+    for (let genome in genome_counts) {
+        let fraction = FractionReduce.reduce(genome_counts[genome], total_genomes);
+        genome_fracs[genome] = fraction;
+    }
+    return genome_fracs;
+} // }}}
+
+function fraction_genomes_percent(genome_counts) { // {{{
+    var genome_fracs = {}
+    var total_genomes = 0;
+    for (let genome in genome_counts) {
+        total_genomes += genome_counts[genome];
+    }
+    for (let genome in genome_counts) {
+        let fraction = [Math.round((genome_counts[genome] / total_genomes) * 10000) / 100, 1];
+        genome_fracs[genome] = fraction;
+    }
+    return genome_fracs;
+} // }}}
+
+function breed_multiple(list_a, list_b) { // {{{
     var all_counts = {};
     var freq_a = {};
     var freq_b = {};
     list_a.forEach(A => freq_a[A.genotype] = (freq_a[A.genotype] || 0) + 1);
     list_b.forEach(B => freq_b[B.genotype] = (freq_b[B.genotype] || 0) + 1);
-    if (mode === undefined) {
-        mode = 'cross';
-    }
+    var mode = {
+        '0': 'cross',
+        '1': 'clone'
+    }[document.querySelector('button#breed_mode').dataset.state];
     Object.keys(freq_a).forEach((A, i) => {
         Object.keys(freq_b).forEach((B, j) => {
             let should_breed = (mode == 'cross' || (mode == 'clone' && i == j));
@@ -144,13 +171,22 @@ function clear_offspring(species) { // {{{
 function show_offspring(species, genome_counts) { // {{{
     clear_offspring(species);
     var flowers = get_species_flowers(species);
-    var offspring = fraction_genomes(genome_counts);
+    var mode = document.querySelector('button#prob_mode').dataset.state;
+    var offspring = {
+        '0': fraction_genomes_like,
+        '1': fraction_genomes_reduced,
+        '2': fraction_genomes_percent
+    }[mode](genome_counts);
     flowers.forEach(function(flower) {
         var genome = flower.classList[0];
         if (genome in offspring) {
             var result_div = document.createElement('div');
             result_div.classList.add('result');
-            result_div.innerHTML = '<div>' + String(offspring[genome][0]) + '</div><div>' + String(offspring[genome][1]) + '</div>';
+            if (mode === "2") {
+                result_div.innerHTML = '<div>' + String(offspring[genome][0]) + '</div>';
+            } else {
+                result_div.innerHTML = '<div>' + String(offspring[genome][0]) + '</div><div>' + String(offspring[genome][1]) + '</div>';
+            }
             flower.appendChild(result_div);
         } else {
             flower.classList.add('impossible');
@@ -226,7 +262,7 @@ function flower_click(evt) { // {{{
         return false;
     }
     mark_parents(selected[0], selected[1]);
-    offspring = breed_multiple(selected[0], selected[1]);
+    var offspring = breed_multiple(selected[0], selected[1]);
     show_offspring(species, offspring);
     return false;
 } // }}}
@@ -342,12 +378,51 @@ breed_links.forEach(function(el, i) {
     el.addEventListener('click', breed_link_click);
 });
 
-document.querySelector('button#condensed_view').addEventListener('click', function(evt) {
-    document.querySelector('section').classList.toggle('condensed');
+var breed_icons = document.querySelectorAll('div.breed .parent, div.breed .offspring');
+breed_icons.forEach(element => element.addEventListener('mouseover', highlight_varieties));
+breed_icons.forEach(element => element.addEventListener('mouseout', unhighlight_varieties));
+
+document.querySelector('button#toggle_help').addEventListener('click', evt => {
+    var states = ['Help: Show', 'Help: Hide'];
+    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
+    evt.target.innerHTML = states[evt.target.dataset.state];
+    document.querySelector('div#help').classList.toggle('rolled_up');
     evt.preventDefault();
     evt.stopPropagation();
 });
 
-var breed_icons = document.querySelectorAll('div.breed .parent, div.breed .offspring');
-breed_icons.forEach(element => element.addEventListener('mouseover', highlight_varieties));
-breed_icons.forEach(element => element.addEventListener('mouseout', unhighlight_varieties));
+document.querySelector('button#prob_mode').addEventListener('click', evt => {
+    var states = [
+        'Freq.: Like&nbsp;Frac.',
+        'Freq.: Red.&nbsp;Frac.',
+        'Freq.: Percent'];
+    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
+    evt.target.innerHTML = states[evt.target.dataset.state];
+    var species = evt.target.closest('section').classList[0];
+    var offspring = breed_multiple(selected[0], selected[1]);
+    show_offspring(species, offspring);
+    evt.preventDefault();
+    evt.stopPropagation();
+});
+
+document.querySelector('button#breed_mode').addEventListener('click', evt => {
+    var states = [
+        'Breeding: Standard',
+        'Breeding: Clone'];
+    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
+    evt.target.innerHTML = states[evt.target.dataset.state];
+    var species = evt.target.closest('section').classList[0];
+    var offspring = breed_multiple(selected[0], selected[1]);
+    show_offspring(species, offspring);
+    evt.preventDefault();
+    evt.stopPropagation();
+});
+
+document.querySelector('button#condensed_view').addEventListener('click', evt => {
+    var states = ['Rose&nbsp;View: Full', 'Rose&nbsp;View: Condensed'];
+    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
+    evt.target.innerHTML = states[evt.target.dataset.state];
+    document.querySelector('section').classList.toggle('condensed');
+    evt.preventDefault();
+    evt.stopPropagation();
+});
