@@ -695,87 +695,87 @@ div.species_menu ul button img {
 .pansy .Rryyww { --phenotype: var(--red); }
 .pansy .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
 
-.rose .ss .rrYYWWss { --phenotype: var(--white); }
-.rose .ss .RrYYWWss { --phenotype: var(--red); }
-.rose .ss .RRYYWWss { --phenotype: var(--blue); }
-.rose .ss .rrYyWWss { --phenotype: var(--purple); }
-.rose .ss .RrYyWWss { --phenotype: var(--red); }
-.rose .ss .RRYyWWss { --phenotype: var(--black); }
-.rose .ss .rryyWWss { --phenotype: var(--purple); }
-.rose .ss .RryyWWss { --phenotype: var(--red); }
-.rose .ss .RRyyWWss { --phenotype: var(--black); }
-.rose .ss .rrYYWwss { --phenotype: var(--yellow); }
-.rose .ss .RrYYWwss { --phenotype: var(--orange); }
-.rose .ss .RRYYWwss { --phenotype: var(--orange); }
-.rose .ss .rrYyWwss { --phenotype: var(--white); }
-.rose .ss .RrYyWwss { --phenotype: var(--red); }
-.rose .ss .RRYyWwss { --phenotype: var(--red); }
-.rose .ss .rryyWwss { --phenotype: var(--white); --obtain: var(--seed-white); }
-.rose .ss .RryyWwss { --phenotype: var(--red); }
-.rose .ss .RRyyWwss { --phenotype: var(--black); }
-.rose .ss .rrYYwwss { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.rose .ss .RrYYwwss { --phenotype: var(--orange); }
-.rose .ss .RRYYwwss { --phenotype: var(--orange); }
-.rose .ss .rrYywwss { --phenotype: var(--yellow); }
-.rose .ss .RrYywwss { --phenotype: var(--orange); }
-.rose .ss .RRYywwss { --phenotype: var(--orange); }
-.rose .ss .rryywwss { --phenotype: var(--white); }
-.rose .ss .Rryywwss { --phenotype: var(--red); }
-.rose .ss .RRyywwss { --phenotype: var(--black); }
-.rose .Ss .rrYYWWSs { --phenotype: var(--white); }
-.rose .Ss .RrYYWWSs { --phenotype: var(--pink); }
-.rose .Ss .RRYYWWSs { --phenotype: var(--red); }
-.rose .Ss .rrYyWWSs { --phenotype: var(--purple); }
-.rose .Ss .RrYyWWSs { --phenotype: var(--pink); }
-.rose .Ss .RRYyWWSs { --phenotype: var(--red); }
-.rose .Ss .rryyWWSs { --phenotype: var(--purple); }
-.rose .Ss .RryyWWSs { --phenotype: var(--pink); }
-.rose .Ss .RRyyWWSs { --phenotype: var(--red); }
-.rose .Ss .rrYYWwSs { --phenotype: var(--yellow); }
-.rose .Ss .RrYYWwSs { --phenotype: var(--yellow); }
-.rose .Ss .RRYYWwSs { --phenotype: var(--orange); --obtain: var(--island); }
-.rose .Ss .rrYyWwSs { --phenotype: var(--white); }
-.rose .Ss .RrYyWwSs { --phenotype: var(--pink); }
-.rose .Ss .RRYyWwSs { --phenotype: var(--red); }
-.rose .Ss .rryyWwSs { --phenotype: var(--white); }
-.rose .Ss .RryyWwSs { --phenotype: var(--pink); }
-.rose .Ss .RRyyWwSs { --phenotype: var(--red); }
-.rose .Ss .rrYYwwSs { --phenotype: var(--yellow); }
-.rose .Ss .RrYYwwSs { --phenotype: var(--yellow); }
-.rose .Ss .RRYYwwSs { --phenotype: var(--orange); }
-.rose .Ss .rrYywwSs { --phenotype: var(--yellow); }
-.rose .Ss .RrYywwSs { --phenotype: var(--yellow); }
-.rose .Ss .RRYywwSs { --phenotype: var(--orange); }
-.rose .Ss .rryywwSs { --phenotype: var(--white); }
-.rose .Ss .RryywwSs { --phenotype: var(--pink); }
-.rose .Ss .RRyywwSs { --phenotype: var(--red); --obtain: var(--seed-red); }
-.rose .SS .rrYYWWSS { --phenotype: var(--white); }
-.rose .SS .RrYYWWSS { --phenotype: var(--white); }
-.rose .SS .RRYYWWSS { --phenotype: var(--white); }
-.rose .SS .rrYyWWSS { --phenotype: var(--purple); }
-.rose .SS .RrYyWWSS { --phenotype: var(--purple); }
-.rose .SS .RRYyWWSS { --phenotype: var(--purple); }
-.rose .SS .rryyWWSS { --phenotype: var(--purple); }
-.rose .SS .RryyWWSS { --phenotype: var(--purple); }
-.rose .SS .RRyyWWSS { --phenotype: var(--pink); --obtain: var(--island); }
-.rose .SS .rrYYWwSS { --phenotype: var(--yellow); }
-.rose .SS .RrYYWwSS { --phenotype: var(--yellow); }
-.rose .SS .RRYYWwSS { --phenotype: var(--yellow); }
-.rose .SS .rrYyWwSS { --phenotype: var(--white); }
-.rose .SS .RrYyWwSS { --phenotype: var(--white); }
-.rose .SS .RRYyWwSS { --phenotype: var(--white); }
-.rose .SS .rryyWwSS { --phenotype: var(--white); }
-.rose .SS .RryyWwSS { --phenotype: var(--white); }
-.rose .SS .RRyyWwSS { --phenotype: var(--pink); }
-.rose .SS .rrYYwwSS { --phenotype: var(--yellow); }
-.rose .SS .RrYYwwSS { --phenotype: var(--yellow); }
-.rose .SS .RRYYwwSS { --phenotype: var(--yellow); }
-.rose .SS .rrYywwSS { --phenotype: var(--yellow); }
-.rose .SS .RrYywwSS { --phenotype: var(--yellow); }
-.rose .SS .RRYywwSS { --phenotype: var(--yellow); }
-.rose .SS .rryywwSS { --phenotype: var(--white); }
-.rose .SS .RryywwSS { --phenotype: var(--white); }
-.rose .SS .RRyywwSS { --phenotype: var(--pink); }
+.rose .rrYYWWss { --phenotype: var(--white); }
+.rose .RrYYWWss { --phenotype: var(--red); }
+.rose .RRYYWWss { --phenotype: var(--blue); }
+.rose .rrYyWWss { --phenotype: var(--purple); }
+.rose .RrYyWWss { --phenotype: var(--red); }
+.rose .RRYyWWss { --phenotype: var(--black); }
+.rose .rryyWWss { --phenotype: var(--purple); }
+.rose .RryyWWss { --phenotype: var(--red); }
+.rose .RRyyWWss { --phenotype: var(--black); }
+.rose .rrYYWwss { --phenotype: var(--yellow); }
+.rose .RrYYWwss { --phenotype: var(--orange); }
+.rose .RRYYWwss { --phenotype: var(--orange); }
+.rose .rrYyWwss { --phenotype: var(--white); }
+.rose .RrYyWwss { --phenotype: var(--red); }
+.rose .RRYyWwss { --phenotype: var(--red); }
+.rose .rryyWwss { --phenotype: var(--white); --obtain: var(--seed-white); }
+.rose .RryyWwss { --phenotype: var(--red); }
+.rose .RRyyWwss { --phenotype: var(--black); }
+.rose .rrYYwwss { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.rose .RrYYwwss { --phenotype: var(--orange); }
+.rose .RRYYwwss { --phenotype: var(--orange); }
+.rose .rrYywwss { --phenotype: var(--yellow); }
+.rose .RrYywwss { --phenotype: var(--orange); }
+.rose .RRYywwss { --phenotype: var(--orange); }
+.rose .rryywwss { --phenotype: var(--white); }
+.rose .Rryywwss { --phenotype: var(--red); }
+.rose .RRyywwss { --phenotype: var(--black); }
+.rose .rrYYWWSs { --phenotype: var(--white); }
+.rose .RrYYWWSs { --phenotype: var(--pink); }
+.rose .RRYYWWSs { --phenotype: var(--red); }
+.rose .rrYyWWSs { --phenotype: var(--purple); }
+.rose .RrYyWWSs { --phenotype: var(--pink); }
+.rose .RRYyWWSs { --phenotype: var(--red); }
+.rose .rryyWWSs { --phenotype: var(--purple); }
+.rose .RryyWWSs { --phenotype: var(--pink); }
+.rose .RRyyWWSs { --phenotype: var(--red); }
+.rose .rrYYWwSs { --phenotype: var(--yellow); }
+.rose .RrYYWwSs { --phenotype: var(--yellow); }
+.rose .RRYYWwSs { --phenotype: var(--orange); --obtain: var(--island); }
+.rose .rrYyWwSs { --phenotype: var(--white); }
+.rose .RrYyWwSs { --phenotype: var(--pink); }
+.rose .RRYyWwSs { --phenotype: var(--red); }
+.rose .rryyWwSs { --phenotype: var(--white); }
+.rose .RryyWwSs { --phenotype: var(--pink); }
+.rose .RRyyWwSs { --phenotype: var(--red); }
+.rose .rrYYwwSs { --phenotype: var(--yellow); }
+.rose .RrYYwwSs { --phenotype: var(--yellow); }
+.rose .RRYYwwSs { --phenotype: var(--orange); }
+.rose .rrYywwSs { --phenotype: var(--yellow); }
+.rose .RrYywwSs { --phenotype: var(--yellow); }
+.rose .RRYywwSs { --phenotype: var(--orange); }
+.rose .rryywwSs { --phenotype: var(--white); }
+.rose .RryywwSs { --phenotype: var(--pink); }
+.rose .RRyywwSs { --phenotype: var(--red); --obtain: var(--seed-red); }
+.rose .rrYYWWSS { --phenotype: var(--white); }
+.rose .RrYYWWSS { --phenotype: var(--white); }
+.rose .RRYYWWSS { --phenotype: var(--white); }
+.rose .rrYyWWSS { --phenotype: var(--purple); }
+.rose .RrYyWWSS { --phenotype: var(--purple); }
+.rose .RRYyWWSS { --phenotype: var(--purple); }
+.rose .rryyWWSS { --phenotype: var(--purple); }
+.rose .RryyWWSS { --phenotype: var(--purple); }
+.rose .RRyyWWSS { --phenotype: var(--pink); --obtain: var(--island); }
+.rose .rrYYWwSS { --phenotype: var(--yellow); }
+.rose .RrYYWwSS { --phenotype: var(--yellow); }
+.rose .RRYYWwSS { --phenotype: var(--yellow); }
+.rose .rrYyWwSS { --phenotype: var(--white); }
+.rose .RrYyWwSS { --phenotype: var(--white); }
+.rose .RRYyWwSS { --phenotype: var(--white); }
+.rose .rryyWwSS { --phenotype: var(--white); }
+.rose .RryyWwSS { --phenotype: var(--white); }
+.rose .RRyyWwSS { --phenotype: var(--pink); }
+.rose .rrYYwwSS { --phenotype: var(--yellow); }
+.rose .RrYYwwSS { --phenotype: var(--yellow); }
+.rose .RRYYwwSS { --phenotype: var(--yellow); }
+.rose .rrYywwSS { --phenotype: var(--yellow); }
+.rose .RrYywwSS { --phenotype: var(--yellow); }
+.rose .RRYywwSS { --phenotype: var(--yellow); }
+.rose .rryywwSS { --phenotype: var(--white); }
+.rose .RryywwSS { --phenotype: var(--white); }
+.rose .RRyywwSS { --phenotype: var(--pink); }
 
 .tulip .rrYYWW { --phenotype: var(--yellow); }
 .tulip .RrYYWW { --phenotype: var(--yellow); }
