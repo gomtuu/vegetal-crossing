@@ -1,5 +1,6 @@
 var selected = [];
 var flower_objects = {};
+var breed_mode = 'all';
 
 var FractionReduce = (function(){ // {{{
     // Euclid's Algorithm
@@ -133,16 +134,12 @@ function breed_multiple(list_a, list_b) { // {{{
     var freq_b = {};
     list_a.forEach(A => freq_a[A.genotype] = (freq_a[A.genotype] || 0) + 1);
     list_b.forEach(B => freq_b[B.genotype] = (freq_b[B.genotype] || 0) + 1);
-    var mode = {
-        '0': 'all',
-        '1': 'clones'
-    }[document.querySelector('button#breed_mode').dataset.state];
     Object.keys(freq_a).forEach((A, i) => {
         Object.keys(freq_b).forEach((B, j) => {
-            let should_breed = (mode == 'all' || (mode == 'clones' && i == j));
+            let should_breed = (breed_mode == 'all' || (breed_mode == 'clones' && i == j));
             if (should_breed) {
                 let counts = breed(A, B);
-                if (mode == 'all') {
+                if (breed_mode == 'all') {
                     var freq_multiplier = freq_a[A] * freq_b[B];
                 } else {
                     var freq_multiplier = freq_a[A];
@@ -316,20 +313,19 @@ function parse_pools(pools_string) { // {{{
 } // }}}
 
 function set_breed_mode(mode) { // {{{
-    var states = [
-        'Breeding: <span class="vcfont">X</span>&nbsp;All&nbsp;Combos',
-        'Breeding: <span class="vcfont">O</span>&nbsp;Clones&nbsp;Only'];
+    var states = {
+        'all': 'Breeding: <span class="vcfont">X</span>&nbsp;All&nbsp;Combos',
+        'clones': 'Breeding: <span class="vcfont">O</span>&nbsp;Clones&nbsp;Only'};
+    var states_list = Object.keys(states);
     var button = document.querySelector('button#breed_mode');
-    if (mode == undefined) {
-        mode = (Number(button.dataset.state) + 1) % states.length;
+    if (mode === undefined) {
+        let next_mode = (Number(button.dataset.state) + 1) % states_list.length;
+        breed_mode = states_list[next_mode];
     } else {
-        mode = {
-            'all': 0,
-            'clones': 1
-        }[mode];
+        breed_mode = mode;
     }
-    button.dataset.state = mode;
-    button.innerHTML = states[button.dataset.state];
+    button.dataset.state = states_list.indexOf(breed_mode);
+    button.innerHTML = states[breed_mode];
 } // }}}
 
 function breed_link_click(evt) { // {{{
