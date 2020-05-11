@@ -57,6 +57,10 @@ header {
     line-height: 1;
 }
 
+a {
+    color: rgb(var(--section-brown));
+}
+
 header h1,
 header h2,
 header h3 {
@@ -389,10 +393,6 @@ div.breed .offspring {
     border: 1px solid rgba(var(--section-brown), 1);
     border-radius: 4px;
     overflow: hidden;
-}
-
-div.breed .known.parent,
-div.breed .known.offspring {
     background: rgb(var(--phenotype)) var(--obtain) no-repeat center;
     background-size: 50%;
 }
@@ -459,39 +459,39 @@ footer {
 
 /* General colors */
 .red {
-    background-color: rgb(var(--red));
+    --phenotype: var(--red);
 }
 
 .orange {
-    background-color: rgb(var(--orange));
+    --phenotype: var(--orange);
 }
 
 .yellow {
-    background-color: rgb(var(--yellow));
+    --phenotype: var(--yellow);
 }
 
 .green {
-    background-color: rgb(var(--green));
+    --phenotype: var(--green);
 }
 
 .blue {
-    background-color: rgb(var(--blue));
+    --phenotype: var(--blue);
 }
 
 .purple {
-    background-color: rgb(var(--purple));
+    --phenotype: var(--purple);
 }
 
 .pink {
-    background-color: rgb(var(--pink));
+    --phenotype: var(--pink);
 }
 
 .white {
-    background-color: rgb(var(--white));
+    --phenotype: var(--white);
 }
 
 .black {
-    background-color: rgb(var(--black));
+    --phenotype: var(--black);
 }
 
 /* Species colors */
@@ -572,283 +572,283 @@ footer {
 }
 
 /* Species genotype info */
-.cosmos .rrYYWW { --phenotype: var(--yellow); }
-.cosmos .RrYYWW { --phenotype: var(--orange); }
-.cosmos .RRYYWW { --phenotype: var(--red); }
-.cosmos .rrYyWW { --phenotype: var(--white); }
-.cosmos .RrYyWW { --phenotype: var(--pink); --obtain: var(--island); }
-.cosmos .RRYyWW { --phenotype: var(--red); }
-.cosmos .rryyWW { --phenotype: var(--white); }
-.cosmos .RryyWW { --phenotype: var(--pink); }
-.cosmos .RRyyWW { --phenotype: var(--red); }
-.cosmos .rrYYWw { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.cosmos .RrYYWw { --phenotype: var(--orange); }
-.cosmos .RRYYWw { --phenotype: var(--black); }
-.cosmos .rrYyWw { --phenotype: var(--yellow); }
-.cosmos .RrYyWw { --phenotype: var(--orange); }
-.cosmos .RRYyWw { --phenotype: var(--orange); --obtain: var(--island); }
-.cosmos .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
-.cosmos .RryyWw { --phenotype: var(--pink); }
-.cosmos .RRyyWw { --phenotype: var(--red); }
-.cosmos .rrYYww { --phenotype: var(--yellow); }
-.cosmos .RrYYww { --phenotype: var(--orange); }
-.cosmos .RRYYww { --phenotype: var(--black); }
-.cosmos .rrYyww { --phenotype: var(--yellow); }
-.cosmos .RrYyww { --phenotype: var(--orange); }
-.cosmos .RRYyww { --phenotype: var(--orange); }
-.cosmos .rryyww { --phenotype: var(--white); }
-.cosmos .Rryyww { --phenotype: var(--pink); }
-.cosmos .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
+.cosmos [data-genotypes="rrYYWW"] { --phenotype: var(--yellow); }
+.cosmos [data-genotypes="RrYYWW"] { --phenotype: var(--orange); }
+.cosmos [data-genotypes="RRYYWW"] { --phenotype: var(--red); }
+.cosmos [data-genotypes="rrYyWW"] { --phenotype: var(--white); }
+.cosmos [data-genotypes="RrYyWW"] { --phenotype: var(--pink); --obtain: var(--island); }
+.cosmos [data-genotypes="RRYyWW"] { --phenotype: var(--red); }
+.cosmos [data-genotypes="rryyWW"] { --phenotype: var(--white); }
+.cosmos [data-genotypes="RryyWW"] { --phenotype: var(--pink); }
+.cosmos [data-genotypes="RRyyWW"] { --phenotype: var(--red); }
+.cosmos [data-genotypes="rrYYWw"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.cosmos [data-genotypes="RrYYWw"] { --phenotype: var(--orange); }
+.cosmos [data-genotypes="RRYYWw"] { --phenotype: var(--black); }
+.cosmos [data-genotypes="rrYyWw"] { --phenotype: var(--yellow); }
+.cosmos [data-genotypes="RrYyWw"] { --phenotype: var(--orange); }
+.cosmos [data-genotypes="RRYyWw"] { --phenotype: var(--orange); --obtain: var(--island); }
+.cosmos [data-genotypes="rryyWw"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.cosmos [data-genotypes="RryyWw"] { --phenotype: var(--pink); }
+.cosmos [data-genotypes="RRyyWw"] { --phenotype: var(--red); }
+.cosmos [data-genotypes="rrYYww"] { --phenotype: var(--yellow); }
+.cosmos [data-genotypes="RrYYww"] { --phenotype: var(--orange); }
+.cosmos [data-genotypes="RRYYww"] { --phenotype: var(--black); }
+.cosmos [data-genotypes="rrYyww"] { --phenotype: var(--yellow); }
+.cosmos [data-genotypes="RrYyww"] { --phenotype: var(--orange); }
+.cosmos [data-genotypes="RRYyww"] { --phenotype: var(--orange); }
+.cosmos [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.cosmos [data-genotypes="Rryyww"] { --phenotype: var(--pink); }
+.cosmos [data-genotypes="RRyyww"] { --phenotype: var(--red); --obtain: var(--seed-red); }
 
-.hyacinth .rrYYWW { --phenotype: var(--yellow); }
-.hyacinth .RrYYWW { --phenotype: var(--yellow); }
-.hyacinth .RRYYWW { --phenotype: var(--purple); }
-.hyacinth .rrYyWW { --phenotype: var(--white); }
-.hyacinth .RrYyWW { --phenotype: var(--yellow); }
-.hyacinth .RRYyWW { --phenotype: var(--red); }
-.hyacinth .rryyWW { --phenotype: var(--blue); }
-.hyacinth .RryyWW { --phenotype: var(--white); }
-.hyacinth .RRyyWW { --phenotype: var(--red); }
-.hyacinth .rrYYWw { --phenotype: var(--yellow); }
-.hyacinth .RrYYWw { --phenotype: var(--yellow); }
-.hyacinth .RRYYWw { --phenotype: var(--purple); }
-.hyacinth .rrYyWw { --phenotype: var(--yellow); }
-.hyacinth .RrYyWw { --phenotype: var(--yellow); }
-.hyacinth .RRYyWw { --phenotype: var(--red); }
-.hyacinth .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
-.hyacinth .RryyWw { --phenotype: var(--pink); --obtain: var(--island); }
-.hyacinth .RRyyWw { --phenotype: var(--red); --obtain: var(--seed-red); }
-.hyacinth .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.hyacinth .RrYYww { --phenotype: var(--orange); --obtain: var(--island); }
-.hyacinth .RRYYww { --phenotype: var(--purple); }
-.hyacinth .rrYyww { --phenotype: var(--yellow); }
-.hyacinth .RrYyww { --phenotype: var(--orange); }
-.hyacinth .RRYyww { --phenotype: var(--blue); --obtain: var(--island); }
-.hyacinth .rryyww { --phenotype: var(--white); }
-.hyacinth .Rryyww { --phenotype: var(--red); }
-.hyacinth .RRyyww { --phenotype: var(--red); }
+.hyacinth [data-genotypes="rrYYWW"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RrYYWW"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RRYYWW"] { --phenotype: var(--purple); }
+.hyacinth [data-genotypes="rrYyWW"] { --phenotype: var(--white); }
+.hyacinth [data-genotypes="RrYyWW"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RRYyWW"] { --phenotype: var(--red); }
+.hyacinth [data-genotypes="rryyWW"] { --phenotype: var(--blue); }
+.hyacinth [data-genotypes="RryyWW"] { --phenotype: var(--white); }
+.hyacinth [data-genotypes="RRyyWW"] { --phenotype: var(--red); }
+.hyacinth [data-genotypes="rrYYWw"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RrYYWw"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RRYYWw"] { --phenotype: var(--purple); }
+.hyacinth [data-genotypes="rrYyWw"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RrYyWw"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RRYyWw"] { --phenotype: var(--red); }
+.hyacinth [data-genotypes="rryyWw"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.hyacinth [data-genotypes="RryyWw"] { --phenotype: var(--pink); --obtain: var(--island); }
+.hyacinth [data-genotypes="RRyyWw"] { --phenotype: var(--red); --obtain: var(--seed-red); }
+.hyacinth [data-genotypes="rrYYww"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.hyacinth [data-genotypes="RrYYww"] { --phenotype: var(--orange); --obtain: var(--island); }
+.hyacinth [data-genotypes="RRYYww"] { --phenotype: var(--purple); }
+.hyacinth [data-genotypes="rrYyww"] { --phenotype: var(--yellow); }
+.hyacinth [data-genotypes="RrYyww"] { --phenotype: var(--orange); }
+.hyacinth [data-genotypes="RRYyww"] { --phenotype: var(--blue); --obtain: var(--island); }
+.hyacinth [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.hyacinth [data-genotypes="Rryyww"] { --phenotype: var(--red); }
+.hyacinth [data-genotypes="RRyyww"] { --phenotype: var(--red); }
 
-.lily .rrYYWW { --phenotype: var(--white); }
-.lily .RrYYWW { --phenotype: var(--yellow); }
-.lily .RRYYWW { --phenotype: var(--white); }
-.lily .rrYyWW { --phenotype: var(--white); }
-.lily .RrYyWW { --phenotype: var(--yellow); }
-.lily .RRYyWW { --phenotype: var(--pink); --obtain: var(--island); }
-.lily .rryyWW { --phenotype: var(--white); --obtain: var(--seed-white); }
-.lily .RryyWW { --phenotype: var(--white); }
-.lily .RRyyWW { --phenotype: var(--pink); }
-.lily .rrYYWw { --phenotype: var(--yellow); }
-.lily .RrYYWw { --phenotype: var(--yellow); }
-.lily .RRYYWw { --phenotype: var(--orange); --obtain: var(--island); }
-.lily .rrYyWw { --phenotype: var(--white); }
-.lily .RrYyWw { --phenotype: var(--yellow); }
-.lily .RRYyWw { --phenotype: var(--red); }
-.lily .rryyWw { --phenotype: var(--white); }
-.lily .RryyWw { --phenotype: var(--pink); }
-.lily .RRyyWw { --phenotype: var(--red); --obtain: var(--seed-red); }
-.lily .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.lily .RrYYww { --phenotype: var(--orange); }
-.lily .RRYYww { --phenotype: var(--orange); }
-.lily .rrYyww { --phenotype: var(--yellow); }
-.lily .RrYyww { --phenotype: var(--orange); }
-.lily .RRYyww { --phenotype: var(--black); --obtain: var(--island); }
-.lily .rryyww { --phenotype: var(--white); }
-.lily .Rryyww { --phenotype: var(--red); }
-.lily .RRyyww { --phenotype: var(--black); }
+.lily [data-genotypes="rrYYWW"] { --phenotype: var(--white); }
+.lily [data-genotypes="RrYYWW"] { --phenotype: var(--yellow); }
+.lily [data-genotypes="RRYYWW"] { --phenotype: var(--white); }
+.lily [data-genotypes="rrYyWW"] { --phenotype: var(--white); }
+.lily [data-genotypes="RrYyWW"] { --phenotype: var(--yellow); }
+.lily [data-genotypes="RRYyWW"] { --phenotype: var(--pink); --obtain: var(--island); }
+.lily [data-genotypes="rryyWW"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.lily [data-genotypes="RryyWW"] { --phenotype: var(--white); }
+.lily [data-genotypes="RRyyWW"] { --phenotype: var(--pink); }
+.lily [data-genotypes="rrYYWw"] { --phenotype: var(--yellow); }
+.lily [data-genotypes="RrYYWw"] { --phenotype: var(--yellow); }
+.lily [data-genotypes="RRYYWw"] { --phenotype: var(--orange); --obtain: var(--island); }
+.lily [data-genotypes="rrYyWw"] { --phenotype: var(--white); }
+.lily [data-genotypes="RrYyWw"] { --phenotype: var(--yellow); }
+.lily [data-genotypes="RRYyWw"] { --phenotype: var(--red); }
+.lily [data-genotypes="rryyWw"] { --phenotype: var(--white); }
+.lily [data-genotypes="RryyWw"] { --phenotype: var(--pink); }
+.lily [data-genotypes="RRyyWw"] { --phenotype: var(--red); --obtain: var(--seed-red); }
+.lily [data-genotypes="rrYYww"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.lily [data-genotypes="RrYYww"] { --phenotype: var(--orange); }
+.lily [data-genotypes="RRYYww"] { --phenotype: var(--orange); }
+.lily [data-genotypes="rrYyww"] { --phenotype: var(--yellow); }
+.lily [data-genotypes="RrYyww"] { --phenotype: var(--orange); }
+.lily [data-genotypes="RRYyww"] { --phenotype: var(--black); --obtain: var(--island); }
+.lily [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.lily [data-genotypes="Rryyww"] { --phenotype: var(--red); }
+.lily [data-genotypes="RRyyww"] { --phenotype: var(--black); }
 
-.mum .rrYYWW { --phenotype: var(--yellow); }
-.mum .RrYYWW { --phenotype: var(--purple); }
-.mum .RRYYWW { --phenotype: var(--red); }
-.mum .rrYyWW { --phenotype: var(--white); }
-.mum .RrYyWW { --phenotype: var(--pink); --obtain: var(--island); }
-.mum .RRYyWW { --phenotype: var(--red); }
-.mum .rryyWW { --phenotype: var(--purple); }
-.mum .RryyWW { --phenotype: var(--pink); }
-.mum .RRyyWW { --phenotype: var(--red); }
-.mum .rrYYWw { --phenotype: var(--yellow); }
-.mum .RrYYWw { --phenotype: var(--purple); }
-.mum .RRYYWw { --phenotype: var(--green); }
-.mum .rrYyWw { --phenotype: var(--yellow); }
-.mum .RrYyWw { --phenotype: var(--red); }
-.mum .RRYyWw { --phenotype: var(--purple); --obtain: var(--island); }
-.mum .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
-.mum .RryyWw { --phenotype: var(--pink); }
-.mum .RRyyWw { --phenotype: var(--red); }
-.mum .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.mum .RrYYww { --phenotype: var(--purple); }
-.mum .RRYYww { --phenotype: var(--green); }
-.mum .rrYyww { --phenotype: var(--yellow); }
-.mum .RrYyww { --phenotype: var(--yellow); }
-.mum .RRYyww { --phenotype: var(--purple); }
-.mum .rryyww { --phenotype: var(--white); }
-.mum .Rryyww { --phenotype: var(--pink); }
-.mum .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
+.mum [data-genotypes="rrYYWW"] { --phenotype: var(--yellow); }
+.mum [data-genotypes="RrYYWW"] { --phenotype: var(--purple); }
+.mum [data-genotypes="RRYYWW"] { --phenotype: var(--red); }
+.mum [data-genotypes="rrYyWW"] { --phenotype: var(--white); }
+.mum [data-genotypes="RrYyWW"] { --phenotype: var(--pink); --obtain: var(--island); }
+.mum [data-genotypes="RRYyWW"] { --phenotype: var(--red); }
+.mum [data-genotypes="rryyWW"] { --phenotype: var(--purple); }
+.mum [data-genotypes="RryyWW"] { --phenotype: var(--pink); }
+.mum [data-genotypes="RRyyWW"] { --phenotype: var(--red); }
+.mum [data-genotypes="rrYYWw"] { --phenotype: var(--yellow); }
+.mum [data-genotypes="RrYYWw"] { --phenotype: var(--purple); }
+.mum [data-genotypes="RRYYWw"] { --phenotype: var(--green); }
+.mum [data-genotypes="rrYyWw"] { --phenotype: var(--yellow); }
+.mum [data-genotypes="RrYyWw"] { --phenotype: var(--red); }
+.mum [data-genotypes="RRYyWw"] { --phenotype: var(--purple); --obtain: var(--island); }
+.mum [data-genotypes="rryyWw"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.mum [data-genotypes="RryyWw"] { --phenotype: var(--pink); }
+.mum [data-genotypes="RRyyWw"] { --phenotype: var(--red); }
+.mum [data-genotypes="rrYYww"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.mum [data-genotypes="RrYYww"] { --phenotype: var(--purple); }
+.mum [data-genotypes="RRYYww"] { --phenotype: var(--green); }
+.mum [data-genotypes="rrYyww"] { --phenotype: var(--yellow); }
+.mum [data-genotypes="RrYyww"] { --phenotype: var(--yellow); }
+.mum [data-genotypes="RRYyww"] { --phenotype: var(--purple); }
+.mum [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.mum [data-genotypes="Rryyww"] { --phenotype: var(--pink); }
+.mum [data-genotypes="RRyyww"] { --phenotype: var(--red); --obtain: var(--seed-red); }
 
-.pansy .rrYYWW { --phenotype: var(--yellow); }
-.pansy .RrYYWW { --phenotype: var(--yellow); }
-.pansy .RRYYWW { --phenotype: var(--purple); }
-.pansy .rrYyWW { --phenotype: var(--blue); }
-.pansy .RrYyWW { --phenotype: var(--orange); }
-.pansy .RRYyWW { --phenotype: var(--purple); }
-.pansy .rryyWW { --phenotype: var(--blue); }
-.pansy .RryyWW { --phenotype: var(--blue); --obtain: var(--island); }
-.pansy .RRyyWW { --phenotype: var(--purple); }
-.pansy .rrYYWw { --phenotype: var(--yellow); }
-.pansy .RrYYWw { --phenotype: var(--yellow); }
-.pansy .RRYYWw { --phenotype: var(--orange); --obtain: var(--island); }
-.pansy .rrYyWw { --phenotype: var(--yellow); }
-.pansy .RrYyWw { --phenotype: var(--orange); }
-.pansy .RRYyWw { --phenotype: var(--red); }
-.pansy .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
-.pansy .RryyWw { --phenotype: var(--red); }
-.pansy .RRyyWw { --phenotype: var(--red); }
-.pansy .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.pansy .RrYYww { --phenotype: var(--yellow); }
-.pansy .RRYYww { --phenotype: var(--orange); }
-.pansy .rrYyww { --phenotype: var(--yellow); }
-.pansy .RrYyww { --phenotype: var(--orange); }
-.pansy .RRYyww { --phenotype: var(--red); }
-.pansy .rryyww { --phenotype: var(--white); }
-.pansy .Rryyww { --phenotype: var(--red); }
-.pansy .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
+.pansy [data-genotypes="rrYYWW"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RrYYWW"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RRYYWW"] { --phenotype: var(--purple); }
+.pansy [data-genotypes="rrYyWW"] { --phenotype: var(--blue); }
+.pansy [data-genotypes="RrYyWW"] { --phenotype: var(--orange); }
+.pansy [data-genotypes="RRYyWW"] { --phenotype: var(--purple); }
+.pansy [data-genotypes="rryyWW"] { --phenotype: var(--blue); }
+.pansy [data-genotypes="RryyWW"] { --phenotype: var(--blue); --obtain: var(--island); }
+.pansy [data-genotypes="RRyyWW"] { --phenotype: var(--purple); }
+.pansy [data-genotypes="rrYYWw"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RrYYWw"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RRYYWw"] { --phenotype: var(--orange); --obtain: var(--island); }
+.pansy [data-genotypes="rrYyWw"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RrYyWw"] { --phenotype: var(--orange); }
+.pansy [data-genotypes="RRYyWw"] { --phenotype: var(--red); }
+.pansy [data-genotypes="rryyWw"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.pansy [data-genotypes="RryyWw"] { --phenotype: var(--red); }
+.pansy [data-genotypes="RRyyWw"] { --phenotype: var(--red); }
+.pansy [data-genotypes="rrYYww"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.pansy [data-genotypes="RrYYww"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RRYYww"] { --phenotype: var(--orange); }
+.pansy [data-genotypes="rrYyww"] { --phenotype: var(--yellow); }
+.pansy [data-genotypes="RrYyww"] { --phenotype: var(--orange); }
+.pansy [data-genotypes="RRYyww"] { --phenotype: var(--red); }
+.pansy [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.pansy [data-genotypes="Rryyww"] { --phenotype: var(--red); }
+.pansy [data-genotypes="RRyyww"] { --phenotype: var(--red); --obtain: var(--seed-red); }
 
-.rose .rrYYWWss { --phenotype: var(--white); }
-.rose .RrYYWWss { --phenotype: var(--red); }
-.rose .RRYYWWss { --phenotype: var(--blue); }
-.rose .rrYyWWss { --phenotype: var(--purple); }
-.rose .RrYyWWss { --phenotype: var(--red); }
-.rose .RRYyWWss { --phenotype: var(--black); }
-.rose .rryyWWss { --phenotype: var(--purple); }
-.rose .RryyWWss { --phenotype: var(--red); }
-.rose .RRyyWWss { --phenotype: var(--black); }
-.rose .rrYYWwss { --phenotype: var(--yellow); }
-.rose .RrYYWwss { --phenotype: var(--orange); }
-.rose .RRYYWwss { --phenotype: var(--orange); }
-.rose .rrYyWwss { --phenotype: var(--white); }
-.rose .RrYyWwss { --phenotype: var(--red); }
-.rose .RRYyWwss { --phenotype: var(--red); }
-.rose .rryyWwss { --phenotype: var(--white); --obtain: var(--seed-white); }
-.rose .RryyWwss { --phenotype: var(--red); }
-.rose .RRyyWwss { --phenotype: var(--black); }
-.rose .rrYYwwss { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.rose .RrYYwwss { --phenotype: var(--orange); }
-.rose .RRYYwwss { --phenotype: var(--orange); }
-.rose .rrYywwss { --phenotype: var(--yellow); }
-.rose .RrYywwss { --phenotype: var(--orange); }
-.rose .RRYywwss { --phenotype: var(--orange); }
-.rose .rryywwss { --phenotype: var(--white); }
-.rose .Rryywwss { --phenotype: var(--red); }
-.rose .RRyywwss { --phenotype: var(--black); }
-.rose .rrYYWWSs { --phenotype: var(--white); }
-.rose .RrYYWWSs { --phenotype: var(--pink); }
-.rose .RRYYWWSs { --phenotype: var(--red); }
-.rose .rrYyWWSs { --phenotype: var(--purple); }
-.rose .RrYyWWSs { --phenotype: var(--pink); }
-.rose .RRYyWWSs { --phenotype: var(--red); }
-.rose .rryyWWSs { --phenotype: var(--purple); }
-.rose .RryyWWSs { --phenotype: var(--pink); }
-.rose .RRyyWWSs { --phenotype: var(--red); }
-.rose .rrYYWwSs { --phenotype: var(--yellow); }
-.rose .RrYYWwSs { --phenotype: var(--yellow); }
-.rose .RRYYWwSs { --phenotype: var(--orange); --obtain: var(--island); }
-.rose .rrYyWwSs { --phenotype: var(--white); }
-.rose .RrYyWwSs { --phenotype: var(--pink); }
-.rose .RRYyWwSs { --phenotype: var(--red); }
-.rose .rryyWwSs { --phenotype: var(--white); }
-.rose .RryyWwSs { --phenotype: var(--pink); }
-.rose .RRyyWwSs { --phenotype: var(--red); }
-.rose .rrYYwwSs { --phenotype: var(--yellow); }
-.rose .RrYYwwSs { --phenotype: var(--yellow); }
-.rose .RRYYwwSs { --phenotype: var(--orange); }
-.rose .rrYywwSs { --phenotype: var(--yellow); }
-.rose .RrYywwSs { --phenotype: var(--yellow); }
-.rose .RRYywwSs { --phenotype: var(--orange); }
-.rose .rryywwSs { --phenotype: var(--white); }
-.rose .RryywwSs { --phenotype: var(--pink); }
-.rose .RRyywwSs { --phenotype: var(--red); --obtain: var(--seed-red); }
-.rose .rrYYWWSS { --phenotype: var(--white); }
-.rose .RrYYWWSS { --phenotype: var(--white); }
-.rose .RRYYWWSS { --phenotype: var(--white); }
-.rose .rrYyWWSS { --phenotype: var(--purple); }
-.rose .RrYyWWSS { --phenotype: var(--purple); }
-.rose .RRYyWWSS { --phenotype: var(--purple); }
-.rose .rryyWWSS { --phenotype: var(--purple); }
-.rose .RryyWWSS { --phenotype: var(--purple); }
-.rose .RRyyWWSS { --phenotype: var(--pink); --obtain: var(--island); }
-.rose .rrYYWwSS { --phenotype: var(--yellow); }
-.rose .RrYYWwSS { --phenotype: var(--yellow); }
-.rose .RRYYWwSS { --phenotype: var(--yellow); }
-.rose .rrYyWwSS { --phenotype: var(--white); }
-.rose .RrYyWwSS { --phenotype: var(--white); }
-.rose .RRYyWwSS { --phenotype: var(--white); }
-.rose .rryyWwSS { --phenotype: var(--white); }
-.rose .RryyWwSS { --phenotype: var(--white); }
-.rose .RRyyWwSS { --phenotype: var(--pink); }
-.rose .rrYYwwSS { --phenotype: var(--yellow); }
-.rose .RrYYwwSS { --phenotype: var(--yellow); }
-.rose .RRYYwwSS { --phenotype: var(--yellow); }
-.rose .rrYywwSS { --phenotype: var(--yellow); }
-.rose .RrYywwSS { --phenotype: var(--yellow); }
-.rose .RRYywwSS { --phenotype: var(--yellow); }
-.rose .rryywwSS { --phenotype: var(--white); }
-.rose .RryywwSS { --phenotype: var(--white); }
-.rose .RRyywwSS { --phenotype: var(--pink); }
+.rose [data-genotypes="rrYYWWss"] { --phenotype: var(--white); }
+.rose [data-genotypes="RrYYWWss"] { --phenotype: var(--red); }
+.rose [data-genotypes="RRYYWWss"] { --phenotype: var(--blue); }
+.rose [data-genotypes="rrYyWWss"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RrYyWWss"] { --phenotype: var(--red); }
+.rose [data-genotypes="RRYyWWss"] { --phenotype: var(--black); }
+.rose [data-genotypes="rryyWWss"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RryyWWss"] { --phenotype: var(--red); }
+.rose [data-genotypes="RRyyWWss"] { --phenotype: var(--black); }
+.rose [data-genotypes="rrYYWwss"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYYWwss"] { --phenotype: var(--orange); }
+.rose [data-genotypes="RRYYWwss"] { --phenotype: var(--orange); }
+.rose [data-genotypes="rrYyWwss"] { --phenotype: var(--white); }
+.rose [data-genotypes="RrYyWwss"] { --phenotype: var(--red); }
+.rose [data-genotypes="RRYyWwss"] { --phenotype: var(--red); }
+.rose [data-genotypes="rryyWwss"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.rose [data-genotypes="RryyWwss"] { --phenotype: var(--red); }
+.rose [data-genotypes="RRyyWwss"] { --phenotype: var(--black); }
+.rose [data-genotypes="rrYYwwss"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.rose [data-genotypes="RrYYwwss"] { --phenotype: var(--orange); }
+.rose [data-genotypes="RRYYwwss"] { --phenotype: var(--orange); }
+.rose [data-genotypes="rrYywwss"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYywwss"] { --phenotype: var(--orange); }
+.rose [data-genotypes="RRYywwss"] { --phenotype: var(--orange); }
+.rose [data-genotypes="rryywwss"] { --phenotype: var(--white); }
+.rose [data-genotypes="Rryywwss"] { --phenotype: var(--red); }
+.rose [data-genotypes="RRyywwss"] { --phenotype: var(--black); }
+.rose [data-genotypes="rrYYWWSs"] { --phenotype: var(--white); }
+.rose [data-genotypes="RrYYWWSs"] { --phenotype: var(--pink); }
+.rose [data-genotypes="RRYYWWSs"] { --phenotype: var(--red); }
+.rose [data-genotypes="rrYyWWSs"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RrYyWWSs"] { --phenotype: var(--pink); }
+.rose [data-genotypes="RRYyWWSs"] { --phenotype: var(--red); }
+.rose [data-genotypes="rryyWWSs"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RryyWWSs"] { --phenotype: var(--pink); }
+.rose [data-genotypes="RRyyWWSs"] { --phenotype: var(--red); }
+.rose [data-genotypes="rrYYWwSs"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYYWwSs"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RRYYWwSs"] { --phenotype: var(--orange); --obtain: var(--island); }
+.rose [data-genotypes="rrYyWwSs"] { --phenotype: var(--white); }
+.rose [data-genotypes="RrYyWwSs"] { --phenotype: var(--pink); }
+.rose [data-genotypes="RRYyWwSs"] { --phenotype: var(--red); }
+.rose [data-genotypes="rryyWwSs"] { --phenotype: var(--white); }
+.rose [data-genotypes="RryyWwSs"] { --phenotype: var(--pink); }
+.rose [data-genotypes="RRyyWwSs"] { --phenotype: var(--red); }
+.rose [data-genotypes="rrYYwwSs"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYYwwSs"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RRYYwwSs"] { --phenotype: var(--orange); }
+.rose [data-genotypes="rrYywwSs"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYywwSs"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RRYywwSs"] { --phenotype: var(--orange); }
+.rose [data-genotypes="rryywwSs"] { --phenotype: var(--white); }
+.rose [data-genotypes="RryywwSs"] { --phenotype: var(--pink); }
+.rose [data-genotypes="RRyywwSs"] { --phenotype: var(--red); --obtain: var(--seed-red); }
+.rose [data-genotypes="rrYYWWSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RrYYWWSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RRYYWWSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="rrYyWWSS"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RrYyWWSS"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RRYyWWSS"] { --phenotype: var(--purple); }
+.rose [data-genotypes="rryyWWSS"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RryyWWSS"] { --phenotype: var(--purple); }
+.rose [data-genotypes="RRyyWWSS"] { --phenotype: var(--pink); --obtain: var(--island); }
+.rose [data-genotypes="rrYYWwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYYWwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RRYYWwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="rrYyWwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RrYyWwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RRYyWwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="rryyWwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RryyWwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RRyyWwSS"] { --phenotype: var(--pink); }
+.rose [data-genotypes="rrYYwwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYYwwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RRYYwwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="rrYywwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RrYywwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="RRYywwSS"] { --phenotype: var(--yellow); }
+.rose [data-genotypes="rryywwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RryywwSS"] { --phenotype: var(--white); }
+.rose [data-genotypes="RRyywwSS"] { --phenotype: var(--pink); }
 
-.tulip .rrYYWW { --phenotype: var(--yellow); }
-.tulip .RrYYWW { --phenotype: var(--yellow); }
-.tulip .RRYYWW { --phenotype: var(--purple); }
-.tulip .rrYyWW { --phenotype: var(--white); }
-.tulip .RrYyWW { --phenotype: var(--yellow); }
-.tulip .RRYyWW { --phenotype: var(--red); }
-.tulip .rryyWW { --phenotype: var(--white); }
-.tulip .RryyWW { --phenotype: var(--white); }
-.tulip .RRyyWW { --phenotype: var(--red); }
-.tulip .rrYYWw { --phenotype: var(--yellow); }
-.tulip .RrYYWw { --phenotype: var(--yellow); }
-.tulip .RRYYWw { --phenotype: var(--purple); }
-.tulip .rrYyWw { --phenotype: var(--yellow); }
-.tulip .RrYyWw { --phenotype: var(--yellow); }
-.tulip .RRYyWw { --phenotype: var(--red); }
-.tulip .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
-.tulip .RryyWw { --phenotype: var(--pink); --obtain: var(--island); }
-.tulip .RRyyWw { --phenotype: var(--red); --obtain: var(--seed-red); }
-.tulip .rrYYww { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
-.tulip .RrYYww { --phenotype: var(--orange); --obtain: var(--island); }
-.tulip .RRYYww { --phenotype: var(--purple); }
-.tulip .rrYyww { --phenotype: var(--yellow); }
-.tulip .RrYyww { --phenotype: var(--orange); }
-.tulip .RRYyww { --phenotype: var(--black); --obtain: var(--island); }
-.tulip .rryyww { --phenotype: var(--white); }
-.tulip .Rryyww { --phenotype: var(--red); }
-.tulip .RRyyww { --phenotype: var(--black); }
+.tulip [data-genotypes="rrYYWW"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RrYYWW"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RRYYWW"] { --phenotype: var(--purple); }
+.tulip [data-genotypes="rrYyWW"] { --phenotype: var(--white); }
+.tulip [data-genotypes="RrYyWW"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RRYyWW"] { --phenotype: var(--red); }
+.tulip [data-genotypes="rryyWW"] { --phenotype: var(--white); }
+.tulip [data-genotypes="RryyWW"] { --phenotype: var(--white); }
+.tulip [data-genotypes="RRyyWW"] { --phenotype: var(--red); }
+.tulip [data-genotypes="rrYYWw"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RrYYWw"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RRYYWw"] { --phenotype: var(--purple); }
+.tulip [data-genotypes="rrYyWw"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RrYyWw"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RRYyWw"] { --phenotype: var(--red); }
+.tulip [data-genotypes="rryyWw"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.tulip [data-genotypes="RryyWw"] { --phenotype: var(--pink); --obtain: var(--island); }
+.tulip [data-genotypes="RRyyWw"] { --phenotype: var(--red); --obtain: var(--seed-red); }
+.tulip [data-genotypes="rrYYww"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+.tulip [data-genotypes="RrYYww"] { --phenotype: var(--orange); --obtain: var(--island); }
+.tulip [data-genotypes="RRYYww"] { --phenotype: var(--purple); }
+.tulip [data-genotypes="rrYyww"] { --phenotype: var(--yellow); }
+.tulip [data-genotypes="RrYyww"] { --phenotype: var(--orange); }
+.tulip [data-genotypes="RRYyww"] { --phenotype: var(--black); --obtain: var(--island); }
+.tulip [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.tulip [data-genotypes="Rryyww"] { --phenotype: var(--red); }
+.tulip [data-genotypes="RRyyww"] { --phenotype: var(--black); }
 
-.windflower .rrYYWW { --phenotype: var(--orange); }
-.windflower .RrYYWW { --phenotype: var(--orange); }
-.windflower .RRYYWW { --phenotype: var(--purple); }
-.windflower .rrYyWW { --phenotype: var(--blue); }
-.windflower .RrYyWW { --phenotype: var(--pink); }
-.windflower .RRYyWW { --phenotype: var(--purple); }
-.windflower .rryyWW { --phenotype: var(--blue); }
-.windflower .RryyWW { --phenotype: var(--blue); --obtain: var(--island); }
-.windflower .RRyyWW { --phenotype: var(--purple); }
-.windflower .rrYYWw { --phenotype: var(--orange); }
-.windflower .RrYYWw { --phenotype: var(--orange); }
-.windflower .RRYYWw { --phenotype: var(--pink); --obtain: var(--island); }
-.windflower .rrYyWw { --phenotype: var(--orange); }
-.windflower .RrYyWw { --phenotype: var(--pink); }
-.windflower .RRYyWw { --phenotype: var(--red); }
-.windflower .rryyWw { --phenotype: var(--white); --obtain: var(--seed-white); }
-.windflower .RryyWw { --phenotype: var(--red); }
-.windflower .RRyyWw { --phenotype: var(--red); }
-.windflower .rrYYww { --phenotype: var(--orange); --obtain: var(--seed-orange); }
-.windflower .RrYYww { --phenotype: var(--orange); }
-.windflower .RRYYww { --phenotype: var(--pink); }
-.windflower .rrYyww { --phenotype: var(--orange); }
-.windflower .RrYyww { --phenotype: var(--pink); }
-.windflower .RRYyww { --phenotype: var(--red); }
-.windflower .rryyww { --phenotype: var(--white); }
-.windflower .Rryyww { --phenotype: var(--red); }
-.windflower .RRyyww { --phenotype: var(--red); --obtain: var(--seed-red); }
+.windflower [data-genotypes="rrYYWW"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RrYYWW"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RRYYWW"] { --phenotype: var(--purple); }
+.windflower [data-genotypes="rrYyWW"] { --phenotype: var(--blue); }
+.windflower [data-genotypes="RrYyWW"] { --phenotype: var(--pink); }
+.windflower [data-genotypes="RRYyWW"] { --phenotype: var(--purple); }
+.windflower [data-genotypes="rryyWW"] { --phenotype: var(--blue); }
+.windflower [data-genotypes="RryyWW"] { --phenotype: var(--blue); --obtain: var(--island); }
+.windflower [data-genotypes="RRyyWW"] { --phenotype: var(--purple); }
+.windflower [data-genotypes="rrYYWw"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RrYYWw"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RRYYWw"] { --phenotype: var(--pink); --obtain: var(--island); }
+.windflower [data-genotypes="rrYyWw"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RrYyWw"] { --phenotype: var(--pink); }
+.windflower [data-genotypes="RRYyWw"] { --phenotype: var(--red); }
+.windflower [data-genotypes="rryyWw"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+.windflower [data-genotypes="RryyWw"] { --phenotype: var(--red); }
+.windflower [data-genotypes="RRyyWw"] { --phenotype: var(--red); }
+.windflower [data-genotypes="rrYYww"] { --phenotype: var(--orange); --obtain: var(--seed-orange); }
+.windflower [data-genotypes="RrYYww"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RRYYww"] { --phenotype: var(--pink); }
+.windflower [data-genotypes="rrYyww"] { --phenotype: var(--orange); }
+.windflower [data-genotypes="RrYyww"] { --phenotype: var(--pink); }
+.windflower [data-genotypes="RRYyww"] { --phenotype: var(--red); }
+.windflower [data-genotypes="rryyww"] { --phenotype: var(--white); }
+.windflower [data-genotypes="Rryyww"] { --phenotype: var(--red); }
+.windflower [data-genotypes="RRyyww"] { --phenotype: var(--red); --obtain: var(--seed-red); }
 
 @media only screen and (min-width: 1024px) {
 
