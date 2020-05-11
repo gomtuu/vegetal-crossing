@@ -39,22 +39,22 @@
     --black: 0, 0, 0;
 }
 
+html {
+    background-color: rgb(var(--game-cyan));
+}
+
 body {
     margin: 0;
-    padding: 0 0 12px;
+    padding: 0;
     font-family: "Roboto", sans-serif;
-    font-size: 18px;
     line-height: 1.5;
-    background-color: #e9f5ec;
-    background-color: rgb(234, 246, 245);
+    background-color: #ffffff;
     color: #005c56;
 }
 
 header {
     padding: 1px;
-    background: #ffffff;
     line-height: 1;
-    border-bottom: 2px solid rgb(var(--game-cyan));
 }
 
 header h1,
@@ -96,8 +96,6 @@ section {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0 16px;
-    border-radius: 0 0 16px 16px;
     padding-bottom: 36px;
     background-color: rgb(var(--section-brown));
     color: white;
@@ -374,8 +372,9 @@ div.breed .operator {
 }
 
 .vcfont {
+    line-height: 0.1;
     font-family: VegetalCrossing, Roboto;
-    line-height: 1;
+    font-size: 24px;
     font-weight: normal;
 }
 
@@ -411,9 +410,8 @@ div.breed label.white {
 
 /* Menu */
 div.species_menu {
-    margin: 16px 16px 0;
-    border-top: 4px solid rgb(var(--game-cyan-dark2));
-    border-radius: 20px 20px 0 0;
+    margin: 16px 0 0;
+    border-top: 3px solid #07645c;
     padding: 4px;
     background: rgba(var(--game-cream));
 }
@@ -430,9 +428,11 @@ div.species_menu ul button {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 10px 0;
+    max-width: 87px;
+    margin: 0 auto;
     border: 0;
-    border-radius: 16px;
+    border-radius: 100% / 100%;
+    padding: 6px 0;
     background: transparent;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -443,14 +443,18 @@ button:focus {
 }
 
 div.species_menu ul button.selected {
-    background-color: #60bcb6;
-    background-color: rgb(var(--game-cyan));
+    background-color: hsla(50, 135%, 50%, 1);
+    background-image: repeating-linear-gradient(-45deg, rgba(0,0,0,0.08), rgba(0,0,0,0.08) 10%, transparent 10%, transparent 20%);
 }
 
 div.species_menu ul button img {
     height: auto;
     max-height: 72px;
     max-width: 100%;
+}
+
+footer {
+    padding: 1px;
 }
 
 /* General colors */

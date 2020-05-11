@@ -448,7 +448,7 @@ document.querySelector('button#toggle_help').addEventListener('click', evt => {
 document.querySelector('button#prob_mode').addEventListener('click', evt => {
     var states = [
         'Probabilities: Like&nbsp;Fractions',
-        'Probabilities: Reduced&nbsp;Fractions',
+        'Probabilities: Reduced&nbsp;Fracs',
         'Probabilities: Percentages'];
     evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
     evt.target.innerHTML = states[evt.target.dataset.state];
