@@ -57,6 +57,17 @@ header {
     border-bottom: 2px solid rgb(var(--game-cyan));
 }
 
+header h1,
+header h2,
+header h3 {
+    margin: 0.5em 0 0;
+}
+
+header p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 .bodytext {
     width: 75%;
     max-width: 1200px;
