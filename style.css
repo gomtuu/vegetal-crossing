@@ -279,14 +279,16 @@ section.rose.condensed div.notes .boring {
 }
 
 .parentA,
-.parentB {
+.parentB,
+.parentC {
     margin-top: 2px;
     margin-left: 2px;
     pointer-events: none;
 }
 
 .parentA > div,
-.parentB > div {
+.parentB > div,
+.parentC > div {
     display: inline-block;
     padding: 1px 6px;
     font-size: 19px;
@@ -929,7 +931,8 @@ div.species_menu ul button img {
     }
 
     section.rose.condensed .parentA > div,
-    section.rose.condensed .parentB > div {
+    section.rose.condensed .parentB > div,
+    section.rose.condensed .parentC > div {
         padding-left: 5px;
         padding-right: 5px;
         font-size: 16px;
