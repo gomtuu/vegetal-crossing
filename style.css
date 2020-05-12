@@ -110,18 +110,6 @@ h1, h2, h3 {
     font-family: "Zilla Slab", serif;
 }
 
-section span.breed {
-    border-radius: 4px;
-    padding: 0 4px;
-    background: rgba(0, 0, 0, 0.2);
-    color: #ffff66;
-    cursor: pointer;
-}
-
-section span.breed:hover {
-    color: #ccffff;
-}
-
 div.options {
     grid-column: 1 / 3;
     background-color: rgba(var(--game-cream), 0.2);
@@ -494,6 +482,14 @@ footer {
     --phenotype: var(--black);
 }
 
+/* Crazy colors */
+div.breed .red_orange_black {
+    background: linear-gradient(90deg,
+        rgb(var(--red)) 0px, rgb(var(--red)) 13px,
+        rgb(var(--orange)) 13px, rgb(var(--orange)) 27px,
+        rgb(var(--black)) 27px);
+}
+
 /* Species colors */
 .cosmos {
     --red: 238, 64, 64;
@@ -849,6 +845,22 @@ footer {
 .windflower [data-genotypes="rryyww"] { --phenotype: var(--white); }
 .windflower [data-genotypes="Rryyww"] { --phenotype: var(--red); }
 .windflower [data-genotypes="RRyyww"] { --phenotype: var(--red); --obtain: var(--seed-red); }
+
+@media only screen and (min-width: 1800px) {
+
+    section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+@media only screen and (min-width: 2400px) {
+
+    section {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
 
 @media only screen and (min-width: 1024px) {
 

@@ -378,6 +378,12 @@ function breed_link_click(evt) { // {{{
     var parent_divs = button.querySelectorAll('.parent');
     if (parent_divs.length == 2) {
         var genotypes = Array.from(parent_divs, div => parse_genespecs(div.dataset.genotypes));
+    } else {
+        genotypes = [[], []];
+        parent_divs.forEach(div => {
+            let pool = Number(div.dataset.pool);
+            genotypes[pool] = genotypes[pool].concat(parse_genespecs(div.dataset.genotypes));
+        });
     }
     set_breed_mode(button.dataset.mode || 'all');
     evt.preventDefault();
