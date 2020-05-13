@@ -167,21 +167,21 @@ function breed_multiple(list_a, list_b) { // {{{
     return all_counts;
 } // }}}
 
-function get_species_flowers(species) { // {{{
-    return document.querySelectorAll('section.' + species + ' div.varieties > div');
+function get_flowers() { // {{{
+    return document.querySelectorAll('div.varieties > div');
 } // }}}
 
-function clear_offspring(species) { // {{{
-    var flowers = get_species_flowers(species);
+function clear_offspring() { // {{{
+    var flowers = get_flowers();
     flowers.forEach(flower => {
         flower.querySelectorAll('.result').forEach(result => flower.removeChild(result));
         flower.classList.remove('impossible');
     });
 } // }}}
 
-function show_offspring(species, genome_counts) { // {{{
-    clear_offspring(species);
-    var flowers = get_species_flowers(species);
+function show_offspring(genome_counts) { // {{{
+    clear_offspring();
+    var flowers = get_flowers();
     var mode = document.querySelector('button#prob_mode').dataset.state;
     var offspring = {
         '0': fraction_genomes_like,
@@ -218,15 +218,14 @@ function flower_obj(element_or_genotype) { // {{{
     }
     let obj = {
         'element': element,
-        'species': element.closest('section').classList[0],
         'genotype': genotype
     }
     flower_objects[genotype] = obj;
     return obj
 } // }}}
 
-function clear_parents(species) { // {{{
-    var flowers = get_species_flowers(species);
+function clear_parents() { // {{{
+    var flowers = get_flowers();
     flowers.forEach(flower => {
         flower.querySelectorAll('.parentA').forEach(parent_div => flower.removeChild(parent_div));
         flower.querySelectorAll('.parentB').forEach(parent_div => flower.removeChild(parent_div));
@@ -291,39 +290,34 @@ function flower_click(evt) { // {{{
     evt.preventDefault();
     evt.stopPropagation();
     var flower = flower_obj(evt.target);
-    var species = flower.species;
-    if (species == undefined) {
-        return false;
-    }
     var add_to_selection = evt.ctrlKey;
     select_flower(flower, add_to_selection);
-    clear_parents(species);
+    clear_parents();
     if (selected.length < 2) {
         mark_parents(selected[0]);
         return false;
     }
     mark_parents(selected[0], selected[1]);
     var offspring = breed_multiple(selected[0], selected[1]);
-    show_offspring(species, offspring);
+    show_offspring(offspring);
     return false;
 } // }}}
 
 function section_click(evt) { // {{{
-    var species = evt.target.closest('section').classList[0];
     selected = [];
-    clear_parents(species);
-    clear_offspring(species);
+    clear_parents();
+    clear_offspring();
     return false;
 } // }}}
 
-function href_breed(species, genotypes_a, genotypes_b) { // {{{
+function href_breed(genotypes_a, genotypes_b) { // {{{
     var parents_a = genotypes_a.map(g => flower_obj(g))
     var parents_b = genotypes_b.map(g => flower_obj(g))
-    clear_parents(species);
+    clear_parents();
     selected = [parents_a, parents_b];
     mark_parents(selected[0], selected[1]);
     var offspring = breed_multiple(selected[0], selected[1]);
-    show_offspring(species, offspring);
+    show_offspring(offspring);
     return false;
 } // }}}
 
@@ -373,7 +367,6 @@ function set_breed_mode(mode) { // {{{
 } // }}}
 
 function breed_link_click(evt) { // {{{
-    var species = evt.target.closest('section').classList[0];
     var button = evt.target.closest('.breed');
     var parent_divs = button.querySelectorAll('.parent');
     if (parent_divs.length == 2) {
@@ -388,16 +381,15 @@ function breed_link_click(evt) { // {{{
     set_breed_mode(button.dataset.mode || 'all');
     evt.preventDefault();
     evt.stopPropagation();
-    href_breed(species, genotypes[0], genotypes[1]);
+    href_breed(genotypes[0], genotypes[1]);
 } // }}}
 
 function set_species(species) { // {{{
     var section = document.querySelector('section');
-    var old_species = section.classList[0];
     selected = [];
     flower_objects = {};
-    clear_parents(old_species);
-    clear_offspring(old_species);
+    clear_parents();
+    clear_offspring();
     species_buttons.forEach(function(button, i) {
         button.classList.remove('selected');
         section.classList.remove(button.classList[0]);
@@ -467,25 +459,23 @@ document.querySelector('button#prob_mode').addEventListener('click', evt => {
     evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
     evt.target.innerHTML = states[evt.target.dataset.state];
     if (selected[0] !== undefined && (selected[1] !== undefined || breed_mode == 'clones')) {
-        var species = evt.target.closest('section').classList[0];
         var offspring = breed_multiple(selected[0], selected[1]);
-        show_offspring(species, offspring);
+        show_offspring(offspring);
     }
     evt.preventDefault();
     evt.stopPropagation();
 });
 
 document.querySelector('button#breed_mode').addEventListener('click', evt => {
-    var species = evt.target.closest('section').classList[0];
-    clear_parents(species);
+    clear_parents();
     set_breed_mode();
     if (selected[0] !== undefined) {
         if (selected[1] !== undefined || breed_mode == 'clones') {
             mark_parents(selected[0], selected[1]);
             var offspring = breed_multiple(selected[0], selected[1]);
-            show_offspring(species, offspring);
+            show_offspring(offspring);
         } else {
-            clear_offspring(species);
+            clear_offspring();
             mark_parents(selected[0]);
         }
     }

@@ -100,6 +100,7 @@ section {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 36px;
     padding-bottom: 36px;
     background-color: rgb(var(--section-brown));
     color: white;
@@ -111,9 +112,7 @@ h1, h2, h3 {
 }
 
 div.options {
-    grid-column: 1 / 3;
-    background-color: rgba(var(--game-cream), 0.2);
-    margin-bottom: 36px;
+    background-color: #716855;
 }
 
 div.options ul {
@@ -848,7 +847,7 @@ div.breed .red_orange_black {
 
 @media only screen and (min-width: 1800px) {
 
-    section {
+    section.rose {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
@@ -856,7 +855,7 @@ div.breed .red_orange_black {
 
 @media only screen and (min-width: 2400px) {
 
-    section {
+    section.rose {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
