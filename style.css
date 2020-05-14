@@ -173,6 +173,11 @@ div.varieties {
     width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
 }
 
+[data-genotypes] {
+    background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
+    background-size: auto calc(var(--tile-height) / 2);
+}
+
 div.varieties > div {
     width: var(--tile-width);
     height: var(--tile-height);
@@ -182,8 +187,6 @@ div.varieties > div {
     border-bottom: var(--near-border) solid rgba(0, 0, 0, 0.2);
     border-left: var(--far-border) solid rgba(255, 255, 255, 0.1);
     border-radius: 2px;
-    background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
-    background-size: auto calc(var(--tile-height) / 2);
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     line-height: 1;
     cursor: pointer;
@@ -380,8 +383,6 @@ div.breed .offspring {
     border: 1px solid rgba(var(--section-brown), 1);
     border-radius: 4px;
     overflow: hidden;
-    background: rgb(var(--phenotype)) var(--obtain) no-repeat center;
-    background-size: 50%;
 }
 
 div.breed label {
@@ -488,6 +489,30 @@ div.breed .red_orange_black {
         rgb(var(--orange)) 13px, rgb(var(--orange)) 27px,
         rgb(var(--black)) 27px);
 }
+
+/* Icons */
+.apple { background-image: url(icons/apple.png); }
+.bamboo { background-image: url(icons/bamboo-piece.png); }
+.boot { background-image: url(icons/boot.png); }
+.cherry { background-image: url(icons/cherry.png); }
+.clay { background-image: url(icons/clay.png); }
+.weeds { background-image: url(icons/clump-of-weeds.png); }
+.coconut { background-image: url(icons/coconut.png); }
+.can { background-image: url(icons/empty-can.png); }
+.fossil { background-image: url(icons/fossil.png); }
+.gold { background-image: url(icons/gold-nugget.png); }
+.iron { background-image: url(icons/iron-nugget.png); }
+.citrus { background-image: url(icons/orange.png); }
+.peach { background-image: url(icons/peach.png); }
+.pear { background-image: url(icons/pear.png); }
+.rotten { background-image: url(icons/rotten-turnip.png); }
+.star { background-image: url(icons/star-fragment.png); }
+.stone { background-image: url(icons/stone.png); }
+.tire { background-image: url(icons/tire.png); }
+.branch { background-image: url(icons/tree-branch.png); }
+.turnip { background-image: url(icons/turnip.png); }
+.nest { background-image: url(icons/wasp-nest.png); }
+.wood { background-image: url(icons/wood.png); }
 
 /* Species colors */
 .cosmos {
