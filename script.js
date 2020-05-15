@@ -352,8 +352,8 @@ function parse_pools(pools_string) { // {{{
 
 function set_breed_mode(mode) { // {{{
     var states = {
-        'all': 'Breeding: <span class="vcfont">X</span>&nbsp;All&nbsp;Combos',
-        'clones': 'Breeding: <span class="vcfont">O</span>&nbsp;Clones&nbsp;Only'};
+        'all': 'Breeding: <span class="vcfont">×</span>&nbsp;All&nbsp;Combos',
+        'clones': 'Breeding: <span class="vcfont">⊙</span>&nbsp;Clones&nbsp;Only'};
     var states_list = Object.keys(states);
     var button = document.querySelector('button#breed_mode');
     if (mode === undefined) {

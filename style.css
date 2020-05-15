@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'VegetalCrossing';
-    src: url('VegetalCrossing2.woff2') format('woff2');
+    src: url('VegetalCrossing4.woff2') format('woff2');
 }
 
 :root {
@@ -175,7 +175,8 @@ div.varieties {
     width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
 }
 
-[data-genotypes] {
+div.varieties [data-genotypes],
+[data-genotypes]::after {
     background: rgba(var(--phenotype), var(--background-opacity)) var(--obtain) no-repeat center;
     background-size: auto calc(var(--tile-height) / 2);
 }
@@ -298,7 +299,7 @@ section.rose.condensed div.notes .boring {
     padding: 1px 6px;
     font-size: 19px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 200px;
     pointer-events: none;
 }
@@ -345,6 +346,13 @@ div.breed {
     padding: 4px 4px;
     color: rgb(var(--section-brown));
     cursor: pointer;
+    font: 24px / 12px VegetalCrossing, Roboto, sans-serif;
+}
+
+div.breed.abridged::after {
+    content: "⋯";
+    margin-left: 4px;
+    font-size: 18px;
 }
 
 div.breed:first-child {
@@ -360,13 +368,6 @@ div.breed + div.breed {
     padding-top: 4px;
 }
 
-div.breed .operator {
-    padding: 0 4px;
-    line-height: 1;
-    font-family: VegetalCrossing, Roboto;
-    font-size: 24px;
-}
-
 .vcfont {
     line-height: 0.1;
     font-family: VegetalCrossing, Roboto;
@@ -376,26 +377,49 @@ div.breed .operator {
 
 div.breed .parent,
 div.breed .offspring {
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+div.breed .parent::after,
+div.breed .offspring::after {
+    content: "";
+    position: relative;
+    display: block;
     width: 40px;
     height: 40px;
     border: 1px solid rgba(var(--section-brown), 1);
     border-radius: 4px;
-    overflow: hidden;
 }
 
-div.breed label {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+div.breed .parent + .parent::before,
+div.breed .parent + .offspring::before {
+    padding: 4px;
+    font: 24px / 12px VegetalCrossing;
 }
 
-div.breed .black label,
-div.breed label.white {
-    color: rgba(255, 255, 255, 0.8);
+div.breed .parent + .parent::before {
+    content: "×";
+}
+
+div.breed[data-mode="clones"] .parent + .parent::before {
+    content: "⊙";
+}
+
+div.breed .parent + .offspring::before {
+    content: "=";
+}
+
+div.breed .offspring + .offspring {
+    margin-left: 4px;
+}
+
+div.repeat {
+    border-top: 2px solid rgba(var(--section-brown), 0.5);
+    font: 24px VegetalCrossing;
+    text-align: center;
+    color: rgb(var(--section-brown));
+    cursor: default;
 }
 
 /* Menu */
@@ -485,7 +509,7 @@ footer {
 }
 
 /* Crazy colors */
-div.breed .red_orange_black {
+div.breed .red_orange_black::after {
     background: linear-gradient(90deg,
         rgb(var(--red)) 0px, rgb(var(--red)) 13px,
         rgb(var(--orange)) 13px, rgb(var(--orange)) 27px,
@@ -493,28 +517,28 @@ div.breed .red_orange_black {
 }
 
 /* Icons */
-.apple { background-image: url(icons/apple.png); }
-.bamboo { background-image: url(icons/bamboo-piece.png); }
-.boot { background-image: url(icons/boot.png); }
-.cherry { background-image: url(icons/cherry.png); }
-.clay { background-image: url(icons/clay.png); }
-.weeds { background-image: url(icons/clump-of-weeds.png); }
-.coconut { background-image: url(icons/coconut.png); }
-.can { background-image: url(icons/empty-can.png); }
-.fossil { background-image: url(icons/fossil.png); }
-.gold { background-image: url(icons/gold-nugget.png); }
-.iron { background-image: url(icons/iron-nugget.png); }
-.citrus { background-image: url(icons/orange.png); }
-.peach { background-image: url(icons/peach.png); }
-.pear { background-image: url(icons/pear.png); }
-.rotten { background-image: url(icons/rotten-turnip.png); }
-.star { background-image: url(icons/star-fragment.png); }
-.stone { background-image: url(icons/stone.png); }
-.tire { background-image: url(icons/tire.png); }
-.branch { background-image: url(icons/tree-branch.png); }
-.turnip { background-image: url(icons/turnip.png); }
-.nest { background-image: url(icons/wasp-nest.png); }
-.wood { background-image: url(icons/wood.png); }
+.apple::after { background-image: url(icons/apple.png); }
+.bamboo::after { background-image: url(icons/bamboo-piece.png); }
+.boot::after { background-image: url(icons/boot.png); }
+.cherry::after { background-image: url(icons/cherry.png); }
+.clay::after { background-image: url(icons/clay.png); }
+.weeds::after { background-image: url(icons/clump-of-weeds.png); }
+.coconut::after { background-image: url(icons/coconut.png); }
+.can::after { background-image: url(icons/empty-can.png); }
+.fossil::after { background-image: url(icons/fossil.png); }
+.gold::after { background-image: url(icons/gold-nugget.png); }
+.iron::after { background-image: url(icons/iron-nugget.png); }
+.citrus::after { background-image: url(icons/orange.png); }
+.peach::after { background-image: url(icons/peach.png); }
+.pear::after { background-image: url(icons/pear.png); }
+.rotten::after { background-image: url(icons/rotten-turnip.png); }
+.star::after { background-image: url(icons/star-fragment.png); }
+.stone::after { background-image: url(icons/stone.png); }
+.tire::after { background-image: url(icons/tire.png); }
+.branch::after { background-image: url(icons/tree-branch.png); }
+.turnip::after { background-image: url(icons/turnip.png); }
+.nest::after { background-image: url(icons/wasp-nest.png); }
+.wood::after { background-image: url(icons/wood.png); }
 
 /* Species colors */
 .cosmos {
@@ -758,7 +782,8 @@ div.breed .red_orange_black {
 .rose [data-genotypes="rrYywwss"] { --phenotype: var(--yellow); }
 .rose [data-genotypes="RrYywwss"] { --phenotype: var(--orange); }
 .rose [data-genotypes="RRYywwss"] { --phenotype: var(--orange); }
-.rose [data-genotypes="rryywwss"] { --phenotype: var(--white); --obtain: var(--gold-watering-can);
+.rose [data-genotypes="rryywwss"] { --phenotype: var(--white); --obtain: var(--gold-watering-can); }
+.rose div.varieties [data-genotypes="rryywwss"] {
     background-image: var(--obtain), linear-gradient(149.620874deg,
         rgba(var(--white), var(--background-opacity)) 56%,
         rgba(217, 152, 22, var(--background-opacity)) 57%,
