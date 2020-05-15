@@ -5,6 +5,7 @@
 
 :root {
     --phenotype: rgba(255, 255, 255, 0.05); /* Default phenotype for visibility */
+    --background-opacity: 1.0;
     --island: url(nmt.png);
     --seed-red: url(seed-red.png);
     --seed-yellow: url(seed-yellow.png);
@@ -175,7 +176,7 @@ div.varieties {
 }
 
 [data-genotypes] {
-    background: rgba(var(--phenotype), 1.0) var(--obtain) no-repeat center;
+    background: rgba(var(--phenotype), var(--background-opacity)) var(--obtain) no-repeat center;
     background-size: auto calc(var(--tile-height) / 2);
 }
 
@@ -210,7 +211,7 @@ div.varieties > div.highlighted {
 }
 
 div.varieties > div.impossible {
-    background-color: rgba(var(--phenotype), 0.2);
+    --background-opacity: 0.2;
     border-top-color: rgba(255, 255, 255, 0.02);
     border-right-color: rgba(0, 0, 0, 0.02);
     border-bottom-color: rgba(0, 0, 0, 0.02);
@@ -758,7 +759,11 @@ div.breed .red_orange_black {
 .rose [data-genotypes="RrYywwss"] { --phenotype: var(--orange); }
 .rose [data-genotypes="RRYywwss"] { --phenotype: var(--orange); }
 .rose [data-genotypes="rryywwss"] { --phenotype: var(--white); --obtain: var(--gold-watering-can);
-    background-image: var(--obtain), linear-gradient(149.620874deg, rgb(var(--white)) 56%, gold 57%, yellow, gold, yellow, gold, yellow, gold);
+    background-image: var(--obtain), linear-gradient(149.620874deg,
+        rgba(var(--white), var(--background-opacity)) 56%,
+        rgba(217, 152, 22, var(--background-opacity)) 57%,
+        rgba(245, 204, 43, var(--background-opacity)),
+        rgba(250, 230, 149, var(--background-opacity)));
     background-size: auto calc(var(--tile-height) / 2), auto;
     background-position: 95% 100%, center;
 }
