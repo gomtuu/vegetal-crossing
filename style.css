@@ -10,6 +10,7 @@
     --seed-yellow: url(seed-yellow.png);
     --seed-white: url(seed-white.png);
     --seed-orange: url(seed-orange.png);
+    --gold-watering-can: url(tool-gold-watering-can.png);
     --obtain: none;
     --tile-width: 84px;
     --tile-height: 48px;
@@ -756,7 +757,11 @@ div.breed .red_orange_black {
 .rose [data-genotypes="rrYywwss"] { --phenotype: var(--yellow); }
 .rose [data-genotypes="RrYywwss"] { --phenotype: var(--orange); }
 .rose [data-genotypes="RRYywwss"] { --phenotype: var(--orange); }
-.rose [data-genotypes="rryywwss"] { --phenotype: var(--white); }
+.rose [data-genotypes="rryywwss"] { --phenotype: var(--white); --obtain: var(--gold-watering-can);
+    background-image: var(--obtain), linear-gradient(149.620874deg, rgb(var(--white)) 56%, gold 57%, yellow, gold, yellow, gold, yellow, gold);
+    background-size: auto calc(var(--tile-height) / 2), auto;
+    background-position: 95% 100%, center;
+}
 .rose [data-genotypes="Rryywwss"] { --phenotype: var(--red); }
 .rose [data-genotypes="RRyywwss"] { --phenotype: var(--black); }
 .rose [data-genotypes="rrYYWWSs"] { --phenotype: var(--white); }
