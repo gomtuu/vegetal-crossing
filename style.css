@@ -26,6 +26,7 @@
     --tile-translate: translate(var(--row-skew-offset), var(--highlight-offset));
     --heading-red: 206, 9, 74;
     --section-brown: 78, 68, 49;
+    --recipe-almond: 219, 213, 193;
     --game-cream: 255, 250, 228;
     --game-cyan: 12, 198, 184;
     --game-cyan-dark: 0, 180, 168;
@@ -340,10 +341,10 @@ div.instructions ul {
 
 div.instructions ul li {
     margin-bottom: 4px;
-    border-top: 2px solid #ffffff;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
     border-bottom: 2px solid rgba(var(--section-brown), 0.25);
     border-radius: 8px;
-    background-color: rgb(var(--game-cream));
+    background-color: rgb(var(--recipe-almond));
 }
 
 div.breed {
