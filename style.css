@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'VegetalCrossing';
-    src: url('VegetalCrossing4.woff2') format('woff2');
+    src: url('VegetalCrossing4.1.woff2') format('woff2');
 }
 
 :root {
@@ -24,6 +24,7 @@
     --row-skew-offset: 0;
     --highlight-offset: 0;
     --tile-translate: translate(var(--row-skew-offset), var(--highlight-offset));
+    --heading-red: 206, 9, 74;
     --section-brown: 78, 68, 49;
     --game-cream: 255, 250, 228;
     --game-cyan: 12, 198, 184;
@@ -96,6 +97,12 @@ button#toggle_help {
 
 div.help {
     padding-bottom: 24px;
+}
+
+div.help h1,
+div.help h2,
+div.help h3 {
+    color: rgb(var(--heading-red));
 }
 
 section {
@@ -352,7 +359,6 @@ div.breed {
 div.breed.abridged::after {
     content: "⋯";
     margin-left: 4px;
-    font-size: 18px;
 }
 
 div.breed:first-child {
