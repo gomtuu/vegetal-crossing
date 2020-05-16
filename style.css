@@ -6,12 +6,12 @@
 :root {
     --phenotype: rgba(255, 255, 255, 0.05); /* Default phenotype for visibility */
     --background-opacity: 1.0;
-    --island: url(nmt.png);
-    --seed-red: url(seed-red.png);
-    --seed-yellow: url(seed-yellow.png);
-    --seed-white: url(seed-white.png);
-    --seed-orange: url(seed-orange.png);
-    --gold-watering-can: url(tool-gold-watering-can.png);
+    --island: url(icons/nmt.png);
+    --seed-red: url(icons/seed-red.png);
+    --seed-yellow: url(icons/seed-yellow.png);
+    --seed-white: url(icons/seed-white.png);
+    --seed-orange: url(icons/seed-orange.png);
+    --gold-watering-can: url(icons/golden-watering-can.png);
     --obtain: none;
     --tile-width: 84px;
     --tile-height: 48px;
