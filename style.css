@@ -790,7 +790,7 @@ div.breed .red_orange_black::after {
 .rose [title="1100"] { --phenotype: var(--orange); }
 .rose [title="2100"] { --phenotype: var(--orange); }
 .rose [title="0000"] { --phenotype: var(--white); --obtain: var(--gold-watering-can); }
-.rose div.varieties [title="000ss"] {
+.rose div.varieties [title="0000"] {
     background-image: var(--obtain), linear-gradient(149.620874deg,
         rgba(var(--white), var(--background-opacity)) 56%,
         rgba(217, 152, 22, var(--background-opacity)) 57%,
