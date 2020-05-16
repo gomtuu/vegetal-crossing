@@ -219,7 +219,7 @@ div.varieties > div.highlighted {
     z-index: 2;
 }
 
-div.varieties > div.impossible {
+div.varieties > div[data-count="0"] {
     --background-opacity: 0.2;
     border-top-color: rgba(255, 255, 255, 0.02);
     border-right-color: rgba(0, 0, 0, 0.02);
@@ -227,7 +227,7 @@ div.varieties > div.impossible {
     border-left-color: rgba(255, 255, 255, 0.02);
 }
 
-div.varieties > div.impossible.highlighted {
+div.varieties > div[data-count="0"].highlighted {
     box-shadow: 1px 1px 0 2px rgba(0, 0, 0, 0.2), 4px 7px 2px rgba(0, 0, 0, 0.12);
 }
 
@@ -268,6 +268,12 @@ section.rose.condensed div.notes .boring {
 }
 
 .result {
+    position: absolute;
+    right: 2px;
+    bottom: 1px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
     text-shadow: 1px 0px 0 black,
                  1px 1px 0 black,
                  1px -1px 0 black,
@@ -276,20 +282,25 @@ section.rose.condensed div.notes .boring {
                  -1px -1px 0 black,
                  0px -1px 0 black,
                  0px 1px 0 black;
-    font-size: 16px;
-    font-weight: bold;
     pointer-events: none;
 }
 
-.result {
-    position: absolute;
-    right: 2px;
-    bottom: 1px;
-    text-align: center;
+.result::before,
+.result::after {
+    display: block;
 }
 
-.result > div:nth-child(2) {
+.result[data-numerator]::before {
+    content: attr(data-numerator);
+}
+
+.result[data-denominator]::after {
+    content: attr(data-denominator);
     text-decoration: overline;
+}
+
+.result[data-percentage]::after {
+    content: attr(data-percentage);
 }
 
 .parentA,

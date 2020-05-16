@@ -161,8 +161,8 @@ function get_flowers() { // {{{
 function clear_offspring() { // {{{
     var flowers = get_flowers();
     flowers.forEach(flower => {
+        delete flower.dataset.count;
         flower.querySelectorAll('.result').forEach(result => flower.removeChild(result));
-        flower.classList.remove('impossible');
     });
 } // }}}
 
@@ -170,24 +170,25 @@ function show_offspring(genome_counts) { // {{{
     clear_offspring();
     var flowers = get_flowers();
     var mode = document.querySelector('button#prob_mode').dataset.state;
-    var offspring = {
+    var disp_func = {
         '0': fraction_genomes_like,
         '1': fraction_genomes_reduced,
         '2': fraction_genomes_percent
-    }[mode](genome_counts);
+    }[mode]
+    var offspring = disp_func(genome_counts);
     flowers.forEach(function(flower) {
         var genome = flower.title;
+        flower.dataset.count = genome_counts[genome] || 0;
         if (genome in offspring) {
             var result_div = document.createElement('div');
             result_div.classList.add('result');
             if (mode === "2") {
-                result_div.innerHTML = '<div>' + String(offspring[genome][0]) + '</div>';
+                result_div.dataset.percentage = offspring[genome][0];
             } else {
-                result_div.innerHTML = '<div>' + String(offspring[genome][0]) + '</div><div>' + String(offspring[genome][1]) + '</div>';
+                result_div.dataset.numerator = offspring[genome][0];
+                result_div.dataset.denominator = offspring[genome][1];
             }
             flower.appendChild(result_div);
-        } else {
-            flower.classList.add('impossible');
         }
     });
 } // }}}
