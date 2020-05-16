@@ -1,6 +1,11 @@
 var selected = [];
 var flower_objects = {};
 var breed_mode = 'all';
+const breed_lookup = [
+    ['0000', '1010', '1111'],
+    ['1010', '2110', '2121'],
+    ['1111', '2121', '2222']
+];
 
 var FractionReduce = (function(){ // {{{
     // Euclid's Algorithm
@@ -47,22 +52,11 @@ function multiply(A, B) { // {{{
 } // }}}
 
 function breed(A, B) { // {{{
-    var genes_a = A.match(/.{2}/g);
-    var genes_b = B.match(/.{2}/g);
+    var genes_a = Array.from(A, digit => Number(digit));
+    var genes_b = Array.from(B, digit => Number(digit));
     var possibilities = [];
-    for (var i=0; i < genes_a.length; i++) {
-        possibilities[i] = [];
-        for (var j=0; j < 2; j++) {
-            for (var k=0; k < 2; k++) {
-                allele_a = genes_a[i][j];
-                allele_b = genes_b[i][k];
-                var combination = allele_a + allele_b;
-                if (allele_a > allele_b) {
-                    combination = allele_b + allele_a;
-                }
-                possibilities[i].push(combination);
-            }
-        }
+    for (let i=0; i < genes_a.length; i++) {
+        possibilities[i] = breed_lookup[genes_a[i]][genes_b[i]];
     }
     var genomes = possibilities.shift();
     while (possibilities.length) {
@@ -70,14 +64,7 @@ function breed(A, B) { // {{{
         genomes = multiply(genomes, suffixes);
     }
     var genome_counts = {}
-    for (var i=0; i < genomes.length; i++) {
-        var genome = genomes[i];
-        if (genome in genome_counts) {
-            genome_counts[genome] += 1;
-        } else {
-            genome_counts[genome] = 1;
-        }
-    }
+    genomes.forEach(g => genome_counts[g] = (genome_counts[g] || 0) + 1);
     return genome_counts;
 } // }}}
 
@@ -189,7 +176,7 @@ function show_offspring(genome_counts) { // {{{
         '2': fraction_genomes_percent
     }[mode](genome_counts);
     flowers.forEach(function(flower) {
-        var genome = flower.dataset.genotypes;
+        var genome = flower.title;
         if (genome in offspring) {
             var result_div = document.createElement('div');
             result_div.classList.add('result');
@@ -206,12 +193,14 @@ function show_offspring(genome_counts) { // {{{
 } // }}}
 
 function flower_obj(element_or_genotype) { // {{{
+    console.log(element_or_genotype);
     if (element_or_genotype instanceof HTMLElement) {
         var element = element_or_genotype;
-        var genotype = element.dataset.genotypes;
+        var genotype = element.title;
     } else if (typeof element_or_genotype == 'string') {
         var genotype = element_or_genotype;
-        var element = document.querySelector('div.varieties [data-genotypes="' + genotype + '"]');
+        var selector = 'div.varieties [title="' + genotype + '"]';
+        var element = document.querySelector(selector);
     }
     if (genotype in flower_objects) {
         return flower_objects[genotype];
@@ -325,13 +314,13 @@ function parse_genespecs(genespecs_string) { // {{{
     var genespecs = genespecs_string.split(',');
     var genotypes = []
     genespecs.forEach(genespec => {
-        let parts = genespec.split(':');
+        let parts = genespec.split('x');
         let copies = 0;
         let genotype = undefined;
-        if (isNaN(parts[0])) {
+        if (parts.length == 1) {
             copies = 1;
             genotype = parts[0];
-        } else {
+        } else if (parts.length == 2) {
             copies = parts[0];
             genotype = parts[1];
         }
@@ -370,12 +359,14 @@ function breed_link_click(evt) { // {{{
     var button = evt.target.closest('.breed');
     var parent_divs = button.querySelectorAll('.parent');
     if (parent_divs.length == 2) {
-        var genotypes = Array.from(parent_divs, div => parse_genespecs(div.dataset.genotypes));
+        var genotypes = Array.from(parent_divs, div => parse_genespecs(div.title));
+        console.log(genotypes);
+        console.log('---');
     } else {
         genotypes = [[], []];
         parent_divs.forEach(div => {
             let pool = Number(div.dataset.pool);
-            genotypes[pool] = genotypes[pool].concat(parse_genespecs(div.dataset.genotypes));
+            genotypes[pool] = genotypes[pool].concat(parse_genespecs(div.title));
         });
     }
     set_breed_mode(button.dataset.mode || 'all');
@@ -399,22 +390,22 @@ function set_species(species) { // {{{
 } // }}}
 
 function highlight_varieties(evt) { // {{{
-    var icon = evt.target.closest('div[data-genotypes]');
+    var icon = evt.target.closest('div[title]');
     if (icon === null) {
         return false;
     }
-    var genespecs = parse_genespecs(icon.dataset.genotypes);
-    var selector = '[data-genotypes="' + [...new Set(genespecs)].join('"], [data-genotypes="');
+    var genespecs = parse_genespecs(icon.title);
+    var selector = '[title="' + [...new Set(genespecs)].join('"], [title="');
     document.querySelectorAll(selector).forEach(el => el.classList.add('highlighted'));
 } // }}}
 
 function unhighlight_varieties(evt) { // {{{
-    var icon = evt.target.closest('div[data-genotypes]');
+    var icon = evt.target.closest('div[title]');
     if (icon === null) {
         return false;
     }
-    var genespecs = parse_genespecs(icon.dataset.genotypes);
-    var selector = '[data-genotypes="' + [...new Set(genespecs)].join('"], [data-genotypes="');
+    var genespecs = parse_genespecs(icon.title);
+    var selector = '[title="' + [...new Set(genespecs)].join('"], [title="');
     document.querySelectorAll(selector).forEach(el => el.classList.remove('highlighted'));
 } // }}}
 
