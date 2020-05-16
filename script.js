@@ -78,19 +78,25 @@ function pools_equal(A, B) { /// {{{
     return true;
 } // }}}
 
-function fraction_genomes_like(genome_counts) { // {{{
-    var genome_fracs = {}
+function list_gcd(nums) { // {{{
     var run_gcd = [];
-    var total_genomes = 0;
-    for (let genome in genome_counts) {
-        run_gcd.push(genome_counts[genome]);
+    nums.forEach(num => {
+        run_gcd.push(num);
         if (run_gcd.length == 2) {
-            new_gcd = FractionReduce.getGCD(run_gcd.shift(), run_gcd.shift());
+            let new_gcd = FractionReduce.getGCD(run_gcd.shift(), run_gcd.shift());
             run_gcd.push(new_gcd);
         }
+    });
+    return run_gcd[0];
+} // }}}
+
+function fraction_genomes_like(genome_counts) { // {{{
+    var genome_fracs = {}
+    var total_genomes = 0;
+    for (let genome in genome_counts) {
         total_genomes += genome_counts[genome];
     }
-    var gcd = run_gcd[0];
+    var gcd = list_gcd(Object.values(genome_counts));
     for (let genome in genome_counts) {
         let numerator = genome_counts[genome] / gcd;
         let denominator = total_genomes / gcd;
@@ -194,7 +200,6 @@ function show_offspring(genome_counts) { // {{{
 } // }}}
 
 function flower_obj(element_or_genotype) { // {{{
-    console.log(element_or_genotype);
     if (element_or_genotype instanceof HTMLElement) {
         var element = element_or_genotype;
         var genotype = element.title;
@@ -361,8 +366,6 @@ function breed_link_click(evt) { // {{{
     var parent_divs = button.querySelectorAll('.parent');
     if (parent_divs.length == 2) {
         var genotypes = Array.from(parent_divs, div => parse_genespecs(div.title));
-        console.log(genotypes);
-        console.log('---');
     } else {
         genotypes = [[], []];
         parent_divs.forEach(div => {
@@ -374,6 +377,34 @@ function breed_link_click(evt) { // {{{
     evt.preventDefault();
     evt.stopPropagation();
     href_breed(genotypes[0], genotypes[1]);
+} // }}}
+
+function repeat_button_click(evt) { // {{{
+    var button = evt.target.closest('button[title]');
+    var offspring = parse_genespecs(button.title);
+    var flowers = document.querySelectorAll('div.varieties > div[data-count]:not([data-count="0"])');
+    var count_list = [];
+    flowers.forEach(flower => {
+        if (offspring.includes(flower.title)) {
+            count_list.push(Number(flower.dataset.count));
+        }
+    });
+    var gcd = list_gcd(count_list);
+    var parents = [];
+    flowers.forEach(flower => {
+        if (offspring.includes(flower.title)) {
+            let quantity = Number(flower.dataset.count) / gcd;
+            for (let i=0; i < quantity; i++) {
+                parents.push(flower.title);
+            }
+        }
+    });
+    evt.preventDefault();
+    evt.stopPropagation();
+    if (parents.length == 0) {
+        return false;
+    }
+    href_breed(parents, parents);
 } // }}}
 
 function set_species(species) { // {{{
@@ -391,7 +422,7 @@ function set_species(species) { // {{{
 } // }}}
 
 function highlight_varieties(evt) { // {{{
-    var icon = evt.target.closest('div[title]');
+    var icon = evt.target.closest('[title]');
     if (icon === null) {
         return false;
     }
@@ -401,7 +432,7 @@ function highlight_varieties(evt) { // {{{
 } // }}}
 
 function unhighlight_varieties(evt) { // {{{
-    var icon = evt.target.closest('div[title]');
+    var icon = evt.target.closest('[title]');
     if (icon === null) {
         return false;
     }
@@ -433,7 +464,12 @@ breed_links.forEach(function(el, i) {
     el.addEventListener('click', breed_link_click);
 });
 
-var breed_icons = document.querySelectorAll('div.breed .parent, div.breed .offspring');
+var repeat_buttons = document.querySelectorAll('button.repeat');
+repeat_buttons.forEach(function(el, i) {
+    el.addEventListener('click', repeat_button_click);
+});
+
+var breed_icons = document.querySelectorAll('div.breed .parent, div.breed .offspring, button.repeat');
 breed_icons.forEach(element => element.addEventListener('mouseover', highlight_varieties));
 breed_icons.forEach(element => element.addEventListener('mouseout', unhighlight_varieties));
 

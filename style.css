@@ -432,12 +432,18 @@ div.breed .offspring + .offspring {
     margin-left: 4px;
 }
 
-div.repeat {
+button.repeat {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
     border-top: 2px solid rgba(var(--section-brown), 0.5);
     font: 24px VegetalCrossing;
     text-align: center;
+    background: transparent;
     color: rgb(var(--section-brown));
-    cursor: default;
+    cursor: pointer;
 }
 
 /* Menu */
