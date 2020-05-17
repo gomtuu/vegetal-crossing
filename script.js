@@ -328,6 +328,7 @@ function breed_link_click(evt) { // {{{
         }
     }
     set_pools(pools);
+    active_pool = 'B';
     set_breed_mode(button.dataset.mode || 'all');
     var offspring = breed_multiple();
     show_offspring(offspring);
