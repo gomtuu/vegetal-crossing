@@ -222,7 +222,7 @@ function flower_click(evt) { // {{{
 } // }}}
 
 function section_click(evt) { // {{{
-    active_pool = false;
+    active_pool = 'B';
     clear_parents();
     clear_offspring();
     return false;
