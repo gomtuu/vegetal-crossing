@@ -184,7 +184,7 @@ div.varieties {
 }
 
 div.varieties [title],
-[title]::after {
+div.breed [title]::after {
     background: rgba(var(--phenotype), var(--background-opacity)) var(--obtain) no-repeat center;
     background-size: auto calc(var(--tile-height) / 2);
 }
@@ -303,24 +303,41 @@ section.rose.condensed div.notes .boring {
     content: attr(data-percentage);
 }
 
-.parentA,
-.parentB,
-.parentC {
+[data-breed-mode="all"] [data--a]::before,
+[data-breed-mode="all"] [data--b]::after,
+[data-breed-mode="clones"] [data--c]::before {
+    content: var(--pool-letter);
+    display: block;
+    inline-size: fit-content;
     margin-top: 2px;
     margin-left: 2px;
-    pointer-events: none;
-}
-
-.parentA > div,
-.parentB > div,
-.parentC > div {
-    display: inline-block;
+    border-radius: 200px;
     padding: 1px 6px;
     font-size: 19px;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 200px;
     pointer-events: none;
+}
+
+[data-breed-mode="all"] [data--a]::before {
+    --pool-count: attr(data--a);
+    --pool-letter: "A";
+}
+
+[data-breed-mode="all"] [data--b]::after {
+    --pool-count: attr(data--b);
+    --pool-letter: "B";
+}
+
+[data-breed-mode="clones"] [data--c]::before {
+    --pool-count: attr(data--c);
+    --pool-letter: "C";
+}
+
+[data-breed-mode="all"] [data--a]:not([data--a="1"])::before,
+[data-breed-mode="all"] [data--b]:not([data--b="1"])::after,
+[data-breed-mode="clones"] [data--c]:not([data--c="1"])::before {
+    content: var(--pool-count) var(--pool-letter);
 }
 
 div.varieties > *:nth-child(12),
@@ -541,28 +558,28 @@ div.breed .red_orange_black::after {
 }
 
 /* Icons */
-.apple::after { background-image: url(icons/apple.png); }
-.bamboo::after { background-image: url(icons/bamboo-piece.png); }
-.boot::after { background-image: url(icons/boot.png); }
-.cherry::after { background-image: url(icons/cherry.png); }
-.clay::after { background-image: url(icons/clay.png); }
-.weeds::after { background-image: url(icons/clump-of-weeds.png); }
-.coconut::after { background-image: url(icons/coconut.png); }
-.can::after { background-image: url(icons/empty-can.png); }
-.fossil::after { background-image: url(icons/fossil.png); }
-.gold::after { background-image: url(icons/gold-nugget.png); }
-.iron::after { background-image: url(icons/iron-nugget.png); }
-.citrus::after { background-image: url(icons/orange.png); }
-.peach::after { background-image: url(icons/peach.png); }
-.pear::after { background-image: url(icons/pear.png); }
-.rotten::after { background-image: url(icons/rotten-turnip.png); }
-.star::after { background-image: url(icons/star-fragment.png); }
-.stone::after { background-image: url(icons/stone.png); }
-.tire::after { background-image: url(icons/tire.png); }
-.branch::after { background-image: url(icons/tree-branch.png); }
-.turnip::after { background-image: url(icons/turnip.png); }
-.nest::after { background-image: url(icons/wasp-nest.png); }
-.wood::after { background-image: url(icons/wood.png); }
+div.breed .apple::after { background-image: url(icons/apple.png); }
+div.breed .bamboo::after { background-image: url(icons/bamboo-piece.png); }
+div.breed .boot::after { background-image: url(icons/boot.png); }
+div.breed .cherry::after { background-image: url(icons/cherry.png); }
+div.breed .clay::after { background-image: url(icons/clay.png); }
+div.breed .weeds::after { background-image: url(icons/clump-of-weeds.png); }
+div.breed .coconut::after { background-image: url(icons/coconut.png); }
+div.breed .can::after { background-image: url(icons/empty-can.png); }
+div.breed .fossil::after { background-image: url(icons/fossil.png); }
+div.breed .gold::after { background-image: url(icons/gold-nugget.png); }
+div.breed .iron::after { background-image: url(icons/iron-nugget.png); }
+div.breed .citrus::after { background-image: url(icons/orange.png); }
+div.breed .peach::after { background-image: url(icons/peach.png); }
+div.breed .pear::after { background-image: url(icons/pear.png); }
+div.breed .rotten::after { background-image: url(icons/rotten-turnip.png); }
+div.breed .star::after { background-image: url(icons/star-fragment.png); }
+div.breed .stone::after { background-image: url(icons/stone.png); }
+div.breed .tire::after { background-image: url(icons/tire.png); }
+div.breed .branch::after { background-image: url(icons/tree-branch.png); }
+div.breed .turnip::after { background-image: url(icons/turnip.png); }
+div.breed .nest::after { background-image: url(icons/wasp-nest.png); }
+div.breed .wood::after { background-image: url(icons/wood.png); }
 
 /* Species colors */
 .cosmos {
