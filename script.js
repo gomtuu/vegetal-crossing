@@ -1,5 +1,5 @@
 var flowers = document.querySelectorAll('div.varieties > div');
-var active_pool = false;
+var pools_with_flowers = 0;
 var breed_mode = 'all';
 const breed_lookup = [
     ['0000', '1010', '1111'],
@@ -153,14 +153,7 @@ function clear_parents() { // {{{
         delete flower.dataset.B;
         delete flower.dataset.C;
     }
-} // }}}
-
-function choose_pool() { // {{{
-    if (breed_mode == 'all') {
-        active_pool = (active_pool == 'A') ? 'B' : 'A';
-    } else if (breed_mode == 'clones') {
-        active_pool = 'B';
-    }
+    pools_with_flowers = 0;
 } // }}}
 
 function select_flower(pool, flower, quantity) { // {{{
@@ -174,9 +167,11 @@ function select_flower(pool, flower, quantity) { // {{{
     }
     if (breed_mode == 'all') {
         flower.dataset[pool] = new_qty[pool];
+        pools_with_flowers = {'A': 1, 'B': 2}[pool];
     } else {
         flower.dataset.A = new_qty['A'];
         flower.dataset.B = new_qty['B'];
+        pools_with_flowers = 2;
     }
 } // }}}
 
@@ -204,15 +199,12 @@ function flower_click(evt) { // {{{
     evt.stopPropagation();
     var flower = evt.target.closest('[title]');
     var add_to_selection = evt.ctrlKey;
-    if (active_pool === false) {
-        active_pool = 'A';
-    } else if (!add_to_selection) {
-        if (active_pool == 'B') {
-            clear_parents();
-        }
-        choose_pool();
+    var should_clear = !add_to_selection && (pools_with_flowers >= 2);
+    if (should_clear) {
+        clear_parents();
     }
-    select_flower(active_pool, flower);
+    var pool = Math.max(0, pools_with_flowers - (add_to_selection ? 1 : 0));
+    select_flower(['A', 'B'][pool], flower);
     if (breed_mode == 'clones') {
         set_pool_C();
     }
@@ -222,7 +214,6 @@ function flower_click(evt) { // {{{
 } // }}}
 
 function section_click(evt) { // {{{
-    active_pool = 'B';
     clear_parents();
     clear_offspring();
     return false;
@@ -270,10 +261,6 @@ function set_breed_mode(mode) { // {{{
     } else {
         breed_mode = mode;
     }
-    if (breed_mode == 'clones') {
-        active_pool = 'B';
-        set_pool_C();
-    }
     var section = document.querySelector('section');
     section.dataset.breedMode = breed_mode;
     button.dataset.state = states_list.indexOf(breed_mode);
@@ -293,9 +280,11 @@ function breed_link_click(evt) { // {{{
             pools[pool] = pools[pool].concat(parse_genespecs(div.title));
         }
     }
-    set_pools(pools);
-    active_pool = 'B';
     set_breed_mode(button.dataset.mode || 'all');
+    set_pools(pools);
+    if (breed_mode == 'clones') {
+        set_pool_C();
+    }
     var offspring = breed_multiple();
     show_offspring(offspring);
     document.querySelector('section').scrollIntoView();
@@ -327,14 +316,15 @@ function repeat_button_click(evt) { // {{{
         return false;
     }
     set_pools({'A': parents, 'B': parents});
-    set_pool_C();
+    if (breed_mode == 'clones') {
+        set_pool_C();
+    }
     var offspring = breed_multiple();
     show_offspring(offspring);
 } // }}}
 
 function set_species(species) { // {{{
     var section = document.querySelector('section');
-    active_pool = false;
     clear_parents();
     clear_offspring();
     species_buttons.forEach(function(button, i) {
@@ -418,6 +408,9 @@ document.querySelector('button#prob_mode').addEventListener('click', evt => {
 
 document.querySelector('button#breed_mode').addEventListener('click', evt => {
     set_breed_mode();
+    if (breed_mode == 'clones') {
+        set_pool_C();
+    }
     var offspring = breed_multiple();
     show_offspring(offspring);
     evt.preventDefault();
