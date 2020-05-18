@@ -432,3 +432,22 @@ document.querySelector('button#condensed_view').addEventListener('click', evt =>
     evt.preventDefault();
     evt.stopPropagation();
 });
+
+var pagers = document.querySelectorAll('button.pager');
+pagers.forEach(pager => pager.addEventListener('click', evt => {
+    var container = evt.target.closest('[data-page]');
+    var h4 = container.querySelector('header h4');
+    var pages = container.querySelectorAll('.page');
+    var page = Number(container.dataset.page);
+    var button = evt.target.closest('[data-delta]');
+    var delta = Number(button.dataset.delta);
+    var new_page = (page + delta + pages.length) % pages.length;
+    container.dataset.page = new_page;
+    for (let page of pages) {
+        page.classList.remove('current_page');
+    }
+    pages[new_page].classList.add('current_page');
+    h4.innerHTML = pages[new_page].dataset.name;
+    evt.preventDefault();
+    evt.stopPropagation();
+}));

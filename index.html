@@ -122,32 +122,32 @@
                 <div title="2000"></div>
             </div>
             <div class="varieties four_d Ss">
-                <div title="0221" class="boring"></div>
-                <div title="1221" class="boring"></div>
-                <div title="2221" class="boring"></div>
-                <div title="0121" class="boring"></div>
-                <div title="1121" class="boring"></div>
-                <div title="2121" class="boring"></div>
-                <div title="0021" class="boring"></div>
-                <div title="1021" class="boring"></div>
-                <div title="2021" class="boring"></div>
-                <div title="0211" class="boring"></div>
-                <div title="1211" class="boring"></div>
+                <div title="0221"></div>
+                <div title="1221"></div>
+                <div title="2221"></div>
+                <div title="0121"></div>
+                <div title="1121"></div>
+                <div title="2121"></div>
+                <div title="0021"></div>
+                <div title="1021"></div>
+                <div title="2021"></div>
+                <div title="0211"></div>
+                <div title="1211"></div>
                 <div title="2211"></div>
-                <div title="0111" class="boring"></div>
-                <div title="1111" class="boring"></div>
-                <div title="2111" class="boring"></div>
-                <div title="0011" class="boring"></div>
-                <div title="1011" class="boring"></div>
-                <div title="2011" class="boring"></div>
-                <div title="0201" class="boring"></div>
-                <div title="1201" class="boring"></div>
-                <div title="2201" class="boring"></div>
-                <div title="0101" class="boring"></div>
-                <div title="1101" class="boring"></div>
-                <div title="2101" class="boring"></div>
-                <div title="0001" class="boring"></div>
-                <div title="1001" class="boring"></div>
+                <div title="0111"></div>
+                <div title="1111"></div>
+                <div title="2111"></div>
+                <div title="0011"></div>
+                <div title="1011"></div>
+                <div title="2011"></div>
+                <div title="0201"></div>
+                <div title="1201"></div>
+                <div title="2201"></div>
+                <div title="0101"></div>
+                <div title="1101"></div>
+                <div title="2101"></div>
+                <div title="0001"></div>
+                <div title="1001"></div>
                 <div title="2001"></div>
             </div>
             <div class="varieties four_d SS">
@@ -402,7 +402,7 @@
                         </div></li>
                 </ul>
             </div>
-            <div class="instructions rose">
+            <div class="instructions rose" data-page="0">
                 <!--
                     cloning chaotic pink offspring
                     48/256 pink: 7/768 blue (0.91%)
@@ -415,7 +415,12 @@
                     476/632 ROB: 202/3808 blue (5.3%)
                     (476/632) * (202/3808) = 101/2528 blue (4%)
                 -->
-                <h4>Basics</h4>
+                <header>
+                    <button class="pager" data-delta="-1">◄</button>
+                    <h4>Basics</h4>
+                    <button class="pager" data-delta="1">►</button>
+                </header>
+                <div class="page current_page" data-name="Basics">
                 <ul>
                     <li><div class="breed abridged">
                             <div class="parent" title="0010"></div>
@@ -454,9 +459,8 @@
                             <div class="offspring star" title="2221"></div>
                         </div></li>
                 </ul>
-            </div>
-            <div class="instructions rose">
-                <h4>Blue</h4>
+                </div>
+                <div class="page" data-name="Blue">
                 <ul>
                     <li><div class="breed">
                             <div class="parent" title="0010"></div>
@@ -503,9 +507,8 @@
                         </div>
                         <button class="repeat" title="1220,1120,1020,1110,2110,1010,1000">♻</button></li>
                 </ul>
-            </div>
-            <div class="instructions rose">
-                <h4>Blue (Paleh)</h4>
+                </div>
+                <div class="page" data-name="Blue (Paleh)">
                 <ul>
                     <li><div class="breed">
                             <div class="parent turnip" title="0020"></div>
@@ -542,6 +545,12 @@
                             <div class="offspring wood" title="1110"></div>
                         </div></li>
                     <li><div class="breed abridged">
+                            <div class="parent wood" title="1110"></div>
+                            <div class="parent wood" title="1110"></div>
+                            <div class="offspring" title="2220"></div>
+                            <div class="offspring red_orange_black" title="2x1220,4x1120,2x1020,8x1110,4x2110,4x1010,2x1000,4x1210,2x2210,2x1200,2200,4x1100,2x2100,2x2120,2020,2x2010,2000"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
                             <div class="parent cherry" title="0220"></div>
                             <div class="parent wood" title="1110"></div>
                             <div class="offspring stone" title="1210"></div>
@@ -572,9 +581,8 @@
                             <div class="offspring cherry" title="0220"></div>
                         </div></li>
                 </ul>
-            </div>
-            <div class="instructions rose">
-                <h4>Blue (BackwardsN)</h4>
+                </div>
+                <div class="page" data-name="Blue (BackwardsN)">
                 <ul>
                     <li><div class="breed abridged">
                             <div class="parent" title="0010"></div>
@@ -625,9 +633,8 @@
                             <div class="offspring cherry" title="0220"></div>
                         </div></li>
                 </ul>
-            </div>
-            <div class="instructions rose">
-                <h4>Blue (Additional Notes)</h4>
+                </div>
+                <div class="page" data-name="Blue (Additional Notes)">
                 <ul>
                     <li><div class="breed abridged" data-mode="clones">
                             <div class="parent orange" title="4x1210,2x2210,2x1200,2200,4x1100,2x2100"></div>
@@ -642,6 +649,7 @@
                         </div>
                         <button class="repeat" title="2120,2020,2010,2000">♻</button></li>
                 </ul>
+                </div>
             </div>
             <div class="instructions tulip">
                 <ul>
