@@ -120,7 +120,7 @@ function clear_offspring() { // {{{
 
 function show_offspring(genome_counts) { // {{{
     if (Object.keys(genome_counts).length == 0) {
-        return;
+        return false;
     }
     clear_offspring();
     var mode = document.querySelector('button#prob_mode').dataset.state;
@@ -145,6 +145,7 @@ function show_offspring(genome_counts) { // {{{
             flower.appendChild(result_div);
         }
     }
+    return true;
 } // }}}
 
 function clear_parents() { // {{{
@@ -199,7 +200,8 @@ function flower_click(evt) { // {{{
     evt.stopPropagation();
     var flower = evt.target.closest('[title]');
     var add_to_selection = evt.ctrlKey;
-    var should_clear = !add_to_selection && (pools_with_flowers >= 2);
+    var max_pools = breed_mode == 'clones' ? 1 : 2;
+    var should_clear = !add_to_selection && (pools_with_flowers >= max_pools);
     if (should_clear) {
         clear_parents();
     }
@@ -412,7 +414,7 @@ document.querySelector('button#breed_mode').addEventListener('click', evt => {
         set_pool_C();
     }
     var offspring = breed_multiple();
-    show_offspring(offspring);
+    show_offspring(offspring) || clear_offspring();
     evt.preventDefault();
     evt.stopPropagation();
 });
