@@ -192,7 +192,6 @@ function set_pool_C() { // {{{
             flower.dataset.C = flower.dataset.A;
         } else {
             let new_C = Number(flower.dataset.A || 0) + Number(flower.dataset.B || 0)
-            console.log('new_C', new_C);
             flower.dataset.C = new_C;
         }
     }
@@ -428,7 +427,6 @@ function unhighlight_varieties(evt) { // {{{
 
 function use_fragment() { // {{{
     var options = parse_fragment(window.location.hash);
-    console.log(options);
     if ('species' in options) {
         set_species(options['species']);
     }
