@@ -108,6 +108,9 @@ function breed_multiple() { // {{{
             }
         }
     }
+    if (Object.entries(all_counts).length) {
+        set_fragment();
+    }
     return all_counts;
 } // }}}
 
@@ -195,6 +198,53 @@ function set_pool_C() { // {{{
     }
 } // }}}
 
+function parse_fragment(fragment) { // {{{
+    let no = item => (item === undefined || item.length == 0);
+    var options = {};
+    if (no(fragment)) return options;
+    var [species, pools_str, breed_mode] = fragment.replace(/^#/, '').split('/');
+    if (no(species)) return options;
+    options.species = species;
+    if (no(pools_str)) return options;
+    var [str_A, str_B] = pools_str.split('|');
+    if (no(str_A)) return options;
+    var pool_A = parse_genespecs(str_A);
+    if (no(str_B)) {
+        var pool_B = pool_A;
+    } else {
+        var pool_B = parse_genespecs(str_B);
+    }
+    options.pools = {'A': pool_A, 'B': pool_B};
+    if (no(breed_mode)) return options;
+    options.breed_mode = breed_mode;
+    return options;
+} // }}}
+
+function set_fragment() { // {{{
+    var counts_A = {};
+    var counts_B = {};
+    for (let flower of flowers) {
+        if ((flower.dataset.A || 0) > 0) {
+            counts_A[flower.title] = flower.dataset.A;
+        }
+        if ((flower.dataset.B || 0) > 0) {
+            counts_B[flower.title] = flower.dataset.B;
+        }
+    }
+    var species = document.querySelector('section').dataset.species;
+    var pool_A = encode_genespecs(counts_A);
+    var pool_B = encode_genespecs(counts_B);
+    var pools = pool_A;
+    if (pool_A != pool_B) {
+        pools += '|' + pool_B;
+    }
+    var hash = species + '/' + pools;
+    if (breed_mode == 'clones') {
+        hash += '/clones';
+    }
+    history.replaceState(null, null, document.location.pathname + '#' + hash);
+} // }}}
+
 function flower_click(evt) { // {{{
     evt.preventDefault();
     evt.stopPropagation();
@@ -216,6 +266,8 @@ function flower_click(evt) { // {{{
 } // }}}
 
 function section_click(evt) { // {{{
+    var species = document.querySelector('section').dataset.species;
+    history.replaceState(null, null, document.location.pathname + '#' + species);
     clear_parents();
     clear_offspring();
     return false;
@@ -246,9 +298,27 @@ function parse_genespecs(genespecs_string) { // {{{
             copies = parts[0];
             genotype = parts[1];
         }
+        if (!genotype.match(/^[012]{3,4}$/)) {
+            alert('Error! Unrecognized genotype: ' + genotype);
+            break;
+        }
         genotypes[genotype] = copies;
     }
     return genotypes;
+} // }}}
+
+function encode_genespecs(genome_counts) { // {{{
+    var encoded_items = [];
+    for (let entry of Object.entries(genome_counts)) {
+        let genotype = entry[0];
+        let count = entry[1];
+        if (count === undefined || count == 0) {
+            continue;
+        }
+        let multiplier = (count > 1) ? String(count) + 'x' : '';
+        encoded_items.push(multiplier + genotype);
+    }
+    return encoded_items.join(',');
 } // }}}
 
 function set_breed_mode(mode) { // {{{
@@ -331,10 +401,9 @@ function set_species(species) { // {{{
     clear_offspring();
     species_buttons.forEach(function(button, i) {
         button.classList.remove('selected');
-        section.classList.remove(button.classList[0]);
     });
     document.querySelector('div.species_menu button.' + species).classList.add('selected');
-    section.classList.add(species);
+    section.dataset.species = species;
 } // }}}
 
 function highlight_varieties(evt) { // {{{
@@ -357,11 +426,31 @@ function unhighlight_varieties(evt) { // {{{
     document.querySelectorAll(selector).forEach(el => el.classList.remove('highlighted'));
 } // }}}
 
+function use_fragment() { // {{{
+    var options = parse_fragment(window.location.hash);
+    console.log(options);
+    if ('species' in options) {
+        set_species(options['species']);
+    }
+    if ('pools' in options) {
+        set_pools(options['pools']);
+    }
+    if ('breed_mode' in options) {
+        set_breed_mode(options['breed_mode']);
+        if (breed_mode == 'clones') {
+            set_pool_C();
+        }
+    }
+    var offspring = breed_multiple();
+    show_offspring(offspring);
+} // }}}
+
 var species_buttons = document.querySelectorAll('div.species_menu button');
 species_buttons.forEach(function(el, i) {
     el.addEventListener('click', function(evt) {
         var species = evt.target.closest('button').classList[0];
         set_species(species);
+        history.replaceState(null, null, document.location.pathname + '#' + species);
     });
 });
 
@@ -446,3 +535,6 @@ pagers.forEach(pager => pager.addEventListener('click', evt => {
     evt.preventDefault();
     evt.stopPropagation();
 }));
+
+window.addEventListener('hashchange', use_fragment);
+use_fragment();
