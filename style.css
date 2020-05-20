@@ -106,15 +106,20 @@ div.help h3 {
     color: rgb(var(--heading-red));
 }
 
+div.section_bg {
+    background-color: rgb(var(--section-brown));
+    color: rgb(var(--game-cream));
+}
+
 section {
     --varieties-width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
     position: relative;
     display: grid;
     grid-template-columns: 1fr 345px 1fr;
+    max-width: 1600px;
+    margin: 0 auto;
     padding-top: 36px;
     padding-bottom: 36px;
-    background-color: rgb(var(--section-brown));
-    color: rgb(var(--game-cream));
     overflow: hidden;
 }
 
@@ -525,7 +530,8 @@ div.species_menu {
 
 div.species_menu ul {
     list-style: none;
-    margin: 0;
+    max-width: 1600px;
+    margin: 0 auto;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
