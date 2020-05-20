@@ -358,7 +358,7 @@ function breed_link_click(evt) { // {{{
     }
     var offspring = breed_multiple();
     show_offspring(offspring);
-    document.querySelector('section').scrollIntoView();
+    document.querySelector('#breed_mode').scrollIntoView();
     evt.preventDefault();
     evt.stopPropagation();
 } // }}}
