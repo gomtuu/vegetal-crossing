@@ -881,9 +881,10 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
 [data-species="rose"] [title="0100"] { --phenotype: var(--yellow); }
 [data-species="rose"] [title="1100"] { --phenotype: var(--orange); }
 [data-species="rose"] [title="2100"] { --phenotype: var(--orange); }
-[data-species="rose"] [title="0000"] { --phenotype: var(--white); --obtain: var(--gold-watering-can); }
-[data-species="rose"] div.varieties [title="0000"] {
-    background-image: var(--obtain), linear-gradient(149.620874deg,
+[data-species="rose"] [title="0000"] { --phenotype: var(--white); }
+[data-species="rose"] div.varieties [title="0000"][data-count="0"],
+[data-species="rose"] div.varieties [title="0000"]:not([data-count]) {
+    background-image: var(--gold-watering-can), linear-gradient(149.620874deg,
         rgba(var(--white), var(--background-opacity)) 56%,
         rgba(217, 152, 22, var(--background-opacity)) 57%,
         rgba(245, 204, 43, var(--background-opacity)),
