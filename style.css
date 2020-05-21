@@ -27,6 +27,7 @@
     --heading-red: 206, 9, 74;
     --section-brown: 78, 68, 49;
     --recipe-almond: 219, 213, 193;
+    --selected-yellow: 50, 135%, 50%;
     --game-cream: 255, 250, 228;
     --game-cyan: 12, 198, 184;
     --game-cyan-dark: 0, 180, 168;
@@ -109,6 +110,10 @@ div.help h3 {
 div.section_bg {
     background-color: rgb(var(--section-brown));
     color: rgb(var(--game-cream));
+}
+
+div.section_bg a {
+    color: hsl(var(--selected-yellow));
 }
 
 section {
@@ -556,7 +561,7 @@ button:focus {
 }
 
 div.species_menu ul button.selected {
-    background-color: hsla(50, 135%, 50%, 1);
+    background-color: hsl(var(--selected-yellow), 1);
     background-image: repeating-linear-gradient(-45deg, rgba(0,0,0,0.08), rgba(0,0,0,0.08) 10%, transparent 10%, transparent 20%);
 }
 
