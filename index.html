@@ -50,6 +50,27 @@
             <p>Recipes that use mixtures as parents are probabilistic. It is <em>not</em> assumed that you will identify the varieties before breeding them.</p>
             <p>See <strong>Breeding Modes</strong> above for an explanation of the <span class="vcfont">×</span> and <span class="vcfont">⊙</span> symbols. An ellipsis (<span class="vcfont">⋯</span>) means the recipe produces other, less-useful offspring that are only shown on the diagram. A repeat symbol (<span class="vcfont">♻</span>) means that if you feed any offspring that are the same color as their parents back into this recipe as new parents, each generation will produce better results than the last.</p>
             <p>Not all recipes shown here are optimal; some are shown only for comparison or because they are interesting.</p>
+            <h2>Why Use <span class="vcfont">⊙</span> Clones Only Breeding?</h2>
+            <h3>Short Answer</h3>
+            <p>When you breed a flower with another of the same variety, the offspring will be more homozygous, on average, than if you had bred that flower with a different variety. And most of the rare varieties, such as green mums and blue roses, are homozygous in multiple dimensions.</p>
+            <h3>Long Answer</h3>
+            <p>Imagine a flower species with the following properties.</p>
+            <ul><li>It has three genes and 27 varieties, like most flowers.</li>
+                <li>All varieties are pink (and indistinguishable) during most of the year.</li>
+                <li>Each bag of seeds you buy has random genes, and all varieties are equally likely.</li>
+                <li>In December only, the fully-heterozygous variety (genotype 111) is white, and the fully-homozygous varieties (000, 002, 020, 022, 200, 202, 220, and 222) are red.</li>
+            </ul>
+            <p>It's April, and you're planting seeds. What can you do to make sure most of your flowers turn red in December?</p>
+            <p>If you plant them but don't let them breed at all, 8 in 27 (30%) will turn red in December, because 8 in 27 seeds were fully homozygous to begin with. If you plant your seeds in pairs or groups, allowing different varieties to breed with each other, then the first generation of offspring will be distributed as shown on the left side of the figure below—only 8 in 64 (12.5%) flowers of this generation will turn red. However, if you plant your seeds separately to clone them, and all of your breeding pairs consist of an original and its clone, you'll get the distribution shown on the right, where 1000 in 1728 (58%) will turn red.</p>
+            <figure><img src="all-combos-vs-clones.png" alt="All Combos vs Clones Only">
+                <figcaption>Offspring after one generation of breeding with <span class="vcfont">×</span> All Combos (left) vs <span class="vcfont">⊙</span> Clones Only (right)</figcaption>
+            </figure>
+            <p>As you can see, when seeds are bred randomly, their offspring gravitate toward the heterozygous center. When seeds are cloned and bred separately, their offspring are drawn to the homozygous corners. As it happens, if you breed the first generation of All Combos offspring with each other using the All Combos strategy again, the second generation of offspring will be distributed the same way as the first. But if you repeat the Clones Only strategy, the offspring will migrate toward the corners more and more with each step.</p>
+            <p>This is interesting, but not a very realistic example: you rarely start with a uniform distribution of varieties within a color. In fact, the offspring you get from breeding two 1110 red roses are heavily weighted toward the center, just like the offspring pictured above on the left. Maybe the uniform starting distribution was the only reason why the cloning strategy was able to produce so many homozygous offspring?</p>
+            <p>It turns out, the corner-pulling effect of <span class="vcfont">⊙</span> Clones Only breeding is strong enough to overcome this initial bias toward the center. For roses, this means that if you start with a 1110 red pair, you can clone and breed its offspring to increase your chances of getting blue. Even if all roses were red except for the one blue variety, you could use the clone-and-breed strategy, and the average chance that any offspring from any one of these 1110 pairs would be blue is 19 in 504, or about 3.77%.</p>
+            <p>In the actual game, roses aren't all the same color, and it's impossible for any white, yellow, or purple offspring from a 1110 pair make blue. Eliminating these and breeding only the red, orange, and black offspring (which make up 47 in 64 or 73% of all the offspring) increases your odds per breeding pair to 19 in 376, or about 5.05%. That means any red, orange, or black pair will, on average, be 81% as effective as a pair of 1210 orange roses, which have a 1 in 16 chance (6.25%) to make blue. And these 1210 orange roses are difficult to make: with the Folklore Orange method, you need to make 0120 purple first, and when you breed it with 1100 orange, it only has a 1 in 8 (12.5%) chance to make a 1210 orange.</p>
+            <h3>Simulations</h3>
+            <p>Theory is nice, but how does cloning and breeding red, orange, and black offspring from 1110 red roses compare to other methods in simulations?</p>
         </div>
         <div class="species_menu">
             <ul>
