@@ -128,30 +128,27 @@ section {
     overflow: hidden;
 }
 
-section[data-species="rose"].condensed {
+.diagram[data-species="rose"].condensed {
     --tile-width: 50px;
-}
-
-section[data-species="rose"].condensed div.diagram {
     display: flex;
     justify-content: center;
 }
 
-section[data-species="rose"].condensed div.varieties {
+.diagram[data-species="rose"].condensed div.varieties {
     margin: 0;
 }
 
-section[data-species="rose"].condensed div.varieties.four_d:not(:last-child) {
+.diagram[data-species="rose"].condensed div.varieties.four_d:not(:last-child) {
     margin-bottom: 0;
     border-bottom: 0;
     padding-bottom: 0;
 }
 
-section[data-species="rose"].condensed div.varieties > div {
+.diagram[data-species="rose"].condensed div.varieties > div {
     font-size: 16px;
 }
 
-section[data-species="rose"].condensed div.varieties .result {
+.diagram[data-species="rose"].condensed div.varieties .result {
     font-size: 12px;
 }
 
@@ -183,10 +180,6 @@ div.options button {
     color: rgb(var(--game-cream));
 }
 
-section:not([data-species="rose"]) button#condensed_view {
-    opacity: 0.3;
-}
-
 ol, ul {
     padding-left: 1.5em;
 }
@@ -200,7 +193,7 @@ div.rolled_up {
     overflow: hidden;
 }
 
-div.diagram {
+.diagram {
     grid-column: 1 / 4;
     margin-bottom: 36px;
 }
@@ -271,22 +264,22 @@ body.hasHover div.varieties > div[data-count="0"].highlighted {
     box-shadow: 1px 1px 0 2px rgba(0, 0, 0, 0.2), 4px 7px 2px rgba(0, 0, 0, 0.12);
 }
 
-section[data-species="rose"].condensed div.varieties.Ss {
+.diagram[data-species="rose"].condensed div.varieties.Ss {
     width: calc(var(--far-border) + var(--tile-width) + var(--near-border));
     margin-left: calc(var(--gap) + var(--far-border) + var(--tile-width) + var(--near-border) + var(--gap));
 }
 
-section[data-species="rose"].condensed div.varieties.Ss :nth-child(3n+1),
-section[data-species="rose"].condensed div.varieties.Ss :nth-child(3n+2) {
+.diagram[data-species="rose"].condensed div.varieties.Ss :nth-child(3n+1),
+.diagram[data-species="rose"].condensed div.varieties.Ss :nth-child(3n+2) {
     display: none;
 }
 
-section:not([data-species="rose"]) div.varieties.four_d,
-section[data-species="rose"] div.varieties.three_d {
+.diagram:not([data-species="rose"]) div.varieties.four_d,
+.diagram[data-species="rose"] div.varieties.three_d {
     display: none;
 }
 
-section[data-species="rose"].condensed div.varieties.SS {
+.diagram[data-species="rose"].condensed div.varieties.SS {
     display: none;
 }
 
@@ -1029,7 +1022,7 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
         grid-template-columns: 1fr 345px;
     }
 
-    section div.diagram {
+    .diagram {
         grid-column: auto;
     }
 
@@ -1045,15 +1038,15 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
 
 @media only screen and (min-width: 900px) {
 
-    section[data-species="rose"].condensed {
+    .diagram[data-species="rose"].condensed {
         --tile-width: 84px;
     }
 
-    section[data-species="rose"].condensed div.varieties > div {
+    .diagram[data-species="rose"].condensed div.varieties > div {
         font-size: 19px;
     }
 
-    section[data-species="rose"].condensed div.varieties .result {
+    .diagram[data-species="rose"].condensed div.varieties .result {
         font-size: 16px;
     }
 
@@ -1061,7 +1054,7 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
 
 @media only screen and (min-width: 1366px) {
 
-    div.diagram {
+    .diagram {
         display: flex;
         justify-content: space-evenly;
     }

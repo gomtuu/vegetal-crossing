@@ -230,7 +230,7 @@ function set_fragment() { // {{{
             counts_B[flower.title] = flower.dataset.B;
         }
     }
-    var species = document.querySelector('section').dataset.species;
+    var species = document.querySelector('section .diagram').dataset.species;
     var pool_A = encode_genespecs(counts_A);
     var pool_B = encode_genespecs(counts_B);
     var pools = pool_A;
@@ -265,7 +265,7 @@ function flower_click(evt) { // {{{
 } // }}}
 
 function section_click(evt) { // {{{
-    var species = document.querySelector('section').dataset.species;
+    var species = evt.target.closest('[data-species]').dataset.species;
     history.replaceState(null, null, document.location.pathname + '#' + species);
     clear_parents();
     clear_offspring();
@@ -332,8 +332,8 @@ function set_breed_mode(mode) { // {{{
     } else {
         breed_mode = mode;
     }
-    var section = document.querySelector('section');
-    section.dataset.breedMode = breed_mode;
+    var diagram = document.querySelector('section .diagram');
+    diagram.dataset.breedMode = breed_mode;
     button.dataset.state = states_list.indexOf(breed_mode);
     button.innerHTML = states[breed_mode];
 } // }}}
@@ -396,6 +396,7 @@ function repeat_button_click(evt) { // {{{
 
 function set_species(species) { // {{{
     var section = document.querySelector('section');
+    var diagram = document.querySelector('section .diagram');
     clear_parents();
     clear_offspring();
     species_buttons.forEach(function(button, i) {
@@ -403,6 +404,7 @@ function set_species(species) { // {{{
     });
     document.querySelector('div.species_menu button.' + species).classList.add('selected');
     section.dataset.species = species;
+    diagram.dataset.species = species;
 } // }}}
 
 function highlight_varieties(evt) { // {{{
@@ -510,7 +512,7 @@ document.querySelector('button#condensed_view').addEventListener('click', evt =>
     var states = ['Rose&nbsp;View: Full', 'Rose&nbsp;View: Condensed'];
     evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
     evt.target.innerHTML = states[evt.target.dataset.state];
-    document.querySelector('section').classList.toggle('condensed');
+    document.querySelector('section .diagram').classList.toggle('condensed');
     evt.preventDefault();
     evt.stopPropagation();
 });
