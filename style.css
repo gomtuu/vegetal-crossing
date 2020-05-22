@@ -299,7 +299,7 @@ section:not([data-species="rose"]) div.instructions[data-species="rose"] { displ
 section:not([data-species="tulip"]) div.instructions[data-species="tulip"] { display: none; }
 section:not([data-species="windflower"]) div.instructions[data-species="windflower"] { display: none; }
 
-div.instructions[data-species="rose"] div.page:not(.current_page) {
+div.instructions div.page:not(.current_page) {
     display: none;
 }
 
