@@ -24,15 +24,14 @@ class VegetalApp {
         return false;
     } // }}}
 
-    cycle_breed_mode() { // {{{
+    set_breed_mode(mode) { // {{{
         var states = {
             'all': 'Breeding: <span class="vcfont">×</span>&nbsp;All&nbsp;Combos',
             'clones': 'Breeding: <span class="vcfont">⊙</span>&nbsp;Clones&nbsp;Only'};
         var states_list = Object.keys(states);
         var button = this.element.querySelector('button#breed_mode');
-        var next_mode = states_list[(Number(button.dataset.state) + 1) % states_list.length];
+        var next_mode = mode || states_list[(Number(button.dataset.state) + 1) % states_list.length];
         this.diagram.set_breed_mode(next_mode);
-        this.diagram.refresh();
         button.dataset.state = states_list.indexOf(next_mode);
         button.innerHTML = states[next_mode];
     } // }}}
@@ -50,7 +49,7 @@ class VegetalApp {
                 pools[pool] = pools[pool].concat(parse_genespecs(div.title));
             }
         }
-        this.diagram.set_breed_mode(button.dataset.mode || 'all');
+        this.set_breed_mode(button.dataset.mode || 'all');
         this.diagram.set_pools(pools);
         this.diagram.refresh();
         document.querySelector('#breed_mode').scrollIntoView();
@@ -107,7 +106,16 @@ class VegetalApp {
 
     use_fragment() { // {{{
         var options = parse_fragment(window.location.hash);
-        this.diagram.set_options(options);
+        if ('species' in options) {
+            this.set_species(options.species);
+        }
+        if ('pools' in options) {
+            this.diagram.set_pools(options.pools);
+        }
+        if ('breed_mode' in options) {
+            this.set_breed_mode(options.breed_mode);
+        }
+        this.diagram.refresh();
     } // }}}
 
 }
@@ -309,13 +317,13 @@ class VegetalDiagram {
 
     set_options(options) { // {{{
         if ('species' in options) {
-            this.set_species(options['species']);
+            this.set_species(options.species);
         }
         if ('pools' in options) {
-            this.set_pools(options['pools']);
+            this.set_pools(options.pools);
         }
         if ('breed_mode' in options) {
-            this.set_breed_mode(options['breed_mode']);
+            this.set_breed_mode(options.breed_mode);
         }
         this.refresh();
     } // }}}
@@ -534,7 +542,8 @@ document.querySelector('button#prob_mode').addEventListener('click', evt => {
 });
 
 document.querySelector('button#breed_mode').addEventListener('click', evt => {
-    app.cycle_breed_mode();
+    app.set_breed_mode();
+    app.diagram.refresh();
     evt.preventDefault();
     evt.stopPropagation();
 });
