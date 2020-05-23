@@ -154,7 +154,7 @@ class VegetalDiagram {
                 }
             }
         }
-        if (Object.entries(all_counts).length) {
+        if (Object.entries(all_counts).length && this === app.diagram) {
             app.set_fragment(this.encode_options());
         }
         return all_counts;
