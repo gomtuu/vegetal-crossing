@@ -56,21 +56,82 @@
             <h3>Long Answer</h3>
             <p>Imagine a flower species with the following properties.</p>
             <ul><li>It has three genes and 27 varieties, like most flowers.</li>
-                <li>All varieties are pink (and indistinguishable) during most of the year.</li>
-                <li>Each bag of seeds you buy has random genes, and all varieties are equally likely.</li>
-                <li>In December only, the fully-heterozygous variety (genotype 111) is white, and the fully-homozygous varieties (000, 002, 020, 022, 200, 202, 220, and 222) are red.</li>
+                <li>All varieties are white (and indistinguishable) during most of the year.</li>
+                <li>All seeds have genotype 111.</li>
+                <li>In December only, the seed variety (genotype 111) is red, and the variety with genotype 222 is green.</li>
             </ul>
-            <p>It's April, and you're planting seeds. What can you do to make sure most of your flowers turn red in December?</p>
-            <p>If you plant them but don't let them breed at all, 8 in 27 (30%) will turn red in December, because 8 in 27 seeds were fully homozygous to begin with. If you plant your seeds in pairs or groups, allowing different varieties to breed with each other, then the first generation of offspring will be distributed as shown on the left side of the figure below—only 8 in 64 (12.5%) flowers of this generation will turn red. However, if you plant your seeds separately to clone them, and all of your breeding pairs consist of an original and its clone, you'll get the distribution shown on the right, where 1000 in 1728 (58%) will turn red.</p>
-            <figure><img src="all-combos-vs-clones.png" alt="All Combos vs Clones Only">
-                <figcaption>Offspring after one generation of breeding with <span class="vcfont">×</span> All Combos (left) vs <span class="vcfont">⊙</span> Clones Only (right)</figcaption>
+            <p>It's January, and you're planting seeds. What can you do to maximize the number of green flowers you'll see in December?</p>
+            <figure>
+                <div class="diagram" id="figure_1">
+                    <div class="varieties three_d">
+                        <div title="022"></div>
+                        <div title="122"></div>
+                        <div title="222"></div>
+                        <div title="012"></div>
+                        <div title="112"></div>
+                        <div title="212"></div>
+                        <div title="002"></div>
+                        <div title="102"></div>
+                        <div title="202"></div>
+                        <div title="021"></div>
+                        <div title="121"></div>
+                        <div title="221"></div>
+                        <div title="011"></div>
+                        <div title="111"></div>
+                        <div title="211"></div>
+                        <div title="001"></div>
+                        <div title="101"></div>
+                        <div title="201"></div>
+                        <div title="020"></div>
+                        <div title="120"></div>
+                        <div title="220"></div>
+                        <div title="010"></div>
+                        <div title="110"></div>
+                        <div title="210"></div>
+                        <div title="000"></div>
+                        <div title="100"></div>
+                        <div title="200"></div>
+                    </div>
+                </div>
             </figure>
-            <p>As you can see, when seeds are bred randomly, their offspring gravitate toward the heterozygous center. When seeds are cloned and bred separately, their offspring are drawn to the homozygous corners. As it happens, if you breed the first generation of All Combos offspring with each other using the All Combos strategy again, the second generation of offspring will be distributed the same way as the first. But if you repeat the Clones Only strategy, the offspring will migrate toward the corners more and more with each step.</p>
-            <p>This is interesting, but not a very realistic example: you rarely start with a uniform distribution of varieties within a color. In fact, the offspring you get from breeding two 1110 red roses are heavily weighted toward the center, just like the offspring pictured above on the left. Maybe the uniform starting distribution was the only reason why the cloning strategy was able to produce so many homozygous offspring?</p>
-            <p>It turns out, the corner-pulling effect of <span class="vcfont">⊙</span> Clones Only breeding is strong enough to overcome this initial bias toward the center. For roses, this means that if you start with a 1110 red pair, you can clone and breed its offspring to increase your chances of getting blue. Even if all roses were red except for the one blue variety, you could use the clone-and-breed strategy, and the average chance that any offspring from any one of these 1110 pairs would be blue is 19 in 504, or about 3.77%.</p>
-            <p>In the actual game, roses aren't all the same color, and it's impossible for any white, yellow, or purple offspring from a 1110 pair make blue. Eliminating these and breeding only the red, orange, and black offspring (which make up 47 in 64 or 73% of all the offspring) increases your odds per breeding pair to 19 in 376, or about 5.05%. That means any red, orange, or black pair will, on average, be 81% as effective as a pair of 1210 orange roses, which have a 1 in 16 chance (6.25%) to make blue. And these 1210 orange roses are difficult to make: with the Folklore Orange method, you need to make 0120 purple first, and when you breed it with 1100 orange, it only has a 1 in 8 (12.5%) chance to make a 1210 orange.</p>
+            <p>Flowers of the first generation all have genotype 111, so they'll turn red in December. If you let the seed flowers breed with each other, the second generation will be distributed <span class="figure_options" data-options="fig1a">as shown</span>, and only 1 in 64 (about 1.6%) will turn green. If you breed the second-generation flowers with each other, the third generation will have <span class="figure_options" data-options="fig1b">the same distribution</span> as the second! Have you reached a dead end?</p>
+            <p>No! You can do better. If you instead clone each second-generation flower and breed each original with its own clone, you'll get <span class="figure_options" data-options="fig1c">a very different distribution</span>. In this case, 27 in 512 third-generation flowers (about 5.3%) will turn green.</p>
+            <p>This hypothetical example is similar to the challenge of breeding blue roses. One way to get blue roses is to breed a pair of 1110 red roses, which has a 1 in 64 chance to make blue. Blindly cloning and breeding all of their offspring would mean 27 in 512 third-generation roses were blue (like green in the example above), but that includes the blue offspring from the 1 in 64 blue roses in the second generation. It doesn't make sense to consider that case, because as soon as you have a single blue rose, you can just repeatedly clone it. So instead, <span class="figure_options" data-options="fig1e">here's the third generation</span> produced by all nonblue roses from the second generation: 19 in 504 (3.77%) are blue.</p>
+            <p>On the other hand, it's not necessary to blindly breed all of the nonblue second-generation roses, because it's impossible for any white, yellow, or purple offspring from a 1110 pair make blue. Eliminating these and breeding only the <span class="figure_options" data-options="fig1f">red, orange, and black</span> offspring—which make up 47 in 64 (about 73%) of all the offspring—improves your odds per breeding pair to 19 in 376, or about 5.1%. That means any red, orange, or black pair will be, on average, 81% as effective as a pair of 1210 orange roses, which have a 1 in 16 chance (6.25%) to make blue. And 1210 orange roses are difficult to make: with the Folklore Orange method, you need to make at least one 0120 purple first, and when you breed it with a 1100 orange, only 1 in 8 (12.5%) of their offspring are 1210 orange.</p>
             <h3>Simulations</h3>
-            <p>Theory is nice, but how does cloning and breeding red, orange, and black offspring from 1110 red roses compare to other methods in simulations?</p>
+            <p>The math looks promising, but how does this compare to other methods in practice?</p>
+            <p>Simulations suggest it outperforms all common methods. Each simulation below starts with 64 seeds, in an attempt to compare the methods fairly.</p>
+            <table>
+                <tr><th>Method</th>
+                    <th>Median</th>
+                    <th>95th Pctl</th>
+                </tr>
+                <tr><td>Blue via Cloning</td>
+                    <td class="numeric">36</td>
+                    <td class="numeric">53</td>
+                </tr>
+                <tr><td>BackwardsN 4-Step</td>
+                    <td class="numeric"></td>
+                    <td class="numeric"></td>
+                </tr>
+                <tr><td>Folklore Orange</td>
+                    <td class="numeric">59</td>
+                    <td class="numeric">83</td>
+                </tr>
+                <tr><td>Paleh (v1)</td>
+                    <td class="numeric"></td>
+                    <td class="numeric"></td>
+                </tr>
+                <tr><td>Paleh-jpony</td>
+                    <td class="numeric"></td>
+                    <td class="numeric"></td>
+                </tr>
+                <tr><td><a href="https://recipesim.isomorphicbox.com/?q=07C@!C8!IbIk!IYO)!C.!IG2Z!X8BRHB!Y@MjI51fTB+ngnAM.~G:42_:3O3eP)Q?:SeFIVBq@Qs_7(o7T2BE5$zMJVoEO:7OPm)SLm6/MtR/avyq)E@i+sLlQI@">Asteriation Simple 4-Step</a></td>
+                    <td class="numeric">64</td>
+                    <td class="numeric">117</td>
+                </tr>
+            </tr>
+            </table>
         </div>
         <div id="vegetal_app">
         <div class="species_menu">
@@ -577,6 +638,33 @@
                 </ul>
                 <p><a href="https://recipesim.isomorphicbox.com/?q=0cYe+5Lq!IN+_!lkAFCuwasp5y$Pr1@NL;~fEBQ!?bw3qT74g-@SZf~Akb_gHuv)GB!qDll-hb!EfZEfXGD-R4@-XJNHO$65!EfZEi)f1MLYlg/j?(40?n!EfZEfdAEcc()9ZHDaIdcr!VxfzS9eP3j?/oJ@;)t.PWn6_!L.F9(p(B/:QZ/C6Ezirg8QO!XgMiXKpi5LzvKFs!V5gDpt.ZgzUTZkh05eol+2Gm!DXvYgf6t6ip5yBT.XVH9rc?pdfWUp(VBC9NJtrDz33hZlML:KM_;LhtiG$VL~a76c5/Fuqxfs_+cjjDadc31rjSCr836x1+GYhv:tE.7eiAM)FuCr7vDOIhylOIvjKBRw(W67+UYDgalxeb$tHnhByO7_$g5nPi~vQO;hH3waIS:+3aO.@">Simulation</a> (slightly worse median)</p>
                 </div>
+                <div class="page" data-name="Blue BackwardsN 4-Step">
+                <ul>
+                    <li><div class="breed">
+                            <div class="parent" title="0010"></div>
+                            <div class="parent" title="2001"></div>
+                            <div class="offspring red branch" title="1010,1000"></div>
+                            <div class="offspring pink branch" title="1011,1001"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
+                            <div class="parent red branch" title="1010,1000"></div>
+                            <div class="parent" title="0200"></div>
+                            <div class="offspring wood" title="1110"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
+                            <div class="parent wood" title="1110"></div>
+                            <div class="parent wood" title="1110"></div>
+                            <div class="offspring" title="2220"></div>
+                            <div class="offspring red_orange_black" title="2x1220,4x1120,2x1020,8x1110,4x2110,4x1010,2x1000,4x1210,2x2210,2x1200,2200,4x1100,2x2100,2x2120,2020,2x2010,2000"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
+                            <div class="parent red_orange_black" title="2x1220,4x1120,2x1020,8x1110,4x2110,4x1010,2x1000,4x1210,2x2210,2x1200,2200,4x1100,2x2100,2x2120,2020,2x2010,2000"></div>
+                            <div class="parent red_orange_black" title="2x1220,4x1120,2x1020,8x1110,4x2110,4x1010,2x1000,4x1210,2x2210,2x1200,2200,4x1100,2x2100,2x2120,2020,2x2010,2000"></div>
+                            <div class="offspring" title="2220"></div>
+                        </div></li>
+                </ul>
+                <p><a href="https://recipesim.isomorphicbox.com/?q=0aYe+5Lq!IN+_!lkAFCuwasp5y$Pr1@NL;~fEBQ!qDll-hb!EfZEfXGD-R4@-XJNHO$65!EfZEi)f1MLYlg/j?(40?n!G7J/UHTzr8jBR@b+6cjd0fwxARZYhkq!h3.9pfTvNjDpTN6f.VVKzzuu@OSR/3FzD~!T5(chwITmtE~drU$_pj(ZjzKZm@GhkQ7A!XgMiXKpi5LzvKFs!Fz-Sp;a/;)$pKp9Q:r7~Z@Tf(fO$e.O+Llm9gDpscobFbN_H.7?Rp9@UP2$3xIif5co.OZzAwIKb7(Elav6Yv-A0ElEse+-(5+u8ev1Q9lAI5lsfXyju8HTC@JGRNrH/0xk);UfoCGFHZbz@">Simulation</a></p>
+                </div>
                 <div class="page" data-name="Blue (Paleh v1)">
                 <ul>
                     <li><div class="breed">
@@ -779,6 +867,7 @@
                         </div></li>
                 </ul>
                 <p><a href="https://recipesim.isomorphicbox.com/?q=0bC@!C.!IbIm!IbIk!OPWxG!pj)b/YY!C8!Ig$Y!OP4lV!Xilcuu!X8BRHB!C6jLRFTZK)3Ond5ZAsJGZdPgH~URlmX7?.5ISzPyJ@T06~LZHYvd)Qm1H28_X(Xr:e4?9vx9WPDQ6nPb60fN7Z~/Cv)h69)z9H.~zeAjvL4deZd_7joe8@gF@Qowf+CPF~5LK?80C(vh?uknFE2YWn$zV(30S./T$LaYJ@">Simulation</a></p>
+                <p><a href="https://recipesim.isomorphicbox.com/?q=0bC@!C.!IbIm!IbIk!OPWxG!pj)b/YY!C8!Ig$Y!OP4lV!Xilcuu!X8BRHB!C6jLRFGWXcANNg0?4$_:0SXTyknLi~0d~KU0F~MR1oA$EHnJ?G/X.jM3fihaMYmC$8uN(Zb?++QtqlQD:EK(iC?r_fw$e2zfYb9JEAL7mZkj)XDx(:VKDY1f+Uw4Dv+.YXazKCAhp/z8Nlu9Kl$wWbiK0y4d@8R;Yx6E)@">Simulation</a> (64 seeds)</p>
                 <h4>Uses for Byproducts</h4>
                 <ul>
                     <li><div class="breed abridged">
@@ -833,6 +922,41 @@
                         </div>
                         <button class="repeat" title="1220,1120,1020,1110,2110,1010,1000,2221,2121,2021,2111,2011,2001">♻</button></li>
                 </ul>
+                </div>
+                <div class="page" data-name="Blue (Asteriation Simple 4-Step)">
+                <ul>
+                    <li><div class="breed abridged">
+                            <div class="parent" title="0010"></div>
+                            <div class="parent" title="0010"></div>
+                            <div class="offspring" title="0020"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
+                            <div class="parent" title="0020"></div>
+                            <div class="parent" title="2001"></div>
+                            <div class="offspring red branch" title="1010"></div>
+                            <div class="offspring pink branch" title="1011"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
+                            <div class="parent pink branch" title="1011"></div>
+                            <div class="parent" title="0200"></div>
+                            <div class="offspring wood" title="1110"></div>
+                        </div></li>
+                    <li><div class="breed abridged">
+                            <div class="parent wood" title="1110"></div>
+                            <div class="parent wood" title="1110"></div>
+                            <div class="offspring" title="2220"></div>
+                        </div></li>
+                </ul>
+                <p><a href="https://recipesim.isomorphicbox.com/?q=07C@!C8!IbIk!IYO)!C.!IG2Z!X8BRHB!Y@MjI51fTB+ngnAM.~G:42_:3O3eP)Q?:SeFIVBq@Qs_7(o7T2BE5$zMJVoEO:7OPm)SLm6/MtR/avyq)E@i+sLlQI@">Simulation</a></p>
+                <h4>Why Not Red?</h4>
+                <ul>
+                    <li><div class="breed abridged">
+                            <div class="parent red branch" title="1010"></div>
+                            <div class="parent" title="0200"></div>
+                            <div class="offspring wood" title="1110"></div>
+                        </div></li>
+                </ul>
+                <p><a href="https://recipesim.isomorphicbox.com/?q=07C@!C8!IbIk!IYO)!C.!IMpS!X8BRHB!Y@MjI51fTB+ngnAM.~G:42_:3O3eP)Q?:SeFIVBq@Qs_7(o7T2BE5$zMJVoEO:7OPm)SLm6/MtR/XFm+5cyY/mL3wB@">Simulation</a></p>
                 </div>
                 <div class="page" data-name="Blue (Additional Notes)">
                 <ul>
@@ -1012,12 +1136,51 @@
                 (<a href="https://aiterusawato.github.io/guides/acnh/flowers.html">2</a>),
                 <a href="https://docs.google.com/document/d/1ARIQCUc5YVEd01D7jtJT9EEJF45m07NXhAm4fOpNvCs/preview">Paleh</a>,
                 <a href="https://aeonsake.gitlab.io/acnh-flower-breeder/">Aeonsake</a>,
-                <a href="https://docs.google.com/document/d/1anxm3WwEKyh0_-l_lZIAUETaa_q432Px3griacQ3NcU/preview">BackwardsN</a>, and
+                <a href="https://docs.google.com/document/d/1anxm3WwEKyh0_-l_lZIAUETaa_q432Px3griacQ3NcU/preview">BackwardsN</a>,
+                <a href="https://recipesim.isomorphicbox.com/">asteriation</a>,
+                <a href="https://yuexr.github.io/acnh/bluerose.html">yue</a> (<a href="https://docs.google.com/document/d/1pqEIiPgmQLHlzZiD8cU3SQKcnsZBV5EV8u00J2Y815A/edit">2</a>), and
                 <a href="https://www.spriters-resource.com/submitter/Ziella/">Ziella</a> for their hard work.</p>
         </footer>
         <script src="FractionReduce.js"></script>
         <script src="watchForHover.js"></script>
         <script src="phenotypes.js"></script>
         <script src="script.js"></script>
+        <script>
+            var fig1flowers = document.querySelectorAll('#figure_1 .varieties > div');
+            var fig1dist1 = {'111': 1};
+            var fig1dist2 = {};
+            var fig1dist3 = {};
+            var fig1dist4 = {};
+            var fig1dist5 = {};
+            for (let flower of fig1flowers) {
+                let genotype = flower.title;
+                fig1dist2[genotype] = Math.pow(2, (genotype.match(/1/g) || []).length);
+                fig1dist3[genotype] = [27, 18, 12, 8][(genotype.match(/1/g) || []).length];
+                if (genotype != '222') {
+                    fig1dist4[genotype] = fig1dist2[genotype];
+                }
+                if (genotype[0] !== '0' && genotype != '222') {
+                    fig1dist5[genotype] = fig1dist2[genotype];
+                }
+            }
+            var fig1pools1 = {'A': fig1dist1, 'B': fig1dist1};
+            var fig1pools2 = {'A': fig1dist2, 'B': fig1dist2};
+            var fig1pools3 = {'A': fig1dist3, 'B': fig1dist3};
+            var fig1pools4 = {'A': fig1dist4, 'B': fig1dist4};
+            var fig1pools5 = {'A': fig1dist5, 'B': fig1dist5};
+            var options = {
+                'fig1a': {'species': 'figure1', 'pools': fig1pools1, 'breed_mode': 'all'},
+                'fig1b': {'species': 'figure1', 'pools': fig1pools2, 'breed_mode': 'all'},
+                'fig1c': {'species': 'figure1', 'pools': fig1pools2, 'breed_mode': 'clones'},
+                'fig1d': {'species': 'figure1', 'pools': fig1pools3, 'breed_mode': 'clones'},
+                'fig1e': {'species': 'rose3d', 'pools': fig1pools4, 'breed_mode': 'clones'},
+                'fig1f': {'species': 'rose3d', 'pools': fig1pools5, 'breed_mode': 'clones'},
+            };
+            var diagram = new VegetalDiagram(document.querySelector('#figure_1'), options['fig1a']);
+            document.querySelectorAll('span.figure_options').forEach(span => span.addEventListener('click', evt => {
+                diagram.set_options(options[evt.target.dataset.options]);
+                diagram.refresh();
+            }));
+        </script>
     </body>
 </html>

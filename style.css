@@ -107,6 +107,29 @@ div.help h3 {
     color: rgb(var(--heading-red));
 }
 
+div.help figure {
+    float: right;
+    width: 100%;
+    max-width: 400px;
+    margin-right: 0;
+    padding-top: 32px;
+    background-color: rgb(var(--section-brown));
+}
+
+span.figure_options {
+    color: rgb(var(--heading-red));
+    cursor: pointer;
+}
+
+th {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+td.numeric {
+    text-align: right;
+}
+
 div.section_bg {
     background-color: rgb(var(--section-brown));
     color: rgb(var(--game-cream));
@@ -196,6 +219,7 @@ div.rolled_up {
 .diagram {
     grid-column: 1 / 4;
     margin-bottom: 36px;
+    color: #ffffff;
 }
 
 div.varieties {
@@ -684,6 +708,7 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
     --white: 233, 230, 242;
 }
 
+[data-species="rose3d"],
 [data-species="rose"] {
     --red: 255, 54, 61;
     --orange: 255, 139, 51;
@@ -712,6 +737,12 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
     --purple: 150, 41, 204;
     --pink: 251, 140, 255;
     --white: 251, 250, 255;
+}
+
+[data-species="figure1"] {
+    --red: 250, 80, 80;
+    --white: 250, 250, 250;
+    --green: 80, 250, 80;
 }
 
 /* Species genotype info */
@@ -1002,6 +1033,62 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
 [data-species="windflower"] [title="000"] { --phenotype: var(--white); }
 [data-species="windflower"] [title="100"] { --phenotype: var(--red); }
 [data-species="windflower"] [title="200"] { --phenotype: var(--red); --obtain: var(--seed-red); }
+
+[data-species="figure1"] [title="022"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="122"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="222"] { --phenotype: var(--green); }
+[data-species="figure1"] [title="012"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="112"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="212"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="002"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="102"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="202"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="021"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="121"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="221"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="011"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="111"] { --phenotype: var(--red); --obtain: var(--seed-white); }
+[data-species="figure1"] [title="211"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="001"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="101"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="201"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="020"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="120"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="220"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="010"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="110"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="210"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="000"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="100"] { --phenotype: var(--white); }
+[data-species="figure1"] [title="200"] { --phenotype: var(--white); }
+
+[data-species="rose3d"] [title="022"] { --phenotype: var(--white); }
+[data-species="rose3d"] [title="122"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="222"] { --phenotype: var(--blue); }
+[data-species="rose3d"] [title="012"] { --phenotype: var(--purple); }
+[data-species="rose3d"] [title="112"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="212"] { --phenotype: var(--black); }
+[data-species="rose3d"] [title="002"] { --phenotype: var(--purple); }
+[data-species="rose3d"] [title="102"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="202"] { --phenotype: var(--black); }
+[data-species="rose3d"] [title="021"] { --phenotype: var(--yellow); }
+[data-species="rose3d"] [title="121"] { --phenotype: var(--orange); }
+[data-species="rose3d"] [title="221"] { --phenotype: var(--orange); }
+[data-species="rose3d"] [title="011"] { --phenotype: var(--white); }
+[data-species="rose3d"] [title="111"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="211"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="001"] { --phenotype: var(--white); --obtain: var(--seed-white); }
+[data-species="rose3d"] [title="101"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="201"] { --phenotype: var(--black); }
+[data-species="rose3d"] [title="020"] { --phenotype: var(--yellow); --obtain: var(--seed-yellow); }
+[data-species="rose3d"] [title="120"] { --phenotype: var(--orange); }
+[data-species="rose3d"] [title="220"] { --phenotype: var(--orange); }
+[data-species="rose3d"] [title="010"] { --phenotype: var(--yellow); }
+[data-species="rose3d"] [title="110"] { --phenotype: var(--orange); }
+[data-species="rose3d"] [title="210"] { --phenotype: var(--orange); }
+[data-species="rose3d"] [title="000"] { --phenotype: var(--white); }
+[data-species="rose3d"] [title="100"] { --phenotype: var(--red); }
+[data-species="rose3d"] [title="200"] { --phenotype: var(--black); }
 
 @media only screen and (min-width: 640px) {
 
