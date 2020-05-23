@@ -140,7 +140,6 @@ div.section_bg a {
 }
 
 section {
-    --varieties-width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
     position: relative;
     display: grid;
     grid-template-columns: 1fr 345px 1fr;
@@ -217,6 +216,7 @@ div.rolled_up {
 }
 
 .diagram {
+    --varieties-width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
     grid-column: 1 / 4;
     margin-bottom: 36px;
     color: #ffffff;
