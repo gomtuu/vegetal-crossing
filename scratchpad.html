@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
+<style>
+body {
+  padding: 12px;
+  font-family: "Libre Franklin", sans-serif;
+  background-color: #f1e26f;
+  background-color: #e9f5ec;
+  color: #007d75;
+}
+section {
+  border: 10px solid #332211;
+  border: 10px solid rgba(0,0,0,0.3);
+  border-radius: 16px;
+  background-color: #007d75;
+  background-color: #6b5c43;
+  background-color: #553311;
+  background-color: #4e4431;
+
+  color: white;
+}
+h1, h2, h3 {
+  font-family: "Zilla Slab";
+}
+h3 {
+  margin-top: 36px;
+  margin-bottom: 48px;
+  font-size: 36px;
+  text-align: center;
+}
+.cube {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.level {
+  transform: skew(-26.5650512deg);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+.level_label {
+  padding-left: 96px;
+}
+.row {
+  margin-bottom: 3px;
+}
+.variety {
+  display: inline-block;
+  width: 64px;
+  line-height: 32px;
+  text-align: center;
+}
+.variety.red {
+  background-color: #e62e34; /* Mum Red */
+}
+.variety.pink {
+  background-color: #ffb8cd; /* Mum Pink */
+}
+.variety.yellow {
+  background-color: #ffe433; /* Mum Yellow */
+}
+.variety.green {
+  background-color: #cde62e; /* Mum Green */
+}
+.variety.purple {
+  background-color: #a62ee6; /* Mum Purple */
+}
+.variety.white {
+  background-color: #f8ffe6; /* Mum White */
+}
+.seed::before {
+  content: "seed";
+  display: inline-block;
+  color: black;
+}
+.island::before {
+  content: "NMT";
+  display: inline-block;
+  color: black;
+}
+</style>
+</head>
+<body>
+<h1>Animal Crossing: New Horizons Flower Genetics</h1>
+<h2>Visualized in 3D</h2>
+<section class="mum">
+<h3>Mums</h3>
+<div class="cube">
+  <div class="level">
+    <div class="varieties">
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety yellow">&nbsp;</span>
+        <span class="variety purple">&nbsp;</span>
+        <span class="variety red">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety white">&nbsp;</span>
+        <span class="variety pink island">&nbsp;</span>
+        <span class="variety red">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety purple">&nbsp;</span>
+        <span class="variety pink">&nbsp;</span>
+        <span class="variety red">&nbsp;</span>
+      </div>
+    </div>
+    <div class="level_label">WW</div>
+  </div>
+  <div class="level">
+    <div class="varieties">
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety yellow">&nbsp;</span>
+        <span class="variety purple">&nbsp;</span>
+        <span class="variety green">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety yellow">&nbsp;</span>
+        <span class="variety red">&nbsp;</span>
+        <span class="variety purple island">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety white seed">&nbsp;</span>
+        <span class="variety pink">&nbsp;</span>
+        <span class="variety red">&nbsp;</span>
+      </div>
+    </div>
+    <div class="level_label">Ww</div>
+  </div>
+  <div class="level">
+    <div class="varieties">
+      <div class="row">
+        <span class="variety">YY</span>
+        <span class="variety yellow seed">&nbsp;</span>
+        <span class="variety purple">&nbsp;</span>
+        <span class="variety green">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">Yy</span>
+        <span class="variety yellow">&nbsp;</span>
+        <span class="variety yellow">&nbsp;</span>
+        <span class="variety purple">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">yy</span>
+        <span class="variety white">&nbsp;</span>
+        <span class="variety pink">&nbsp;</span>
+        <span class="variety red seed">&nbsp;</span>
+      </div>
+      <div class="row">
+        <span class="variety">&nbsp;</span>
+        <span class="variety">rr</span>
+        <span class="variety">Rr</span>
+        <span class="variety">RR</span>
+      </div>
+    </div>
+    <div class="level_label">ww</div>
+  </div>
+</div>
+</section>
+</body>
+</html>
