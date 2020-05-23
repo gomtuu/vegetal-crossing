@@ -64,6 +64,7 @@ body > header {
 
 a {
     color: rgb(var(--section-brown));
+    text-decoration: none;
 }
 
 body > header h1,
@@ -108,15 +109,15 @@ div.help h3 {
 }
 
 div.help figure {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    width: calc(100% / 0.90);
+    margin-left: -5.5%;
+    margin-right: -5.5%;
     padding-top: 32px;
     padding-bottom: 1px;
     background-color: rgb(var(--section-brown));
 }
 
-span.figure_options {
+span[data-options] {
     color: rgb(var(--heading-red));
     cursor: pointer;
 }
@@ -207,12 +208,7 @@ ol, ul {
 }
 
 div.rolled_up {
-    height: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
+    display: none;
 }
 
 .diagram {
@@ -485,7 +481,7 @@ div.breed + div.breed {
 .vcfont {
     line-height: 0.1;
     font-family: VegetalCrossing, Roboto;
-    font-size: 24px;
+    font-size: 150%;
     font-weight: normal;
 }
 
@@ -1125,6 +1121,7 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
         float: right;
         max-width: 400px;
         margin-left: 36px;
+        margin-right: 0;
         padding-bottom: 0;
     }
 

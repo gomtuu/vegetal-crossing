@@ -105,7 +105,16 @@ class VegetalApp {
     } // }}}
 
     use_fragment() { // {{{
-        var options = parse_fragment(window.location.hash);
+        var fragment = window.location.hash;
+        var help_topic = document.querySelector(fragment) || false;
+        console.log(help_topic);
+        if (help_topic) {
+            document.querySelector('div#help').classList.remove('rolled_up');
+            help_topic.scrollIntoView();
+            return;
+        }
+        console.log('You know you\'re not supposed to be here, right?');
+        var options = parse_fragment(fragment);
         if ('species' in options) {
             this.set_species(options.species);
         }
