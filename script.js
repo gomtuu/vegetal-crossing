@@ -9,7 +9,7 @@ class VegetalApp {
 
     constructor(element_id) { // {{{
         this.element = document.getElementById(element_id);
-        this.diagram = new VegetalDiagram(this.element.querySelector('.diagram'));
+        this.diagram = new VegetalDiagram(this.element.querySelector('.diagram'), {'clickable': true});
     } // }}}
 
     set_fragment(hash) { // {{{
@@ -115,18 +115,22 @@ class VegetalApp {
 
 class VegetalDiagram {
 
-    constructor(element, species, pools, breed_mode) { // {{{
+    constructor(element, options) { // {{{
         this.element = element
         this.flowers = this.element.querySelectorAll('div.varieties > div');
-        for (let flower of this.flowers) {
-            flower.addEventListener('click', evt => this.flower_click(evt));
-        }
+        if (options.clickable || false) {
+            for (let flower of this.flowers) {
+                flower.addEventListener('click', evt => this.flower_click(evt));
+            }
+        };
         this.pools_with_flowers = 0;
-        this.species = species || 'cosmos';
-        if (pools !== undefined) {
-            this.set_pools(pools);
+        options = options || {};
+        this.set_species(options.species || 'cosmos');
+        this.set_breed_mode(options.breed_mode || 'all');
+        if (options.pools !== undefined) {
+            this.set_pools(options.pools);
+            this.refresh();
         }
-        this.breed_mode = breed_mode || 'all';
     } // }}}
 
     breed_multiple() { // {{{
