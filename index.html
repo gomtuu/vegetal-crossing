@@ -60,7 +60,7 @@
                 <li>All seeds have genotype 111.</li>
                 <li>In December only, the seed variety (genotype 111) is red, and the variety with genotype 222 is green.</li>
             </ul>
-            <p>It's January, and you're planting seeds. What can you do to maximize the number of green flowers you'll see in December?</p>
+            <p>You're planting seeds in January. What can you do to maximize the number of green flowers you'll see in December?</p>
             <figure>
                 <div class="diagram" id="figure_1">
                     <div class="varieties three_d">
@@ -94,27 +94,27 @@
                     </div>
                 </div>
             </figure>
-            <p>Flowers of the first generation all have genotype 111, so they'll turn red in December. If you let the seed flowers breed with each other, the second generation will be distributed <span class="figure_options" data-options="fig1a">as shown</span>, and only 1 in 64 (about 1.6%) will turn green. If you breed the second-generation flowers with each other, the third generation will have <span class="figure_options" data-options="fig1b">the same distribution</span> as the second! Have you reached a dead end?</p>
+            <p>Flowers of the first generation all have genotype 111, so all of them will turn red in December, and you'll have no green flowers. If you let the seed flowers breed with each other, the second generation will be distributed <span class="figure_options" data-options="fig1a">as shown</span>, and only 1 in 64 (about 1.6%) will turn green. If you breed the second-generation flowers with each other, the third generation will have <span class="figure_options" data-options="fig1b">the same distribution</span> as the second! Have you reached a dead end?</p>
             <p>No! You can do better. If you instead clone each second-generation flower and breed each original with its own clone, you'll get <span class="figure_options" data-options="fig1c">a very different distribution</span>. In this case, 27 in 512 third-generation flowers (about 5.3%) will turn green.</p>
-            <p>This hypothetical example is similar to the challenge of breeding blue roses. One way to get blue roses is to breed a pair of 1110 red roses, which has a 1 in 64 chance to make blue. Blindly cloning and breeding all of their offspring would mean 27 in 512 third-generation roses were blue (like green in the example above), but that includes the blue offspring from the 1 in 64 blue roses in the second generation. It doesn't make sense to consider that case, because as soon as you have a single blue rose, you can just repeatedly clone it. So instead, <span class="figure_options" data-options="fig1e">here's the third generation</span> produced by all nonblue roses from the second generation: 19 in 504 (3.77%) are blue.</p>
-            <p>On the other hand, it's not necessary to blindly breed all of the nonblue second-generation roses, because it's impossible for any white, yellow, or purple offspring from a 1110 pair make blue. Eliminating these and breeding only the <span class="figure_options" data-options="fig1f">red, orange, and black</span> offspring—which make up 47 in 64 (about 73%) of all the offspring—improves your odds per breeding pair to 19 in 376, or about 5.1%. That means any red, orange, or black pair will be, on average, 81% as effective as a pair of 1210 orange roses, which have a 1 in 16 chance (6.25%) to make blue. And 1210 orange roses are difficult to make: with the Folklore Orange method, you need to make at least one 0120 purple first, and when you breed it with a 1100 orange, only 1 in 8 (12.5%) of their offspring are 1210 orange.</p>
+            <p>This hypothetical example is similar to the challenge of breeding blue roses. One way to get blue roses is to breed pairs of 1110 red roses, which have a 1 in 64 chance to make blue. Blindly cloning and breeding all of their offspring would mean 27 in 512 <span class="figure_options" data-options="fig1d">third-generation roses</span> were blue (as with green in the example above), but that count includes the blue offspring from the 1 in 64 blue roses in the second generation. It doesn't make sense to consider that case, because as soon as you have a single blue rose, you can just repeatedly clone it. So instead, <span class="figure_options" data-options="fig1e">here's the third generation</span> produced by all nonblue roses from the second generation: 19 in 504 (3.77%) are blue.</p>
+            <p>On the other hand, it's not necessary to blindly breed all of the nonblue second-generation roses, because it's impossible for any white, yellow, or purple offspring from a 1110 pair make blue. Eliminating these and breeding only the <span class="figure_options" data-options="fig1f">red, orange, and black</span> offspring—which make up 47 in 64 (about 73%) of all the offspring—improves your odds per breeding pair to 19 in 376, or about 5.1%. That means any red, orange, or black pair will be, on average, 81% as effective as a pair of 1210 orange roses, which have a 1 in 16 (6.25%) chance to make blue. And 1210 orange roses are difficult to make: with the Folklore Orange method, you need to make at least one 0120 purple first, and when you breed it with a 1100 orange, only 1 in 8 (12.5%) of their offspring are 1210 orange.</p>
             <h3>Simulations</h3>
-            <p>The math looks promising, but how does this compare to other methods in practice?</p>
-            <p>Simulations suggest it outperforms all common methods. Each simulation below starts with 64 seeds, in an attempt to compare the methods fairly.</p>
+            <p>The math looks promising, but how well does this work in practice?</p>
+            <p>Simulations suggest it outperforms BackwardsN 4-Step. Each simulation below starts with 64 seeds in an attempt to compare the methods fairly.</p>
             <table>
                 <tr><th>Method</th>
                     <th>Median</th>
                     <th>95th Pctl</th>
                 </tr>
-                <tr><td>Blue via Cloning</td>
+                <tr><td><a href="https://recipesim.isomorphicbox.com/?q=0aC@!C8!~d$2Z1+C!C.!E7G!EfZEi)f1MLYlg/j?(40?n!G7J/UHTzr8jBR@b+6cjd0fwxARZYhkq!h3.9pfTvNjDpTN6f.VVKzzuu@OSR/3FzD~!T5(chwITmtE~drU$_pj(ZjzKZm@GhkQ7A!IbIf!Fz-Sp;a/;)$pKp9Q:r7~Z@Tf(fO$e.O+LkGenP.rGB1(w;RL)rz~$)c+K1kjUM3Syt6JRikmRq)GqxfSzCD?yc3zhWyEOmtaQY39lggJLUo0A.j2+QLlz1/LJ~-/t?IKKn($XB7yeCQR?iU@">Blue via Cloning</a></td>
                     <td class="numeric">36</td>
                     <td class="numeric">53</td>
                 </tr>
-                <tr><td>BackwardsN 4-Step</td>
-                    <td class="numeric"></td>
-                    <td class="numeric"></td>
+                <tr><td><a href="https://recipesim.isomorphicbox.com/?q=07C@!C8!~d$2Z1+C!C.!E7G!IbIf!BjHgkC0(vr!JQJqdl;yiIIW6WJxc.x~fQs1(1T.qHpIRW92$uZcV6$d+?p.jwyVa$-uw9(1skumR?:MltFmhnU1pQXZEu9$-BN1Eb1szsZfA9Ds24(TS@">BackwardsN 4-Step</a></td>
+                    <td class="numeric">40</td>
+                    <td class="numeric">63</td>
                 </tr>
-                <tr><td>Folklore Orange</td>
+                <tr><td><a href="https://recipesim.isomorphicbox.com/?q=0bC@!C.!IbIm!IbIk!OPWxG!pj)b/YY!C8!Ig$Y!OP4lV!Xilcuu!X8BRHB!C6jLRFGWXcANNg0?4$_:0SXTyknLi~0d~KU0F~MR1oA$EHnJ?G/X.jM3fihaMYmC$8uN(Zb?++QtqlQD:EK(iC?r_fw$e2zfYb9JEAL7mZkj)XDx(:VKDY1f+Uw4Dv+.YXazKCAhp/z8Nlu9Kl$wWbiK0y4d@8R;Yx6E)@">Folklore Orange</a></td>
                     <td class="numeric">59</td>
                     <td class="numeric">83</td>
                 </tr>
@@ -1172,7 +1172,7 @@
                 'fig1a': {'species': 'figure1', 'pools': fig1pools1, 'breed_mode': 'all'},
                 'fig1b': {'species': 'figure1', 'pools': fig1pools2, 'breed_mode': 'all'},
                 'fig1c': {'species': 'figure1', 'pools': fig1pools2, 'breed_mode': 'clones'},
-                'fig1d': {'species': 'figure1', 'pools': fig1pools3, 'breed_mode': 'clones'},
+                'fig1d': {'species': 'rose3d', 'pools': fig1pools2, 'breed_mode': 'clones'},
                 'fig1e': {'species': 'rose3d', 'pools': fig1pools4, 'breed_mode': 'clones'},
                 'fig1f': {'species': 'rose3d', 'pools': fig1pools5, 'breed_mode': 'clones'},
             };

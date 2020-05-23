@@ -108,11 +108,11 @@ div.help h3 {
 }
 
 div.help figure {
-    float: right;
     width: 100%;
-    max-width: 400px;
+    margin-left: 0;
     margin-right: 0;
     padding-top: 32px;
+    padding-bottom: 1px;
     background-color: rgb(var(--section-brown));
 }
 
@@ -1119,6 +1119,13 @@ div.breed .wood::after { background-image: url(icons/wood.png); }
 
     div.instructions p {
         margin-right: 36px;
+    }
+
+    div.help figure {
+        float: right;
+        max-width: 400px;
+        margin-left: 36px;
+        padding-bottom: 0;
     }
 
 }
