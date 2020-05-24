@@ -106,14 +106,14 @@ class VegetalApp {
 
     use_fragment() { // {{{
         var fragment = window.location.hash;
-        var help_topic = document.querySelector(fragment) || false;
-        if (help_topic) {
-            document.querySelector('div#help').classList.remove('rolled_up');
-            help_topic.scrollIntoView();
-            return;
-        }
         var options = parse_fragment(fragment);
         if ('species' in options) {
+            var help_topic = document.querySelector(options.species) || false;
+            if (help_topic) {
+                document.querySelector('div#help').classList.remove('rolled_up');
+                help_topic.scrollIntoView();
+                return;
+            }
             this.set_species(options.species);
         }
         if ('pools' in options) {
