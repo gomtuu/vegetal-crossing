@@ -95,7 +95,7 @@ button#toggle_help {
     border-radius: 100px 0 100px 100px;
     font-size: 36px;
     font-weight: 900;
-    background-color: rgb(var(--section-brown));
+    background-color: rgb(var(--game-cyan));
     color: white;
 }
 
@@ -586,7 +586,12 @@ div.species_menu ul button img {
 }
 
 footer {
-    padding: 1px;
+    padding: 1px 0;
+}
+
+footer.disclaimer {
+    background-color: rgb(var(--game-cyan));
+    font-size: 14px;
 }
 
 /* General colors */
