@@ -107,13 +107,11 @@ class VegetalApp {
     use_fragment() { // {{{
         var fragment = window.location.hash;
         var help_topic = document.querySelector(fragment) || false;
-        console.log(help_topic);
         if (help_topic) {
             document.querySelector('div#help').classList.remove('rolled_up');
             help_topic.scrollIntoView();
             return;
         }
-        console.log('You know you\'re not supposed to be here, right?');
         var options = parse_fragment(fragment);
         if ('species' in options) {
             this.set_species(options.species);
@@ -278,7 +276,6 @@ class VegetalDiagram {
             this.clear_parents();
         }
         var pool = Math.max(0, this.pools_with_flowers - (add_to_selection ? 1 : 0));
-        console.log(pool)
         this.select_flower(['A', 'B'][pool], flower);
         this.refresh();
         return false;
