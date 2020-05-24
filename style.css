@@ -242,6 +242,9 @@ div.breed [title]::after {
 }
 
 div.varieties > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: var(--tile-width);
     height: var(--tile-height);
     margin-bottom: var(--gap);
@@ -357,7 +360,6 @@ div.instructions div.page:not(.current_page) {
 [data-breed-mode="clones"] [data--c]::before {
     content: var(--pool-letter);
     display: block;
-    inline-size: fit-content;
     margin-top: 2px;
     margin-left: 2px;
     border-radius: 200px;
