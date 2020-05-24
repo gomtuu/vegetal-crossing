@@ -594,6 +594,10 @@ footer.disclaimer {
     font-size: 14px;
 }
 
+footer.disclaimer a {
+    color: #ffffff;
+}
+
 /* General colors */
 .red {
     --phenotype: var(--red);
