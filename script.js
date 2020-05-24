@@ -108,7 +108,7 @@ class VegetalApp {
         var fragment = window.location.hash;
         var options = parse_fragment(fragment);
         if ('species' in options) {
-            var help_topic = document.querySelector(options.species) || false;
+            var help_topic = document.querySelector('#' + options.species) || false;
             if (help_topic) {
                 document.querySelector('div#help').classList.remove('rolled_up');
                 help_topic.scrollIntoView();
