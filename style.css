@@ -642,6 +642,7 @@ div.breed .clay::after { background-image: url(icons/clay.png); }
 div.breed .weeds::after { background-image: url(icons/clump-of-weeds.png); }
 div.breed .coconut::after { background-image: url(icons/coconut.png); }
 div.breed .can::after { background-image: url(icons/empty-can.png); }
+div.breed .cowrie::after { background-image: url(icons/cowrie.png); }
 div.breed .fossil::after { background-image: url(icons/fossil.png); }
 div.breed .gold::after { background-image: url(icons/gold-nugget.png); }
 div.breed .iron::after { background-image: url(icons/iron-nugget.png); }
