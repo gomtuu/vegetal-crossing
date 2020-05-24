@@ -64,6 +64,7 @@ body > header {
 
 a {
     color: rgb(var(--section-brown));
+    color: rgb(var(--heading-red));
     text-decoration: none;
 }
 
