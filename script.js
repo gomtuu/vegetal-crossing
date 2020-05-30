@@ -7,10 +7,9 @@ const breed_lookup = [
 
 class VegetalButton {
 
-    constructor(element_id, setter, states) { // {{{
+    constructor(element_id, click_callback, states) { // {{{
         this.element = document.getElementById(element_id);
-        this.element.addEventListener('click', evt => { this.next_state(); });
-        this.setter = setter;
+        this.element.addEventListener('click', evt => { click_callback(this.next_state()[0]); });
         this.states = states;
         this.state = 0;
     } // }}}
@@ -21,7 +20,6 @@ class VegetalButton {
 
     set_state(new_state) { // {{{
         var states_list = Array.from(this.states, item => item[0])
-        this.setter(new_state);
         this.state = states_list.indexOf(new_state);
         this.element.innerHTML = this.get_state()[1];
     } // }}}
@@ -43,6 +41,7 @@ class VegetalApp {
         this.prob_button = new VegetalButton('prob_mode', mode => {
             this.diagram.set_prob_mode(mode);
             this.diagram.refresh();
+            localStorage.setItem('prob_mode', mode);
         }, [
             ['like', 'Probabilities: Like Fractions'],
             ['reduced', 'Probabilities: Reduced Fracs'],
@@ -56,7 +55,8 @@ class VegetalApp {
             ['clones', 'Breeding: <span class="vcfont">⊙</span> Clones Only']
         ]);
         this.rose_view_button = new VegetalButton('rose_view', mode => {
-            this.diagram.element.classList.toggle('condensed');
+            this.diagram.set_rose_view(mode);
+            localStorage.setItem('rose_view', mode);
         }, [
             ['full', 'Rose View: Full'],
             ['condensed', 'Rose View: Condensed']
@@ -88,7 +88,8 @@ class VegetalApp {
                 pools[pool] = pools[pool].concat(parse_genespecs(div.title));
             }
         }
-        this.set_breed_mode(button.dataset.mode || 'all');
+        this.diagram.set_breed_mode(button.dataset.mode || 'all');
+        this.breed_button.set_state(this.diagram.breed_mode);
         this.diagram.set_pools(pools);
         this.diagram.refresh();
         document.querySelector('#breed_mode').scrollIntoView();
@@ -159,9 +160,18 @@ class VegetalApp {
             this.diagram.set_pools(options.pools);
         }
         if ('breed_mode' in options) {
-            this.set_breed_mode(options.breed_mode);
+            this.diagram.set_breed_mode(options.breed_mode);
+            this.breed_button.set_state(this.diagram.breed_mode);
         }
-        this.diagram.refresh();
+    } // }}}
+
+    load_settings() { // {{{
+        var prob_mode = localStorage.getItem('prob_mode') || 'like';
+        this.prob_button.set_state(prob_mode);
+        this.diagram.set_prob_mode(prob_mode);
+        var rose_view = localStorage.getItem('rose_view') || 'full';
+        this.rose_view_button.set_state(rose_view);
+        this.diagram.set_rose_view(rose_view);
     } // }}}
 
 }
@@ -363,6 +373,14 @@ class VegetalDiagram {
         this.element.dataset.breedMode = mode;
         this.breed_mode = mode;
     } // }}}
+
+    set_rose_view(mode) {
+        if (mode == 'full') {
+            this.element.classList.remove('condensed');
+        } else if (mode == 'condensed') {
+            this.element.classList.add('condensed');
+        }
+    }
 
     set_options(options) { // {{{
         if ('species' in options) {
@@ -597,4 +615,6 @@ pagers.forEach(pager => pager.addEventListener('click', evt => {
 }));
 
 window.addEventListener('hashchange', evt => app.use_fragment(evt));
+app.load_settings();
 app.use_fragment();
+app.diagram.refresh();
