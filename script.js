@@ -5,11 +5,62 @@ const breed_lookup = [
 ];
 
 
+class VegetalButton {
+
+    constructor(element_id, setter, states) { // {{{
+        this.element = document.getElementById(element_id);
+        this.element.addEventListener('click', evt => { this.next_state(); });
+        this.setter = setter;
+        this.states = states;
+        this.state = 0;
+    } // }}}
+
+    get_state() { // {{{
+        return this.states[this.state];
+    } // }}}
+
+    set_state(new_state) { // {{{
+        var states_list = Array.from(this.states, item => item[0])
+        this.setter(new_state);
+        this.state = states_list.indexOf(new_state);
+        this.element.innerHTML = this.get_state()[1];
+    } // }}}
+
+    next_state() { // {{{
+        var new_state = (this.state + 1) % this.states.length;
+        this.set_state(this.states[new_state][0]);
+        return this.get_state();
+    } // }}}
+
+}
+
+
 class VegetalApp {
 
     constructor(element_id) { // {{{
         this.element = document.getElementById(element_id);
         this.diagram = new VegetalDiagram(this.element.querySelector('.diagram'), {'clickable': true});
+        this.prob_button = new VegetalButton('prob_mode', mode => {
+            this.diagram.set_prob_mode(mode);
+            this.diagram.refresh();
+        }, [
+            ['like', 'Probabilities: Like Fractions'],
+            ['reduced', 'Probabilities: Reduced Fracs'],
+            ['percent', 'Probabilities: Percentages']
+        ]);
+        this.breed_button = new VegetalButton('breed_mode', mode => {
+            this.diagram.set_breed_mode(mode);
+            this.diagram.refresh();
+        }, [
+            ['all', 'Breeding: <span class="vcfont">×</span> All Combos'],
+            ['clones', 'Breeding: <span class="vcfont">⊙</span> Clones Only']
+        ]);
+        this.rose_view_button = new VegetalButton('rose_view', mode => {
+            this.diagram.element.classList.toggle('condensed');
+        }, [
+            ['full', 'Rose View: Full'],
+            ['condensed', 'Rose View: Condensed']
+        ]);
     } // }}}
 
     set_fragment(hash) { // {{{
@@ -22,18 +73,6 @@ class VegetalApp {
         this.diagram.clear_parents();
         this.diagram.clear_offspring();
         return false;
-    } // }}}
-
-    set_breed_mode(mode) { // {{{
-        var states = {
-            'all': 'Breeding: <span class="vcfont">×</span>&nbsp;All&nbsp;Combos',
-            'clones': 'Breeding: <span class="vcfont">⊙</span>&nbsp;Clones&nbsp;Only'};
-        var states_list = Object.keys(states);
-        var button = this.element.querySelector('button#breed_mode');
-        var next_mode = mode || states_list[(Number(button.dataset.state) + 1) % states_list.length];
-        this.diagram.set_breed_mode(next_mode);
-        button.dataset.state = states_list.indexOf(next_mode);
-        button.innerHTML = states[next_mode];
     } // }}}
 
     breed_link_click(evt) { // {{{
@@ -141,6 +180,7 @@ class VegetalDiagram {
         this.pools_with_flowers = 0;
         options = options || {};
         this.set_species(options.species || 'cosmos');
+        this.set_prob_mode(options.prob_mode || 'like');
         this.set_breed_mode(options.breed_mode || 'all');
         if (options.pools !== undefined) {
             this.set_pools(options.pools);
@@ -187,12 +227,11 @@ class VegetalDiagram {
             return false;
         }
         this.clear_offspring();
-        var mode = document.querySelector('button#prob_mode').dataset.state;
         var disp_func = {
-            '0': fraction_genomes_like,
-            '1': fraction_genomes_reduced,
-            '2': fraction_genomes_percent
-        }[mode]
+            'like': fraction_genomes_like,
+            'reduced': fraction_genomes_reduced,
+            'percent': fraction_genomes_percent
+        }[this.prob_mode];
         var offspring = disp_func(genome_counts);
         for (let flower of this.flowers) {
             var genome = flower.title;
@@ -200,7 +239,7 @@ class VegetalDiagram {
             if (genome in offspring) {
                 var result_div = document.createElement('div');
                 result_div.classList.add('result');
-                if (mode === "2") {
+                if (this.prob_mode == "percent") {
                     result_div.dataset.percentage = offspring[genome][0];
                 } else {
                     result_div.dataset.numerator = offspring[genome][0];
@@ -314,6 +353,10 @@ class VegetalDiagram {
                 flower.dataset.C = new_C;
             }
         }
+    } // }}}
+
+    set_prob_mode(mode) { // {{{
+        this.prob_mode = mode;
     } // }}}
 
     set_breed_mode(mode) { // {{{
@@ -530,35 +573,6 @@ breed_icons.forEach(element => element.addEventListener('mouseout', evt => app.u
 
 document.querySelector('button#toggle_help').addEventListener('click', evt => {
     document.querySelector('div#help').classList.toggle('rolled_up');
-    evt.preventDefault();
-    evt.stopPropagation();
-});
-
-document.querySelector('button#prob_mode').addEventListener('click', evt => {
-    var states = [
-        'Probabilities: Like&nbsp;Fractions',
-        'Probabilities: Reduced&nbsp;Fracs',
-        'Probabilities: Percentages'];
-    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
-    evt.target.innerHTML = states[evt.target.dataset.state];
-    var offspring = app.diagram.breed_multiple();
-    app.diagram.show_offspring(offspring);
-    evt.preventDefault();
-    evt.stopPropagation();
-});
-
-document.querySelector('button#breed_mode').addEventListener('click', evt => {
-    app.set_breed_mode();
-    app.diagram.refresh();
-    evt.preventDefault();
-    evt.stopPropagation();
-});
-
-document.querySelector('button#condensed_view').addEventListener('click', evt => {
-    var states = ['Rose&nbsp;View: Full', 'Rose&nbsp;View: Condensed'];
-    evt.target.dataset.state = (Number(evt.target.dataset.state) + 1) % states.length;
-    evt.target.innerHTML = states[evt.target.dataset.state];
-    app.diagram.element.classList.toggle('condensed');
     evt.preventDefault();
     evt.stopPropagation();
 });
