@@ -614,7 +614,10 @@ pagers.forEach(pager => pager.addEventListener('click', evt => {
     evt.stopPropagation();
 }));
 
-window.addEventListener('hashchange', evt => app.use_fragment(evt));
+window.addEventListener('hashchange', evt => {
+    app.use_fragment(evt);
+    app.diagram.refresh();
+});
 app.load_settings();
 app.use_fragment();
 app.diagram.refresh();
