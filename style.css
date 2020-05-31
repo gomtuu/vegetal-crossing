@@ -213,9 +213,12 @@ div.rolled_up {
     display: none;
 }
 
+.diagram_container {
+    grid-column: 1 / 4;
+}
+
 .diagram {
     --varieties-width: calc(3 * (var(--far-border) + var(--tile-width) + var(--near-border)) + 2 * var(--gap));
-    grid-column: 1 / 4;
     margin-bottom: 36px;
     color: #ffffff;
 }
@@ -408,7 +411,7 @@ div.varieties > *:nth-child(9n+9) {
 }
 
 /* Instructions */
-div.instructions {
+div.instructions_container {
     grid-column-start: 2;
 }
 
@@ -1193,12 +1196,12 @@ div.show_genotypes div.breed div[title*=","]::after {
         grid-template-columns: 1fr 345px;
     }
 
-    .diagram {
+    .diagram_container {
         grid-column: auto;
     }
 
-    section div.instructions {
-        grid-column: auto;
+    div.instructions_container {
+        grid-column-start: auto;
     }
 
     div.instructions p {
