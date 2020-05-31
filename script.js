@@ -65,6 +65,13 @@ class VegetalApp {
             ['full', 'Full'],
             ['condensed', 'Condensed']
         ]);
+        this.genotypes_button = new VegetalButton('show_genotypes', mode => {
+            this.set_show_genotypes(mode);
+            localStorage.setItem('show_genotypes', mode);
+        }, [
+            ['no', 'Hide'],
+            ['yes', 'Show']
+        ]);
     } // }}}
 
     set_fragment(hash) { // {{{
@@ -138,6 +145,14 @@ class VegetalApp {
         this.diagram.set_species(species);
     } // }}}
 
+    set_show_genotypes(mode) { // {{{
+        if (mode === 'yes') {
+            this.element.classList.add('show_genotypes');
+        } else {
+            this.element.classList.remove('show_genotypes');
+        }
+    } // }}}
+
     highlight_varieties(evt) { // {{{
         var icon = evt.target.closest('[title]');
         this.diagram.highlight_varieties(true, icon.title);
@@ -174,6 +189,9 @@ class VegetalApp {
         var rose_view = localStorage.getItem('rose_view') || 'full';
         this.rose_view_button.set_state(rose_view);
         this.diagram.set_rose_view(rose_view);
+        var show_genotypes = localStorage.getItem('show_genotypes') || 'no';
+        this.genotypes_button.set_state(show_genotypes);
+        this.set_show_genotypes(show_genotypes);
     } // }}}
 
 }

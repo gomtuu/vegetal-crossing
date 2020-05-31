@@ -500,10 +500,11 @@ div.breed .offspring::after {
     content: "";
     position: relative;
     display: block;
-    width: 40px;
+    width: 36px;
     height: 40px;
     border: 1px solid rgba(var(--section-brown), 1);
     border-radius: 4px;
+    padding: 0 2px;
 }
 
 div.breed .parent + .parent::before,
@@ -720,6 +721,29 @@ div.breed .branch::after { background-image: url(icons/tree-branch.png); }
 div.breed .turnip::after { background-image: url(icons/turnip.png); }
 div.breed .nest::after { background-image: url(icons/wasp-nest.png); }
 div.breed .wood::after { background-image: url(icons/wood.png); }
+
+div.show_genotypes div.breed div[title]::after {
+    content: attr(title);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 8px;
+    color: #ffffff;
+    text-shadow: 1px 0px 0 black,
+                 1px 1px 0 black,
+                 1px -1px 0 black,
+                 -1px 0px 0 black,
+                 -1px 1px 0 black,
+                 -1px -1px 0 black,
+                 0px -1px 0 black,
+                 0px 1px 0 black;
+}
+
+div.show_genotypes div.breed div[title*=","]::after {
+    content: "misc";
+}
 
 /* Species colors */
 [data-species="cosmos"] {
