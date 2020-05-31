@@ -9,7 +9,11 @@ class VegetalButton {
 
     constructor(element_id, click_callback, states) { // {{{
         this.element = document.getElementById(element_id);
-        this.element.addEventListener('click', evt => { click_callback(this.next_state()[0]); });
+        this.element.addEventListener('click', evt => {
+            click_callback(this.next_state()[0]);
+            evt.preventDefault();
+            evt.stopPropagation();
+        });
         this.states = states;
         this.state = 0;
     } // }}}
@@ -43,9 +47,9 @@ class VegetalApp {
             this.diagram.refresh();
             localStorage.setItem('prob_mode', mode);
         }, [
-            ['like', 'Probabilities: Like Fractions'],
-            ['reduced', 'Probabilities: Reduced Fracs'],
-            ['percent', 'Probabilities: Percentages']
+            ['like', 'Like Fractions'],
+            ['reduced', 'Reduced Fractions'],
+            ['percent', 'Percentages']
         ]);
         this.breed_button = new VegetalButton('breed_mode', mode => {
             this.diagram.set_breed_mode(mode);
@@ -58,8 +62,8 @@ class VegetalApp {
             this.diagram.set_rose_view(mode);
             localStorage.setItem('rose_view', mode);
         }, [
-            ['full', 'Rose View: Full'],
-            ['condensed', 'Rose View: Condensed']
+            ['full', 'Full'],
+            ['condensed', 'Condensed']
         ]);
     } // }}}
 
@@ -159,10 +163,8 @@ class VegetalApp {
         if ('pools' in options) {
             this.diagram.set_pools(options.pools);
         }
-        if ('breed_mode' in options) {
-            this.diagram.set_breed_mode(options.breed_mode);
-            this.breed_button.set_state(this.diagram.breed_mode);
-        }
+        this.diagram.set_breed_mode(options.breed_mode || 'all');
+        this.breed_button.set_state(this.diagram.breed_mode);
     } // }}}
 
     load_settings() { // {{{
@@ -593,6 +595,16 @@ document.querySelector('button#toggle_help').addEventListener('click', evt => {
     document.querySelector('div#help').classList.toggle('rolled_up');
     evt.preventDefault();
     evt.stopPropagation();
+});
+
+document.querySelector('button#open_prefs').addEventListener('click', evt => {
+    document.body.classList.add('has_modal');
+    document.body.classList.add('preferences');
+});
+
+document.querySelector('div.modal').addEventListener('click', evt => {
+    document.body.classList.remove('has_modal');
+    document.body.classList.remove('preferences');
 });
 
 var pagers = document.querySelectorAll('button.pager');

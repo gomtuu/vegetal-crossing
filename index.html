@@ -150,9 +150,8 @@
         </div>
         <div class="options">
             <ul>
-                <li><button id="prob_mode" data-state="0">Probabilities: Like&nbsp;Fractions</button></li>
+                <li><button id="open_prefs">⚙ Preferences</li>
                 <li><button id="breed_mode" data-state="0">Breeding: <span class="vcfont">×</span>&nbsp;All&nbsp;Combos</button></li>
-                <li><button id="rose_view" data-state="0">Rose&nbsp;View: Full</button></li>
             </ul>
         </div>
         <div class="section_bg">
@@ -1188,6 +1187,15 @@
             <p><a href="https://github.com/gomtuu/vegetal-crossing/issues">Found a problem?</a></p>
         </div>
         </footer>
+        <div class="modal">
+            <div class="modal_content" id="preferences">
+                <h2>Preferences</h2>
+                <h3>Probability Format</h3>
+                <button id="prob_mode" data-state="0">Like&nbsp;Fractions</button>
+                <h3>Rose View</h3>
+                <button id="rose_view" data-state="0">Full</button>
+            </div>
+        </div>
         <script src="FractionReduce.js"></script>
         <script src="watchForHover.js"></script>
         <script src="phenotypes.js"></script>

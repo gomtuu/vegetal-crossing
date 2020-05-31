@@ -190,6 +190,7 @@ div.options ul {
     padding: 0;
 }
 
+div.modal_content button,
 div.options button {
     width: 100%;
     margin: 0;
@@ -587,6 +588,7 @@ div.species_menu ul button img {
     max-width: 100%;
 }
 
+/* Footer */
 footer {
     padding: 1px 0;
 }
@@ -598,6 +600,55 @@ footer.disclaimer {
 
 footer.disclaimer a {
     color: #ffffff;
+}
+
+/* Modal */
+body.has_modal {
+    overflow-y: hidden;
+}
+
+body:not(.has_modal) div.modal {
+    display: none;
+}
+
+div.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr 320px 1fr;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.67);
+}
+
+div.modal_content {
+    grid-column-start: 2;
+    border: 2px solid rgb(var(--recipe-almond));
+    border-radius: 32px;
+    padding: 0 32px 32px;
+    text-align: center;
+    background: rgb(var(--section-brown));
+}
+
+div.modal_content h2,
+div.modal_content h3 {
+    color: rgb(var(--game-cream));
+}
+
+div.modal_content h3 {
+    margin-bottom: 0;
+}
+
+div.modal_content button {
+    border-radius: 16px;
+    background-color: hsl(var(--selected-yellow));
+    color: #000000;
+}
+
+body:not(.preferences) div#preferences {
+    display:none;
 }
 
 /* General colors */
