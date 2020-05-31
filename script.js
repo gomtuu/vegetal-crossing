@@ -374,13 +374,13 @@ class VegetalDiagram {
         this.breed_mode = mode;
     } // }}}
 
-    set_rose_view(mode) {
+    set_rose_view(mode) { // {{{
         if (mode == 'full') {
             this.element.classList.remove('condensed');
         } else if (mode == 'condensed') {
             this.element.classList.add('condensed');
         }
-    }
+    } // }}}
 
     set_options(options) { // {{{
         if ('species' in options) {
