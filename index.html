@@ -30,7 +30,7 @@
             <p>This application uses spatial diagrams to show the color of every variety of each flower species in Animal Crossing: New Horizons.</p>
             <p>A variety's color is determined by its genes. Most flower species have three genes, so three dimensions are required to show all possible varieties. Those three dimensions are represented here as a stack of two-dimensional grids. Roses have four genes. To represent four dimensions, we use a series of three-dimensional stacks.</p>
             <p>There are three possible values for each gene. This means each dimension is three tiles wide, deep, or high, and there are three stacks of rose varieties.</p>
-            <p>Varieties that are available as seeds from shops are marked with a seed icon. Varieties that were available as plants from Nook Miles Ticket islands before Version 1.2.0 are marked with a ticket icon.</p>
+            <p>Varieties that are available as seeds from shops are marked with a seed icon. Varieties that were available as plants from mystery islands before Version 1.2.0 are marked with a Nook Miles Ticket icon.</p>
             <h2 id="help-breeding">Breeding</h2>
             <p>Choose a species, then click or tap a pair of varieties to select them as parents. The first parent will be labeled <strong>A</strong>, the second <strong>B</strong>. Their potential offspring will be highlighted, and the probability of each offspring will be shown as a fraction.</p>
             <p>Click or tap the brown background to clear your selections.</p>
@@ -157,6 +157,20 @@
             <div class="section_bg">
                 <section data-species="cosmos">
                     <div class="diagram_container">
+                        <div class="what" id="what_diagram">
+                            <header>
+                                <button class="toggle">What am I looking at?</button>
+                                <button class="dismiss">×</button>
+                            </header>
+                            <div class="what_content">
+                                <p>This diagram shows the color of every variety of the selected flower species. Varieties that are available as seeds from shops are marked with a seed icon. Varieties that were available as plants from mystery islands before Version 1.2.0 are marked with a Nook Miles Ticket icon.</p>
+                                <p>Click or tap a pair of varieties in the diagram or a recipe <span class="narrow_only">below</span><span class="wide_only">beside</span> the diagram to see the potential offspring. The parents are labeled A and B, and the probability of each offspring is shown.</p>
+                                <h3>Seems complicated. Why bother?</h3>
+                                <p>Thinking about flower varieties as locations in space allows you to leverage spatial memory to learn the important varieties. Plus, breeding follows simple visual patterns. Once you learn them, you'll be able to predict offspring at a glance or in your head, without memorizing genotype numbers or knowing the rules of Mendelian genetics.</p>
+                                <p>If flower-breeding guides are like turn-by-turn directions, this diagram is like a map. Using a map can help you learn your way around so you don't need directions anymore. And if you get lost, a map can help you get back on track.</p>
+                                <p>Vegetal Crossing also has unique <a href="#help-advanced-breeding">advanced features</a> that you can use to answer complex questions about breeding outcomes.</p>
+                            </div>
+                        </div>
                         <div class="diagram" data-species="cosmos" data-breed-mode="all">
                             <div class="varieties three_d">
                                 <div title="022"></div>
@@ -277,6 +291,17 @@
                         </div>
                     </div>
                     <div class="instructions_container">
+                        <div class="what" id="what_icons">
+                            <header>
+                                <button class="toggle">What are the icons below?</button>
+                                <button class="dismiss">×</button>
+                            </header>
+                            <div class="what_content">
+                                <p>Varieties that are available as seeds from shops are marked with a seed icon. Varieties that were available as plants from mystery islands before Version 1.2.0 are marked with a Nook Miles Ticket icon.</p>
+                                <p>Other item icons, such as tree branches and stones, are used as identifiers for offspring which are in turn bred as parents to get other varieties. The specific icons used are arbitrary. There's no connection between the marked varieties and the in-game items.</p>
+                                <p><a href="#help-recipes">Learn more about recipes.</a></p>
+                            </div>
+                        </div>
                         <div class="instructions" data-species="cosmos">
                             <ul>
                                 <li><div class="breed">

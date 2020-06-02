@@ -90,6 +90,7 @@ button#toggle_help {
     right: 0;
     top: 0;
     border: 0;
+    padding: 0;
     width: 1.5em;
     line-height: 1.5;
     border-radius: 100px 0 100px 100px;
@@ -144,7 +145,7 @@ div.section_bg a {
 section {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 345px 1fr;
+    grid-template-columns: 1fr;
     max-width: 1600px;
     margin: 0 auto;
     padding-top: 36px;
@@ -190,8 +191,7 @@ div.options ul {
     padding: 0;
 }
 
-div.modal_content button,
-div.options button {
+button {
     width: 100%;
     margin: 0;
     border: 0;
@@ -211,10 +211,6 @@ ol, ul {
 
 div.rolled_up {
     display: none;
-}
-
-.diagram_container {
-    grid-column: 1 / 4;
 }
 
 .diagram {
@@ -411,8 +407,10 @@ div.varieties > *:nth-child(9n+9) {
 }
 
 /* Instructions */
-div.instructions_container {
-    grid-column-start: 2;
+div.instructions {
+    max-width: 345px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.instructions header {
@@ -653,6 +651,61 @@ div.modal_content button {
 
 body:not(.preferences) div#preferences {
     display:none;
+}
+
+/* What */
+div.what {
+    display: none;
+    margin: 0 16px 32px;
+    border-radius: 16px;
+    padding: 0 4.26666666%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+div.what.never_dismissed {
+    display: block;
+}
+
+div.what header {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.what button {
+    width: auto;
+    border: 0;
+    padding: 1em 0;
+    color: #ffffff;
+}
+
+div.what button.dismiss {
+    font: 24px Roboto;
+    line-height: 0;
+}
+
+div.what p:first-child {
+    margin-top: 0;
+}
+
+div.what h3 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+div.what div.what_content {
+    padding-bottom: 1px;
+}
+
+span.narrow_only {
+    display: inline;
+}
+
+span.wide_only {
+    display: none;
+}
+
+div.what:not(.visible) div.what_content {
+    display: none;
 }
 
 /* General colors */
@@ -1202,6 +1255,18 @@ div.show_genotypes div.breed div[title*=","]::after {
 
     div.instructions_container {
         grid-column-start: auto;
+    }
+
+    div.instructions_container div.what {
+        margin-left: 0;
+    }
+
+    span.narrow_only {
+        display: none;
+    }
+
+    span.wide_only {
+        display: inline;
     }
 
     div.instructions p {

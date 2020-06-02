@@ -163,6 +163,23 @@ class VegetalApp {
         this.diagram.highlight_varieties(false, icon.title);
     } // }}}
 
+    setup_what(id) { // {{{
+        var what_dismissed = localStorage.getItem(id + '_dismissed') || 'no';
+        if (what_dismissed === 'no') {
+            let what = document.getElementById(id);
+            what.classList.add('never_dismissed');
+            what.querySelector('button.toggle').addEventListener('click', evt => {
+                evt.target.closest('.what').classList.toggle('visible')
+                evt.stopPropagation();
+            });
+            what.querySelector('button.dismiss').addEventListener('click', evt => {
+                evt.target.closest('.what').classList.remove('never_dismissed')
+                localStorage.setItem(id + '_dismissed', 'yes');
+                evt.stopPropagation();
+            });
+        }
+    } // }}}
+
     use_fragment() { // {{{
         var fragment = window.location.hash;
         var options = parse_fragment(fragment);
@@ -192,6 +209,8 @@ class VegetalApp {
         var show_genotypes = localStorage.getItem('show_genotypes') || 'no';
         this.genotypes_button.set_state(show_genotypes);
         this.set_show_genotypes(show_genotypes);
+        this.setup_what('what_diagram');
+        this.setup_what('what_icons');
     } // }}}
 
 }
