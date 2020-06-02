@@ -96,7 +96,7 @@ button#toggle_help {
     border-radius: 100px 0 100px 100px;
     font-size: 36px;
     font-weight: 900;
-    background-color: rgb(var(--game-cyan));
+    background-color: rgb(var(--heading-red));
     color: white;
 }
 
